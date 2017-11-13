@@ -24,7 +24,8 @@ public class EnemyWaveSpawner : MonoBehaviour {
 	void Update()
 	{
 		if (countdown <= 0f) {
-			StartCoroutine (SpawnWave());
+			//StartCoroutine (SpawnWave());
+			SpawnEnemy ();
 			countdown = timeBetweenWaves;
 		}
 
@@ -33,15 +34,15 @@ public class EnemyWaveSpawner : MonoBehaviour {
 		//waveCountdownText.text = Mathf.Round(countdown).ToString ();
 	}
 
-	IEnumerator SpawnWave()
-	{
-		waveIndex++;
-		for (int i = 0; i < waveIndex; i++) {
-			SpawnEnemy ();
-			yield return new WaitForSeconds (0.5f);
-		}
+	//IEnumerator SpawnWave()
+	//{
+		//waveIndex++;
+		//for (int i = 0; i < waveIndex; i++) {
+			//SpawnEnemy ();
+			//yield return new WaitForSeconds (0.5f);
+		//}
 
-	}
+	//}
 
 	void SpawnEnemy ()
 	{

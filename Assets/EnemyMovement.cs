@@ -9,6 +9,14 @@ public class EnemyMovement : MonoBehaviour {
 	private Transform target;
 	private int wavepointIndex = 0;
 
+	public float radius = 0f;
+	public Collider[] colliders;
+	public LayerMask mask;
+	public int health = 50;
+	private int herohealth;
+
+	private int enemyhealth;
+
 	//public static int gate;
 
 	void Awake()
@@ -35,7 +43,50 @@ public class EnemyMovement : MonoBehaviour {
 		if (Vector3.Distance (transform.position, target.position) <= 0.2f) {
 			GetNextWaypoint();
 		}
+
+
+
+		if (health <=0) {
+			Destroy(gameObject);
+			WaveSpawner.currency = WaveSpawner.currency + 1;
+			//currencyPlus = GameObject.Find ("GameMaster").GetComponent<WaveSpawner> ().gameObject.currency = currency + 1;
+			return;
+
+		}
+
+		if (colliders.Length >= 1) {
+			speed = 0f;
+			//Debug.Log ("stop");
+
+		} else {
+			speed = 5f;
+
+		}
+
+
 			
+	}
+
+	void FixedUpdate ()
+	{
+		colliders = Physics.OverlapSphere (transform.position, radius, mask);
+
+
+			foreach (Collider col in colliders) {
+				herohealth = col.gameObject.GetComponent<Enemy> ().health = col.gameObject.GetComponent<Enemy> ().health- 1;
+				//enemyhealth = EnemyMovement.health - 1;
+			return;
+			}
+
+		if (enemyhealth == null) {
+			return;
+		}
+
+		//if (colliders.Length ==1) {
+		//speed = 0f;
+		//Debug.Log ("stop");
+
+		//}
 	}
 
 	void GetNextWaypoint()
