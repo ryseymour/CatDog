@@ -17,17 +17,17 @@ public class WaveSpawner : MonoBehaviour {
 
 	public Text waveCountdownText;
 
-	private float countdown = 2f;
+	private float countdown = 5f;
 
 	private int waveIndex= 1;
 
-	public static float currency = 0f;
+	public static float currency = 12f;
 
 	void Update()
 	{
 		if (countdown <= 0f) {
 			//StartCoroutine (SpawnWave());
-			SpawnEnemy ();
+
 			countdown = timeBetweenWaves;
 			currency = currency + 1;
 		}
@@ -36,14 +36,18 @@ public class WaveSpawner : MonoBehaviour {
 
 		//waveCountdownText.text = Mathf.Round(countdown).ToString ();
 		waveCountdownText.text = Mathf.Round(currency).ToString();
+
+		SpawnEnemy ();
+		//StartCoroutine (SpawnWave());
 	}
 
 	//IEnumerator SpawnWave()
 	//{
 		//waveIndex++;
 		//for (int i = 0; i < waveIndex; i++) {
-			//SpawnEnemy ();
+			
 			//yield return new WaitForSeconds (0.5f);
+		
 		//}
 
 	//}
@@ -53,14 +57,28 @@ public class WaveSpawner : MonoBehaviour {
 
 		if (MinonBuild == 1){
 		Instantiate (enemyPrefabMelee, spawnPoint.position, spawnPoint.rotation);
-			currency = currency - 1;
+			currency = currency - 2;
+			MinonBuild = 4;
 	}
 		if (MinonBuild == 2){
 			Instantiate (enemyPrefabRange, spawnPoint.position, spawnPoint.rotation);
+			currency = currency - 4;
+			MinonBuild = 4;
 		}
 
 		if (MinonBuild ==3){
 			Instantiate (enemyPrefabAOE, spawnPoint.position, spawnPoint.rotation);
+			currency = currency - 4;
+			MinonBuild = 4;
+		}
+
+		if (MinonBuild == 4) {
+			return;
 		}
 }
+	void WaitforIt ()
+	{
+		return;
+	}
+
 }

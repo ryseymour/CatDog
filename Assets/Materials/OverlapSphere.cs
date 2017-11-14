@@ -16,5 +16,9 @@ public class OverlapSphere : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
 		colliders = Physics.OverlapSphere (transform.position, radius, mask);
+
+		//if (colliders > 0) {
+
+		//}
 	}
 }

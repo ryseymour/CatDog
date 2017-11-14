@@ -2535,6 +2535,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f4c39f15607ac47960a2d10a57fdf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MeleeButton: {fileID: 640443116}
+  RangeButton: {fileID: 1879422085}
+  SupportButton: {fileID: 231350593}
+  ButtonHit: 1
 --- !u!1 &2058577754
 GameObject:
   m_ObjectHideFlags: 0

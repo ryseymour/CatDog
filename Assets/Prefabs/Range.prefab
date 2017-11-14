@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4262164318070328}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Waypoint
   m_TagString: Untagged
   m_Icon: {fileID: -1577725955494882426, guid: 0000000000000000d000000000000000, type: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4499075274712994}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Waypoint2
   m_TagString: Untagged
   m_Icon: {fileID: -6488666005112524639, guid: 0000000000000000d000000000000000, type: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 135215675049193496}
   - component: {fileID: 23069327729480446}
   - component: {fileID: 114285230263787066}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,6 +154,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  radius: 5.5
+  colliders: []
+  mask:
+    serializedVersion: 2
+    m_Bits: 512
+  health: 50
 --- !u!135 &135215675049193496
 SphereCollider:
   m_ObjectHideFlags: 1

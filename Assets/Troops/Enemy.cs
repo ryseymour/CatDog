@@ -13,7 +13,9 @@ public class Enemy : MonoBehaviour {
 
 	public float radius = 0f;
 	public Collider[] colliders;
+	public Collider[] selfColliders;
 	public LayerMask mask;
+	public LayerMask maskSelf;
 	private int enemyhealth;
 	public int health = 50;
 
@@ -45,7 +47,7 @@ public class Enemy : MonoBehaviour {
 			return;
 
 		}
-		if (colliders.Length >= 1) {
+		if (colliders.Length >= 1 || selfColliders.Length>2) {
 			speed = 0f;
 			Debug.Log ("stop");
 			//ColliderHealth ();
@@ -74,6 +76,10 @@ public class Enemy : MonoBehaviour {
 				return;
 			}
 
+		selfColliders = Physics.OverlapSphere (transform.position, radius, maskSelf);
+
+		
+
 
 
 		//int healthhit = 
@@ -86,6 +92,14 @@ public class Enemy : MonoBehaviour {
 			//Debug.Log ("stop");
 
 		//}
+	}
+
+	void OnTriggerEnter(Collider other){
+		if (other.CompareTag("Minion"))
+			Debug.Log ("wait");
+			speed = 0f;
+			
+	
 	}
 
 	void GetNextWaypoint()

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 135079698810602082}
   - component: {fileID: 23562714773532944}
   - component: {fileID: 114960764594821244}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AOE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,6 +96,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  radius: 1
+  colliders: []
+  mask:
+    serializedVersion: 2
+    m_Bits: 512
+  health: 50
 --- !u!135 &135079698810602082
 SphereCollider:
   m_ObjectHideFlags: 1
