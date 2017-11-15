@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour {
 
@@ -16,13 +17,15 @@ public class Enemy : MonoBehaviour {
 	public Collider[] selfColliders;
 	public LayerMask mask;
 	public LayerMask maskSelf;
-	private int enemyhealth;
-	public int health = 50;
+	private float enemyhealth;
+	public float health = 600;
+	public float updateHealth;
 
-
+	public Image healthbar;
 
 	void Awake()
 	{
+		updateHealth = health;
 		if (gate == 1) {
 			target = Waypoints.points [0];
 		}
@@ -42,7 +45,9 @@ public class Enemy : MonoBehaviour {
 			GetNextWaypoint();
 		}
 
-		if (health <=0) {
+		healthbar.fillAmount = updateHealth/health;
+
+		if (updateHealth <=0f) {
 			Destroy(gameObject);
 			return;
 
@@ -67,7 +72,7 @@ public class Enemy : MonoBehaviour {
 		colliders = Physics.OverlapSphere (transform.position, radius, mask);
 
 		foreach (Collider col in colliders) {
-			enemyhealth = col.gameObject.GetComponent<EnemyMovement> ().health = col.gameObject.GetComponent<EnemyMovement> ().health- 1;
+			enemyhealth = col.gameObject.GetComponent<EnemyMovement> ().health = col.gameObject.GetComponent<EnemyMovement> ().health- 1.0f;
 
 			return;
 			//enemyhealth = EnemyMovement.health - 1;

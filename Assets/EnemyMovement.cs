@@ -12,10 +12,10 @@ public class EnemyMovement : MonoBehaviour {
 	public float radius = 0f;
 	public Collider[] colliders;
 	public LayerMask mask;
-	public int health = 50;
-	private int herohealth;
+	public float health = 50;
+	private float herohealth;
 
-	private int enemyhealth;
+	private float enemyhealth;
 
 	//public static int gate;
 
@@ -46,7 +46,7 @@ public class EnemyMovement : MonoBehaviour {
 
 
 
-		if (health <=0) {
+		if (health <=0f) {
 			Destroy(gameObject);
 			WaveSpawner.currency = WaveSpawner.currency + 1;
 			//currencyPlus = GameObject.Find ("GameMaster").GetComponent<WaveSpawner> ().gameObject.currency = currency + 1;
@@ -73,7 +73,7 @@ public class EnemyMovement : MonoBehaviour {
 
 
 			foreach (Collider col in colliders) {
-				herohealth = col.gameObject.GetComponent<Enemy> ().health = col.gameObject.GetComponent<Enemy> ().health- 1;
+				herohealth = col.gameObject.GetComponent<Enemy> ().updateHealth = col.gameObject.GetComponent<Enemy> ().updateHealth- 1f;
 				//enemyhealth = EnemyMovement.health - 1;
 			return;
 			}
