@@ -26,6 +26,8 @@ public class WaveSpawner : MonoBehaviour {
 
 	public static float currency = 12f;
 
+	public GameObject Orignizer;
+
 	void Update()
 	{
 		if (countdown <= 0f) {
@@ -62,8 +64,10 @@ public class WaveSpawner : MonoBehaviour {
 			//PlayerScript temp =
 			//GameObject temp =
 			GameObject temp =Instantiate (minion1, transform.position, Quaternion.identity);
-			//temp.AddComponent<PlayerScript>;
-			//temp.GetComponent<PlayerScript> ().targetWaypoint;
+			temp.AddComponent<PlayerScript>(); // you were missing the () after player script  :) 
+			temp.GetComponent<PlayerScript> ().targetWaypoint = Startpoint; 
+			temp.name = "minion_test";
+			temp.transform.parent = Orignizer.transform; //just to see it in hirarcy + to track 
 			//temp.targetWaypoint = Startpoint;
 			currency = currency - 2;
 			MinonBuild = 4;
