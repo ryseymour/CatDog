@@ -20,16 +20,28 @@ public class shop : MonoBehaviour {
 		//waveSpawner = WaveSpawner.instance;
 	}
 
-	public void EastGate()
+	public void CenterGate()
 	{
-		Debug.Log ("East Gate");
-		Enemy.gate = 1;
+		WaypointScript.L1 = false;
+		WaypointScript.R1 = false;
+		WaypointScript.C1 = true;
+		//Debug.Log ("East Gate");
+		//Enemy.gate = 1;
 	}
 
-	public void NorthGate()
+	public void RightGate()
 	{
-		Debug.Log ("North Gate");
-		Enemy.gate = 4;
+		WaypointScript.L1 = false;
+		WaypointScript.R1 = true;
+		WaypointScript.C1 = false;
+		//Debug.Log ("North Gate");
+		//Enemy.gate = 4;
+	}
+	public void LeftGate()
+	{
+		WaypointScript.L1 = true;
+		WaypointScript.R1 = false;
+		WaypointScript.C1 = false;
 	}
 
 	public void PurchaseMelee()

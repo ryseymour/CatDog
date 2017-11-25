@@ -13,6 +13,8 @@ public class WaveSpawner : MonoBehaviour {
 	public static int MinonBuild;
 	public static int GateChoice;
 
+	public WaypointScript Startpoint;
+	public WaypointScript targetWaypoint;
 	//public GameObject SetMinonToBuild;
 
 	public Text waveCountdownText;
@@ -55,8 +57,10 @@ public class WaveSpawner : MonoBehaviour {
 	void SpawnEnemy ()
 	{
 
-		if (MinonBuild == 1){
+		if (MinonBuild == 1){ 
+			//PlayerScript temp =
 		Instantiate (enemyPrefabMelee, spawnPoint.position, spawnPoint.rotation);
+			//temp.targetWaypoint = Startpoint;
 			currency = currency - 2;
 			MinonBuild = 4;
 	}

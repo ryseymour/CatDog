@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 135651851094657188}
   - component: {fileID: 23420542692219270}
   - component: {fileID: 114435383702867316}
+  - component: {fileID: 114585435188042800}
   m_Layer: 9
   m_Name: Enemy 3
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1168324381211022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17.297062, y: 2.8425207, z: 5.3880887}
+  m_LocalPosition: {x: -282.46497, y: 3.2200327, z: 162.79633}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,7 +53,6 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -68,7 +68,6 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -90,7 +89,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1168324381211022}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ded4fa3dd8c7e144ada6fc3f651bd9d, type: 3}
   m_Name: 
@@ -102,6 +101,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   health: 50
+--- !u!114 &114585435188042800
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1168324381211022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae52d023342e7904f8b2fe755beaeea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemytargetWaypoint: {fileID: 0}
+  next: {fileID: 0}
 --- !u!135 &135651851094657188
 SphereCollider:
   m_ObjectHideFlags: 1

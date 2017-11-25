@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour {
 
 	private Transform target;
 	private int wavepointIndex = 0;
+	//public static int randomInt;
 
 	public float radius = 0f;
 	public Collider[] colliders;
@@ -23,13 +24,27 @@ public class EnemyMovement : MonoBehaviour {
 	{
 		var randomInt = Random.Range (0, 100);
 		Debug.Log (randomInt);
-		if (randomInt >= 50) {
-			target = EnemyWaypoints.Enemypoints [0];
+		if (randomInt >= 75) {
+			//target = EnemyWaypoints.Enemypoints [0];
+			//target = gameObject.name "
+			EnemyWaypointScript.ER1 = true;
+			EnemyWaypointScript.EL1 = false;
+			EnemyWaypointScript.EC1 = false;
 		}
 
-		if (randomInt <= 49) {
+		if (randomInt <= 25) {
+			EnemyWaypointScript.EL1 = true;
 
-			target = EnemyWaypoints2.Enemypoints2 [0];
+			EnemyWaypointScript.ER1 = false;
+			EnemyWaypointScript.EC1 = false;
+
+			//target = EnemyWaypoints2.Enemypoints2 [0];
+		}
+
+		if (randomInt >= 50 && randomInt < 75) {
+			EnemyWaypointScript.EC1 = true;
+			EnemyWaypointScript.ER1 = false;
+			EnemyWaypointScript.EL1 = false;
 		}
 
 
