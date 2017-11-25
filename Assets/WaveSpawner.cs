@@ -59,6 +59,7 @@ public class WaveSpawner : MonoBehaviour {
 
 		if (MinonBuild == 1){ 
 			//PlayerScript temp =
+			GameObject temp =
 		Instantiate (enemyPrefabMelee, spawnPoint.position, spawnPoint.rotation);
 			//temp.targetWaypoint = Startpoint;
 			currency = currency - 2;
