@@ -15,6 +15,7 @@ public class WaveSpawner : MonoBehaviour {
 
 	public WaypointScript Startpoint;
 	public WaypointScript targetWaypoint;
+	public GameObject minion1;
 	//public GameObject SetMinonToBuild;
 
 	public Text waveCountdownText;
@@ -59,8 +60,10 @@ public class WaveSpawner : MonoBehaviour {
 
 		if (MinonBuild == 1){ 
 			//PlayerScript temp =
-			GameObject temp =
-		Instantiate (enemyPrefabMelee, spawnPoint.position, spawnPoint.rotation);
+			//GameObject temp =
+			GameObject temp =Instantiate (minion1, transform.position, Quaternion.identity);
+			//temp.AddComponent<PlayerScript>;
+			//temp.GetComponent<PlayerScript> ().targetWaypoint;
 			//temp.targetWaypoint = Startpoint;
 			currency = currency - 2;
 			MinonBuild = 4;

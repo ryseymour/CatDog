@@ -374,13 +374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac641e16a41717a478f846345ca54380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemytargetWaypointNext: {fileID: 0}
-  isTurretLocation: 0
-  isEnemyTurret: 0
-  find: {fileID: 0}
-  nextER1: {fileID: 0}
-  nextEC1: {fileID: 0}
-  nextEL1: {fileID: 0}
 --- !u!1 &24220414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,21 +1512,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114271059785129548, guid: e0289da765cdfe1409a16cb3c393df4c,
-        type: 2}
-      propertyPath: targetWaypoint
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114271059785129548, guid: e0289da765cdfe1409a16cb3c393df4c,
-        type: 2}
-      propertyPath: targetWaypoint2
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114271059785129548, guid: e0289da765cdfe1409a16cb3c393df4c,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0289da765cdfe1409a16cb3c393df4c, type: 2}
   m_IsPrefabParent: 0
@@ -1936,13 +1914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac641e16a41717a478f846345ca54380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemytargetWaypointNext: {fileID: 0}
-  isTurretLocation: 0
-  isEnemyTurret: 0
-  find: {fileID: 0}
-  nextER1: {fileID: 0}
-  nextEC1: {fileID: 0}
-  nextEL1: {fileID: 0}
 --- !u!1 &560314154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2584,13 +2555,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac641e16a41717a478f846345ca54380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemytargetWaypointNext: {fileID: 0}
-  isTurretLocation: 0
-  isEnemyTurret: 0
-  find: {fileID: 0}
-  nextER1: {fileID: 0}
-  nextEC1: {fileID: 0}
-  nextEL1: {fileID: 0}
 --- !u!1 &800146140
 GameObject:
   m_ObjectHideFlags: 0
@@ -2718,13 +2682,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac641e16a41717a478f846345ca54380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemytargetWaypointNext: {fileID: 0}
-  isTurretLocation: 0
-  isEnemyTurret: 0
-  find: {fileID: 0}
-  nextER1: {fileID: 0}
-  nextEC1: {fileID: 0}
-  nextEL1: {fileID: 0}
 --- !u!1001 &803714266
 Prefab:
   m_ObjectHideFlags: 0
@@ -3082,13 +3039,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac641e16a41717a478f846345ca54380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemytargetWaypointNext: {fileID: 0}
-  isTurretLocation: 0
-  isEnemyTurret: 0
-  find: {fileID: 0}
-  nextER1: {fileID: 0}
-  nextEC1: {fileID: 0}
-  nextEL1: {fileID: 0}
 --- !u!1 &859596071
 GameObject:
   m_ObjectHideFlags: 0
@@ -3202,13 +3152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac641e16a41717a478f846345ca54380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemytargetWaypointNext: {fileID: 0}
-  isTurretLocation: 0
-  isEnemyTurret: 0
-  find: {fileID: 0}
-  nextER1: {fileID: 0}
-  nextEC1: {fileID: 0}
-  nextEL1: {fileID: 0}
 --- !u!1 &870938658
 GameObject:
   m_ObjectHideFlags: 0
@@ -3863,8 +3806,9 @@ MonoBehaviour:
     type: 2}
   spawnPoint: {fileID: 24220415}
   timeBetweenWaves: 5
-  Startpoint: {fileID: 0}
+  Startpoint: {fileID: 706468920}
   targetWaypoint: {fileID: 0}
+  minion1: {fileID: 1168324381211022, guid: 721eb51342c439749b51c8657d45375a, type: 2}
   waveCountdownText: {fileID: 365944648}
 --- !u!4 &1008505589
 Transform:
@@ -3873,7 +3817,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1008505587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -266.44, y: 16.6, z: 234.5}
+  m_LocalPosition: {x: -284.08, y: 4.74, z: 272.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4416,13 +4360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac641e16a41717a478f846345ca54380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemytargetWaypointNext: {fileID: 0}
-  isTurretLocation: 0
-  isEnemyTurret: 0
-  find: {fileID: 0}
-  nextER1: {fileID: 0}
-  nextEC1: {fileID: 0}
-  nextEL1: {fileID: 0}
 --- !u!1001 &1207496696
 Prefab:
   m_ObjectHideFlags: 0
@@ -4915,13 +4852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac641e16a41717a478f846345ca54380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemytargetWaypointNext: {fileID: 0}
-  isTurretLocation: 0
-  isEnemyTurret: 0
-  find: {fileID: 0}
-  nextER1: {fileID: 0}
-  nextEC1: {fileID: 0}
-  nextEL1: {fileID: 0}
 --- !u!1 &1318541564
 GameObject:
   m_ObjectHideFlags: 0
@@ -5222,13 +5152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac641e16a41717a478f846345ca54380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemytargetWaypointNext: {fileID: 0}
-  isTurretLocation: 0
-  isEnemyTurret: 0
-  find: {fileID: 0}
-  nextER1: {fileID: 0}
-  nextEC1: {fileID: 0}
-  nextEL1: {fileID: 0}
 --- !u!1 &1481223236
 GameObject:
   m_ObjectHideFlags: 0
@@ -5801,16 +5724,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 114526640038789956, guid: 721eb51342c439749b51c8657d45375a,
-        type: 2}
-      propertyPath: targetWaypoint
-      value: 
-      objectReference: {fileID: 706468920}
-    - target: {fileID: 114526640038789956, guid: 721eb51342c439749b51c8657d45375a,
-        type: 2}
-      propertyPath: targetWaypoint2
-      value: 
-      objectReference: {fileID: 706468920}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 721eb51342c439749b51c8657d45375a, type: 2}
   m_IsPrefabParent: 0
@@ -6590,13 +6503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac641e16a41717a478f846345ca54380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemytargetWaypointNext: {fileID: 0}
-  isTurretLocation: 0
-  isEnemyTurret: 0
-  find: {fileID: 0}
-  nextER1: {fileID: 0}
-  nextEC1: {fileID: 0}
-  nextEL1: {fileID: 0}
 --- !u!1 &1999525804
 GameObject:
   m_ObjectHideFlags: 0
@@ -6932,13 +6838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac641e16a41717a478f846345ca54380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemytargetWaypointNext: {fileID: 0}
-  isTurretLocation: 0
-  isEnemyTurret: 0
-  find: {fileID: 0}
-  nextER1: {fileID: 0}
-  nextEC1: {fileID: 0}
-  nextEL1: {fileID: 0}
 --- !u!1 &2058577754
 GameObject:
   m_ObjectHideFlags: 0
@@ -7229,13 +7128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac641e16a41717a478f846345ca54380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemytargetWaypointNext: {fileID: 0}
-  isTurretLocation: 0
-  isEnemyTurret: 0
-  find: {fileID: 0}
-  nextER1: {fileID: 0}
-  nextEC1: {fileID: 0}
-  nextEL1: {fileID: 0}
 --- !u!1001 &2121297582
 Prefab:
   m_ObjectHideFlags: 0
@@ -7562,10 +7454,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac641e16a41717a478f846345ca54380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemytargetWaypointNext: {fileID: 0}
-  isTurretLocation: 0
-  isEnemyTurret: 0
-  find: {fileID: 0}
-  nextER1: {fileID: 2094779495}
-  nextEC1: {fileID: 22406209}
-  nextEL1: {fileID: 2035433170}
