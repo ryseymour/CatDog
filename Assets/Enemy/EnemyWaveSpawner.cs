@@ -12,6 +12,8 @@ public class EnemyWaveSpawner : MonoBehaviour {
 
 	public static int MinonBuild;
 	public static int GateChoice;
+	public GameObject enemy1;
+	public EnemyWaypointScript EnemyStartPoint;
 
 	//public GameObject SetMinonToBuild;
 
@@ -48,7 +50,10 @@ public class EnemyWaveSpawner : MonoBehaviour {
 	{
 
 
-			Instantiate (enemyPrefabMelee, spawnPoint.position, spawnPoint.rotation);
+			//Instantiate (enemyPrefabMelee, spawnPoint.position, spawnPoint.rotation);
+		GameObject temp =Instantiate (enemy1, transform.position, Quaternion.identity);
+		temp.AddComponent<EnemyPlayerScript>(); // you were missing the () after player script  :) 
+		temp.GetComponent<EnemyPlayerScript> ().EnemytargetWaypoint = EnemyStartPoint;
 
 	}
 }

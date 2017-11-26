@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyWaypointScript : MonoBehaviour {
 
-	public EnemyWaypointScript EnemytargetWaypointNext;
+	public EnemyWaypointScript EnemyNext;
 	public bool isTurretLocation = false;
 	public bool isEnemyTurret = false;
+	public bool isCastle = false;
 	public GameObject find;
 	public static bool ER1;
 	public static bool EL1;
@@ -17,10 +18,10 @@ public class EnemyWaypointScript : MonoBehaviour {
 
 
 	void OnDrawGizmos() {
-		if (EnemytargetWaypointNext != null) {
+		if (EnemyNext != null) {
 			Gizmos.color = Color.red;
 
-			Gizmos.DrawLine (transform.position, EnemytargetWaypointNext.gameObject.transform.position);
+			Gizmos.DrawLine (transform.position, EnemyNext.gameObject.transform.position);
 		}
 
 		if (find != null) {
@@ -44,15 +45,15 @@ public class EnemyWaypointScript : MonoBehaviour {
 	void Update () {
 
 		if (this.gameObject.name == "EnemyStartPoint" && ER1 == true) {
-			EnemytargetWaypointNext = nextER1;
+			EnemyNext = nextER1;
 			Reset ();
 		}
 		if (this.gameObject.name == "EnemyStartPoint"&& EC1 == true) {
-			EnemytargetWaypointNext = nextEC1;
+			EnemyNext = nextEC1;
 			Reset ();
 			}
 		if (this.gameObject.name == "EnemyStartPoint"&& EL1== true) {
-			EnemytargetWaypointNext = nextEL1;
+			EnemyNext = nextEL1;
 			Reset ();
 			}
 			

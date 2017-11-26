@@ -7,6 +7,7 @@ public class WaypointScript : MonoBehaviour {
 	public WaypointScript next;
 	public bool isTurretLocation = false;
 	public bool isEnemyTurret = false;
+	public bool isCastle = false;
 	public GameObject find;
 	public static bool R1;
 	public static bool L1;

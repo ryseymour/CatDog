@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour {
 
@@ -8,10 +9,20 @@ public class PlayerScript : MonoBehaviour {
 	//public WaypointScript targetWaypoint2;
 
 	bool isTechnician = false;
+	bool castle = false;
 	bool move = true;
+	private float castleHealth;
+
+
+	//public float PlayerSpeed;
+	public int collision;
+
+	//public Image healthbar;
 
 	// Use this for initialization
 	void Start () {
+		//PlayerSpeed = gameObject.GetComponent<Enemy>().speed;
+
 	}
 
 	void Awake () {
@@ -26,16 +37,26 @@ public class PlayerScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (move) {
+		//PlayerSpeed = 0;
+		collision = gameObject.GetComponent<Enemy> ().stopCollider;
+		if (move && collision == 0) {
 			transform.LookAt (targetWaypoint.gameObject.transform.position + new Vector3(0, 0.5f, 0));
-			transform.position += transform.forward * 20 * Time.deltaTime;
+			transform.position += transform.forward * 10f * Time.deltaTime;
 		}
 
 		if (Vector3.Distance(gameObject.transform.position, targetWaypoint.gameObject.transform.position) < 1) {
 			//Decide what to do next
 			if (isTechnician && targetWaypoint.isTurretLocation) {
 				move = false;
-			} else if (targetWaypoint.next != null) {
+			} if (targetWaypoint.isCastle) {
+				move = false;
+				castleHealth = GameObject.Find ("EnemyCastle").GetComponent<CastleHealth> ().updateHealth = GameObject.Find ("EnemyCastle").GetComponent<CastleHealth> ().updateHealth - 1f;
+			}
+
+			if (collision == 1) {
+				move = false;
+			}
+			else if (targetWaypoint.next != null) {
 				targetWaypoint = targetWaypoint.next;
 			}			
 		}

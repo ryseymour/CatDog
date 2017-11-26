@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyMovement : MonoBehaviour {
 
-	public float speed = 10f;
+	//public float speed = 10f;
 
 	private Transform target;
 	private int wavepointIndex = 0;
@@ -12,11 +13,20 @@ public class EnemyMovement : MonoBehaviour {
 
 	public float radius = 0f;
 	public Collider[] colliders;
+	public Collider[] selfColliders;
+	public Collider[] turretCollider;
 	public LayerMask mask;
+	public LayerMask maskSelf;
+	public LayerMask turret;
 	public float health = 50;
 	private float herohealth;
+	private float turrethealth;
+	private float castlehealth;
+	public float updateHealth;
+	public Image healthbar;
 
-	private float enemyhealth;
+	//private float enemyhealth;
+	public int stopCollider;
 
 	//public static int gate;
 
@@ -47,21 +57,22 @@ public class EnemyMovement : MonoBehaviour {
 			EnemyWaypointScript.EL1 = false;
 		}
 
+		updateHealth = health;
 
 	}
 
 	void Update ()
 	{
-		Vector3 dir = target.position - transform.position;
-		transform.Translate (dir.normalized * speed * Time.deltaTime, Space.World);
+		//Vector3 dir = target.position - transform.position;
+		//transform.Translate (dir.normalized * speed * Time.deltaTime, Space.World);
 
-		if (Vector3.Distance (transform.position, target.position) <= 0.2f) {
-			GetNextWaypoint();
-		}
+		//if (Vector3.Distance (transform.position, target.position) <= 0.2f) {
+			//GetNextWaypoint();
+		//}
 
+		healthbar.fillAmount = updateHealth/health;
 
-
-		if (health <=0f) {
+		if (updateHealth <=0f) {
 			Destroy(gameObject);
 			WaveSpawner.currency = WaveSpawner.currency + 1;
 			//currencyPlus = GameObject.Find ("GameMaster").GetComponent<WaveSpawner> ().gameObject.currency = currency + 1;
@@ -69,13 +80,27 @@ public class EnemyMovement : MonoBehaviour {
 
 		}
 
-		if (colliders.Length >= 1) {
-			speed = 0f;
-			//Debug.Log ("stop");
+		if (colliders.Length >= 1 || selfColliders.Length>1 || turretCollider.Length>1) {
+
+			//speedchange.PlayerSpeed = 0f;
+
+			//GameObject variable = this.gameObject;
+			//variable.GetComponent<PlayerScript> ().PlayerSpeed = 0f;
+
+
+			//speedchange = 0f;
+			//float speedChange = 
+			//speed = 0f;
+			stopCollider = 1;
+
+			Debug.Log ("stop");
+			//ColliderHealth ();
 
 		} else {
-			speed = 5f;
-
+			//variable.GetComponent<PlayerScript> ().PlayerSpeed = 5f;
+			//speedchange.PlayerSpeed = 5f;
+			//speed = 10f;
+			stopCollider = 0;
 		}
 
 
@@ -89,13 +114,29 @@ public class EnemyMovement : MonoBehaviour {
 
 			foreach (Collider col in colliders) {
 				herohealth = col.gameObject.GetComponent<Enemy> ().updateHealth = col.gameObject.GetComponent<Enemy> ().updateHealth- 1f;
+				//turrethealth = col.gameObject.GetComponent<Turret> ().updateHealth = col.gameObject.GetComponent<Turret> ().updateHealth - 1f;
 				//enemyhealth = EnemyMovement.health - 1;
 			return;
 			}
 
-		if (enemyhealth == null) {
+		if (herohealth == null) {
 			return;
 		}
+		turretCollider = Physics.OverlapSphere (transform.position, radius, turret);
+
+		foreach (Collider col in turretCollider) {
+			turrethealth = col.gameObject.GetComponent<TurretHP> ().updateHealth = col.gameObject.GetComponent<TurretHP> ().updateHealth- 1f;
+			Debug.Log ("turret");
+			return;
+		}
+
+		if (turrethealth == null) {
+			return;
+		}
+
+
+
+		selfColliders = Physics.OverlapSphere (transform.position, radius, maskSelf);
 
 		//if (colliders.Length ==1) {
 		//speed = 0f;
@@ -104,17 +145,17 @@ public class EnemyMovement : MonoBehaviour {
 		//}
 	}
 
-	void GetNextWaypoint()
-	{
+	//void GetNextWaypoint()
+	//{
 
-		if(wavepointIndex >= EnemyWaypoints.Enemypoints.Length - 1)
-		{
-			Destroy(gameObject);
-			return;
-		}
-
+		//if(wavepointIndex >= EnemyWaypoints.Enemypoints.Length - 1)
+		//{
+			//Destroy(gameObject);
+			//return;
+		//}
+//
 		
-		wavepointIndex++;
-		target = EnemyWaypoints.Enemypoints [wavepointIndex];
-}
+		//wavepointIndex++;
+		//target = EnemyWaypoints.Enemypoints [wavepointIndex];
+//}
 }
