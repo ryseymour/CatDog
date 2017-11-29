@@ -16,6 +16,7 @@ public class BrightNessEffect : MonoBehaviour {
 		initialColor = img.color;
 		temp = initialColor;
 		temp.a = 1;
+		temp = Color.white;
 		changeColor = temp;
 		//if we want text accompanied 
 //		anim1 = txt1.GetComponent<Animator> ();
@@ -32,6 +33,7 @@ public class BrightNessEffect : MonoBehaviour {
 
 	public void increaseBrigtness(){
 		img.color= temp;
+		img.color = Color.white;
 //		if (isDog) {
 //			anim1.Play ("IN");
 //		} else {
