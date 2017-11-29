@@ -79,7 +79,7 @@ public class shop : MonoBehaviour {
 	}
 
 	void Update (){
-		if(WaveSpawner.currency >= 2.0f && ButtonHit == true){
+		if(WaveSpawner.currency >= 3.0f && ButtonHit == true){
 			MeleeButton.interactable = true;
 
 		}else{

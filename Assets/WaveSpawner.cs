@@ -24,7 +24,7 @@ public class WaveSpawner : MonoBehaviour {
 
 	private int waveIndex= 1;
 
-	public static float currency = 12f;
+	public static float currency = 0f;
 
 	public GameObject Orignizer;
 
@@ -69,7 +69,7 @@ public class WaveSpawner : MonoBehaviour {
 			temp.name = "minion_test";
 			temp.transform.parent = Orignizer.transform; //just to see it in hirarcy + to track 
 			//temp.targetWaypoint = Startpoint;
-			currency = currency - 2;
+			currency = currency - 3;
 			MinonBuild = 4;
 	}
 		if (MinonBuild == 2){
