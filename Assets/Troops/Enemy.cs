@@ -99,9 +99,9 @@ public class Enemy : MonoBehaviour {
 			return;
 			//enemyhealth = EnemyMovement.health - 1;
 		}
-			if (enemyhealth == null) {
-				return;
-			}
+		if (enemyhealth == null) {
+			return;
+		}
 
 		turretCollider = Physics.OverlapSphere (transform.position, radius, turret);
 

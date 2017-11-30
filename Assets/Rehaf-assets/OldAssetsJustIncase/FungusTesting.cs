@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Fungus;
+//using Fungus;
 
 public class FungusTesting : MonoBehaviour {
 
-	public Flowchart fl;
+//	public Flowchart fl;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +17,7 @@ public class FungusTesting : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			Time.timeScale = 0.0001f;    
-			Flowchart.BroadcastFungusMessage ("t");
+//			Flowchart.BroadcastFungusMessage ("t");
 		}
 		if (Input.GetKeyDown (KeyCode.X)) {
 			Time.timeScale = 1f;  
