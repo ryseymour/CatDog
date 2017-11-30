@@ -1051,6 +1051,7 @@ GameObject:
   - component: {fileID: 1267149247}
   - component: {fileID: 1267149246}
   - component: {fileID: 1267149245}
+  - component: {fileID: 1267149249}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -1219,7 +1220,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1267149248}
   selectedCommands:
-  - {fileID: 1267149245}
+  - {fileID: 1267149249}
   variables:
   - {fileID: 1267149171}
   description: 
@@ -4367,7 +4368,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1267149245
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
@@ -4385,7 +4386,7 @@ MonoBehaviour:
   sceneNameOLD: 
 --- !u!114 &1267149246
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
@@ -4397,21 +4398,21 @@ MonoBehaviour:
   itemId: 123
   indentLevel: 0
   description: testing moving var
-  targetObject: {fileID: 1358208294}
-  targetComponentAssemblyName: FungusManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  targetObject: {fileID: 1719350947}
+  targetComponentAssemblyName: Finder, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: FungusManager
-  targetMethod: sendInValues
-  targetMethodText: 'sendInValues (Single, Single): Void'
+  targetComponentText: Finder
+  targetMethod: UpdateValues
+  targetMethodText: 'UpdateValues (Int32, Int32): Void'
   methodParameters:
   - objValue:
-      typeAssemblyname: System.Single, mscorlib, Version=2.0.0.0, Culture=neutral,
+      typeAssemblyname: System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      typeFullname: System.Single
-      intValue: 0
+      typeFullname: System.Int32
+      intValue: 10
       boolValue: 0
-      floatValue: 10
+      floatValue: 0
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
       gameObjectValue: {fileID: 0}
@@ -4423,12 +4424,12 @@ MonoBehaviour:
       vector3Value: {x: 0, y: 0, z: 0}
     variableKey: 
   - objValue:
-      typeAssemblyname: System.Single, mscorlib, Version=2.0.0.0, Culture=neutral,
+      typeAssemblyname: System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      typeFullname: System.Single
-      intValue: 0
+      typeFullname: System.Int32
+      intValue: 10
       boolValue: 0
-      floatValue: 25
+      floatValue: 0
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
       gameObjectValue: {fileID: 0}
@@ -4446,7 +4447,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &1267149247
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
@@ -4460,7 +4461,7 @@ MonoBehaviour:
   keyCode: 97
 --- !u!114 &1267149248
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
@@ -4484,6 +4485,23 @@ MonoBehaviour:
   commandList:
   - {fileID: 1267149246}
   - {fileID: 1267149245}
+  - {fileID: 1267149249}
+--- !u!114 &1267149249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1267149118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 125
+  indentLevel: 0
+  commenterName: 
+  commentText: 'use the finder to add vales to the moving script :) example is above
+    - needs testing tho '
 --- !u!1 &1358208294
 GameObject:
   m_ObjectHideFlags: 0
@@ -4494,7 +4512,7 @@ GameObject:
   - component: {fileID: 1358208296}
   - component: {fileID: 1358208295}
   m_Layer: 0
-  m_Name: manager-testingmovingthings
+  m_Name: moving_script
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4511,9 +4529,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e691eefd2644592a9450b262e2731f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fl: {fileID: 0}
-  attack: 0
-  defense: 0
 --- !u!4 &1358208296
 Transform:
   m_ObjectHideFlags: 0
@@ -4734,6 +4749,46 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1719350947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1719350949}
+  - component: {fileID: 1719350948}
+  m_Layer: 0
+  m_Name: 'finder- adds values to moving script '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1719350948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1719350947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 816f66d1e76834dd4991a5e65736af0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1719350949
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1719350947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 140.1, y: -51.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1896917879
 GameObject:

@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Finder : MonoBehaviour {
 
-	public FungusManager gb; 
+//	public FungusManager gb; 
 	// Use this for initialization
 	void Start () {
-		gb = FindObjectOfType<FungusManager> ();
 		
 	}
 	
@@ -17,8 +16,9 @@ public class Finder : MonoBehaviour {
 	}
 
 	public void UpdateValues(int newAttack, int newDefense){ 
+
 		
-		gb.sendInValues (newAttack, newDefense);
+		FungusManager.instance.sendInValues (newAttack, newDefense);
 	
 	}
 }
