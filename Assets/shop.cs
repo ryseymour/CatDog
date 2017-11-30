@@ -9,7 +9,7 @@ public class shop : MonoBehaviour {
 	//public GameObject MeleeButton;
 	//public GameObject RangeButton;
 	//public GameObject SupportButton;
-	public Button MeleeButton;
+	public GameObject MeleeButton;
 	public Button RangeButton;
 	public Button SupportButton;
 	public bool ButtonHit = true;
@@ -80,10 +80,10 @@ public class shop : MonoBehaviour {
 
 	void Update (){
 		if(WaveSpawner.currency >= 3.0f && ButtonHit == true){
-			MeleeButton.interactable = true;
+//			MeleeButton.interactable = true;
 
 		}else{
-			MeleeButton.interactable = false;
+//			MeleeButton.interactable = false;
 
 		}
 
