@@ -122,12 +122,12 @@ Prefab:
     - target: {fileID: 224784964883249258, guid: 0c59e39454d544ed3ac5bde6f63c0de3,
         type: 2}
       propertyPath: m_LocalPosition.x
-      value: 367
+      value: 196
       objectReference: {fileID: 0}
     - target: {fileID: 224784964883249258, guid: 0c59e39454d544ed3ac5bde6f63c0de3,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 206.5
+      value: 110.5
       objectReference: {fileID: 0}
     - target: {fileID: 224784964883249258, guid: 0c59e39454d544ed3ac5bde6f63c0de3,
         type: 2}
@@ -213,6 +213,10 @@ Prefab:
         type: 2}
       propertyPath: m_LocalPosition.y
       value: -600.00006
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802673354134558, guid: 0c59e39454d544ed3ac5bde6f63c0de3, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c59e39454d544ed3ac5bde6f63c0de3, type: 2}
@@ -766,7 +770,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 2120706492
+  randomSeed: 25307382
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4406,7 +4410,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 480692000
+  randomSeed: -1127710360
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7672,6 +7676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1670548235}
   - component: {fileID: 1670548236}
+  - component: {fileID: 1670548237}
   m_Layer: 0
   m_Name: background1
   m_TagString: Untagged
@@ -7736,6 +7741,20 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &1670548237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1670548234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 17.62, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1754892273
 GameObject:
   m_ObjectHideFlags: 0

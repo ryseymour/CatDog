@@ -54,8 +54,9 @@ public class Turret : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (target == null)
+		if (target == null) {
 			return;
+		}
 
 		if (fireCountdown <= 0f) {
 			Shoot ();
@@ -66,10 +67,10 @@ public class Turret : MonoBehaviour {
 
 		healthbar.fillAmount = updateHealth/health;
 
-		if (updateHealth <=0f) {
+		if (updateHealth <= 0f) {
 			Destroy(gameObject);
 			return;
-	}
+		}
 	}
 
 	void Shoot ()
