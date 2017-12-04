@@ -48,6 +48,9 @@ public class LightTurnerOnner : MonoBehaviour {
 			return;
 		}
 
+		//if (gatechoice == 4)
+
+
 	}
 
 	void OnMouseExit() {
