@@ -43,15 +43,15 @@ public class EnemyWaypointScript2 : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (this.gameObject.name == "StartPoint" && R2 == true) {
+		if (this.gameObject.name == "EnemyStartPoint2"  && R2 == true) {
 			EnemyNext2 = nextR2;
 			Reset ();
 		}
-		if (this.gameObject.name == "StartPoint"&&C2 == true) {
+		if (this.gameObject.name == "EnemyStartPoint2" &&C2 == true) {
 			EnemyNext2 = nextC2;
 			Reset ();
 			}
-		if (this.gameObject.name == "StartPoint"&&L2== true) {
+		if (this.gameObject.name == "EnemyStartPoint2" &&L2== true) {
 			EnemyNext2 = nextL2;
 			Reset ();
 			}

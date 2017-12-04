@@ -573,7 +573,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1300273052333256}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -330.9439, y: 4.2, z: 248.98425}
+  m_LocalPosition: {x: -415.0458, y: 3.2200508, z: 548.0404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4243150976086936}
@@ -785,8 +785,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   health: 50
-  updateHealth: 0
-  healthbar: {fileID: 0}
+  updateHealth: 50
+  healthbar: {fileID: 114296321161896910}
   stopCollider: 0
 --- !u!114 &114132395137165022
 MonoBehaviour:
