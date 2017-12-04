@@ -15,7 +15,10 @@ public class WaveSpawner : MonoBehaviour {
 
 	public WaypointScript Startpoint;
 	public WaypointScript targetWaypoint;
+	public bool tech;
 	public GameObject minion1;
+	public GameObject minion2;
+	public GameObject minion3;
 	//public GameObject SetMinonToBuild;
 
 	public Text waveCountdownText;
@@ -73,15 +76,31 @@ public class WaveSpawner : MonoBehaviour {
 			MinonBuild = 4;
 	}
 		if (MinonBuild == 2){
-			Instantiate (enemyPrefabRange, spawnPoint.position, spawnPoint.rotation);
-			currency = currency - 4;
+			GameObject temp2 = Instantiate (minion2, transform.position, Quaternion.identity);
+			temp2.AddComponent<PlayerScript> ();
+			temp2.GetComponent<PlayerScript> ().targetWaypoint = Startpoint;
+			temp2.name = "minion2_test";
+			temp2.transform.parent = Orignizer.transform;
+			currency = currency - 3;
 			MinonBuild = 4;
+
+			//Instantiate (enemyPrefabRange, spawnPoint.position, spawnPoint.rotation);
+			//currency = currency - 4;
+			//MinonBuild = 4;
 		}
 
 		if (MinonBuild ==3){
-			Instantiate (enemyPrefabAOE, spawnPoint.position, spawnPoint.rotation);
-			currency = currency - 4;
+			GameObject temp3 = Instantiate (minion3, transform.position, Quaternion.identity);
+			temp3.AddComponent<PlayerScript> ();
+			temp3.GetComponent<PlayerScript> ().targetWaypoint = Startpoint;
+			temp3.GetComponent<PlayerScript> ().isTechnician = true;
+			temp3.name = "minion3_test";
+			temp3.transform.parent = Orignizer.transform;
+			currency = currency - 3;
 			MinonBuild = 4;
+			//Instantiate (enemyPrefabAOE, spawnPoint.position, spawnPoint.rotation);
+			//currency = currency - 4;
+			//MinonBuild = 4;
 		}
 
 		if (MinonBuild == 4) {

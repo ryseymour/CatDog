@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour {
 	public WaypointScript targetWaypoint;
 	//public WaypointScript targetWaypoint2;
 
-	bool isTechnician = false;
+	public bool isTechnician = false;
 	bool castle = false;
 	bool move = true;
 	private float castleHealth;
@@ -39,6 +39,7 @@ public class PlayerScript : MonoBehaviour {
 	void Update () {
 		//PlayerSpeed = 0;
 		collision = gameObject.GetComponent<Enemy> ().stopCollider;
+		//collision = gameObject.GetComponent<PlayerCatapult> ().stopCollider;
 		if (move && collision == 0) {
 			transform.LookAt (targetWaypoint.gameObject.transform.position + new Vector3(0, 0.5f, 0));
 			transform.position += transform.forward * 10f * Time.deltaTime;

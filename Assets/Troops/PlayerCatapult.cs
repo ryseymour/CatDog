@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour {
+public class PlayerCatapult : MonoBehaviour {
 
 	public float speed = 10f;
 
@@ -23,7 +23,6 @@ public class Enemy : MonoBehaviour {
 	private float turrethealth;
 	public float health = 50;
 	public float updateHealth;
-	public float damage = 1f;
 
 	public PlayerScript speedchange;
 	public int stopCollider;
@@ -55,14 +54,14 @@ public class Enemy : MonoBehaviour {
 			//GetNextWaypoint();
 		//}
 
-		healthbar.fillAmount = updateHealth/health;
+		//healthbar.fillAmount = updateHealth/health;
 
 		if (updateHealth <=0f) {
 			Destroy(gameObject);
 			return;
 
 		}
-		if (colliders.Length >= 1 || selfColliders.Length>=2 || turretCollider.Length>1){
+		if (colliders.Length >= 1 || selfColliders.Length>=1 || turretCollider.Length>1){
 
 			//speedchange.PlayerSpeed = 0f;
 
@@ -92,22 +91,22 @@ public class Enemy : MonoBehaviour {
 	//void ColliderHealth()
 	{
 		//speed = 0f;
-		colliders = Physics.OverlapSphere (transform.position, radius, mask);
+		//;colliders = Physics.OverlapSphere (transform.position, radius, mask);
 
-		foreach (Collider col in colliders) {
-			enemyhealth = col.gameObject.GetComponent<EnemyMovement> ().updateHealth = col.gameObject.GetComponent<EnemyMovement> ().updateHealth- damage;
+		//foreach (Collider col in colliders) {
+			//enemyhealth = col.gameObject.GetComponent<EnemyMovement> ().updateHealth = col.gameObject.GetComponent<EnemyMovement> ().updateHealth- 1.0f;
 
-			return;
+			//return;
 			//enemyhealth = EnemyMovement.health - 1;
-		}
-		if (enemyhealth == null) {
-			return;
-		}
+		//}
+		//if (enemyhealth == null) {
+			//return;
+		//}/
 
 		turretCollider = Physics.OverlapSphere (transform.position, radius, turret);
 
 		foreach (Collider col in turretCollider) {
-			turrethealth = col.gameObject.GetComponent<TurretHP> ().updateHealth = col.gameObject.GetComponent<TurretHP> ().updateHealth- damage;
+			//turrethealth = col.gameObject.GetComponent<TurretHP> ().updateHealth = col.gameObject.GetComponent<TurretHP> ().updateHealth- 1f;
 			Debug.Log ("turret");
 			return;
 		}
@@ -116,7 +115,7 @@ public class Enemy : MonoBehaviour {
 			return;
 		}
 
-		selfColliders = Physics.OverlapSphere (transform.position, radius, maskSelf);
+		//selfColliders = Physics.OverlapSphere (transform.position, radius, maskSelf);
 
 		
 
