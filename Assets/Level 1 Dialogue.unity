@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465934, g: 0.49642956, b: 0.5748249, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &113442210
 GameObject:
@@ -224,7 +224,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &145023430
 GameObject:
@@ -299,8 +299,79 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &456749729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 110270, guid: c6289d5f8fa843145a2355af9cb09719, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 456749730}
+  - component: {fileID: 456749732}
+  - component: {fileID: 456749731}
+  m_Layer: 0
+  m_Name: Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &456749730
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22410270, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456749729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 672.6, y: -546.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1879177183}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 672.6, y: -1146.6}
+  m_SizeDelta: {x: 1000, y: 1000}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &456749731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11410270, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456749729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: ea8f56c43254d41728f5ac4e8299b6c9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &456749732
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22210270, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456749729}
 --- !u!1 &566813555
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +491,77 @@ RectTransform:
   m_AnchoredPosition: {x: -750.0001, y: 0}
   m_SizeDelta: {x: 1500, y: 335}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &607069649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 110282, guid: c6289d5f8fa843145a2355af9cb09719, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 607069650}
+  - component: {fileID: 607069652}
+  - component: {fileID: 607069651}
+  m_Layer: 0
+  m_Name: Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &607069650
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22410280, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607069649}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -588.99, y: -400, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1879177183}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -588.99, y: -1000}
+  m_SizeDelta: {x: 1000, y: 1000}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &607069651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11410284, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607069649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: ea8f56c43254d41728f5ac4e8299b6c9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &607069652
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22210278, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 607069649}
 --- !u!1 &645958996
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,9 +797,9 @@ MonoBehaviour:
   nameColor: {r: 1, g: 1, b: 1, a: 1}
   soundEffect: {fileID: 0}
   portraits:
-  - {fileID: 21300000, guid: cb92b696cdc96400390d1cb8194db598, type: 3}
-  - {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
-  - {fileID: 21300000, guid: 51ef8cb0942df4c06af750caec5e4c28, type: 3}
+  - {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  - {fileID: 21300000, guid: 7c0093d25b1694fbdb04223b75a98424, type: 3}
+  - {fileID: 21300000, guid: af88bacf378ba4d11ba7e24cfda8719a, type: 3}
   portraitsFace: 0
   setSayDialog: {fileID: 0}
   description: 
@@ -672,7 +814,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &747677705
 GameObject:
@@ -721,7 +863,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &888259962
 GameObject:
@@ -935,30 +1077,12 @@ GameObject:
   - component: {fileID: 1267149125}
   - component: {fileID: 1267149160}
   - component: {fileID: 1267149159}
-  - component: {fileID: 1267149158}
-  - component: {fileID: 1267149157}
-  - component: {fileID: 1267149156}
-  - component: {fileID: 1267149155}
-  - component: {fileID: 1267149154}
-  - component: {fileID: 1267149153}
-  - component: {fileID: 1267149152}
-  - component: {fileID: 1267149151}
-  - component: {fileID: 1267149150}
   - component: {fileID: 1267149149}
   - component: {fileID: 1267149148}
   - component: {fileID: 1267149147}
   - component: {fileID: 1267149146}
   - component: {fileID: 1267149145}
   - component: {fileID: 1267149144}
-  - component: {fileID: 1267149143}
-  - component: {fileID: 1267149142}
-  - component: {fileID: 1267149141}
-  - component: {fileID: 1267149140}
-  - component: {fileID: 1267149139}
-  - component: {fileID: 1267149138}
-  - component: {fileID: 1267149137}
-  - component: {fileID: 1267149136}
-  - component: {fileID: 1267149135}
   - component: {fileID: 1267149134}
   - component: {fileID: 1267149133}
   - component: {fileID: 1267149132}
@@ -1047,6 +1171,25 @@ GameObject:
   - component: {fileID: 1267149236}
   - component: {fileID: 1267149235}
   - component: {fileID: 1267149234}
+  - component: {fileID: 1267149247}
+  - component: {fileID: 1267149246}
+  - component: {fileID: 1267149245}
+  - component: {fileID: 1267149137}
+  - component: {fileID: 1267149136}
+  - component: {fileID: 1267149135}
+  - component: {fileID: 1267149156}
+  - component: {fileID: 1267149155}
+  - component: {fileID: 1267149154}
+  - component: {fileID: 1267149153}
+  - component: {fileID: 1267149152}
+  - component: {fileID: 1267149151}
+  - component: {fileID: 1267149150}
+  - component: {fileID: 1267149143}
+  - component: {fileID: 1267149142}
+  - component: {fileID: 1267149141}
+  - component: {fileID: 1267149140}
+  - component: {fileID: 1267149139}
+  - component: {fileID: 1267149138}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -1071,10 +1214,10 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 710843816}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 456749730}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -1099,12 +1242,12 @@ MonoBehaviour:
   storyText: 'Hello son. How''s the war going? - '
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: cb92b696cdc96400390d1cb8194db598, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
   extendPrevious: 0
-  fadeWhenDone: 0
+  fadeWhenDone: 1
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
@@ -1138,8 +1281,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 150.40587
-    y: 20.799614
-    width: 134.54904
+    y: 22.507675
+    width: 134.69315
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1150,44 +1293,45 @@ MonoBehaviour:
   commandList:
   - {fileID: 1267149119}
   - {fileID: 1267149120}
+  - {fileID: 1267149247}
   - {fileID: 1267149130}
+  - {fileID: 1267149246}
   - {fileID: 1267149129}
   - {fileID: 1267149128}
+  - {fileID: 1267149245}
+  - {fileID: 1267149137}
   - {fileID: 1267149127}
   - {fileID: 1267149126}
+  - {fileID: 1267149136}
   - {fileID: 1267149125}
+  - {fileID: 1267149135}
   - {fileID: 1267149160}
   - {fileID: 1267149159}
+  - {fileID: 1267149156}
   - {fileID: 1267149131}
   - {fileID: 1267149144}
+  - {fileID: 1267149155}
   - {fileID: 1267149132}
-  - {fileID: 1267149145}
-  - {fileID: 1267149146}
-  - {fileID: 1267149147}
-  - {fileID: 1267149133}
-  - {fileID: 1267149148}
-  - {fileID: 1267149134}
-  - {fileID: 1267149149}
-  - {fileID: 1267149164}
-  - {fileID: 1267149161}
-  - {fileID: 1267149135}
-  - {fileID: 1267149136}
-  - {fileID: 1267149137}
-  - {fileID: 1267149138}
-  - {fileID: 1267149139}
-  - {fileID: 1267149140}
-  - {fileID: 1267149141}
-  - {fileID: 1267149142}
-  - {fileID: 1267149143}
-  - {fileID: 1267149150}
-  - {fileID: 1267149151}
-  - {fileID: 1267149152}
   - {fileID: 1267149153}
   - {fileID: 1267149154}
-  - {fileID: 1267149155}
-  - {fileID: 1267149156}
-  - {fileID: 1267149157}
-  - {fileID: 1267149158}
+  - {fileID: 1267149145}
+  - {fileID: 1267149152}
+  - {fileID: 1267149146}
+  - {fileID: 1267149147}
+  - {fileID: 1267149151}
+  - {fileID: 1267149133}
+  - {fileID: 1267149150}
+  - {fileID: 1267149143}
+  - {fileID: 1267149148}
+  - {fileID: 1267149142}
+  - {fileID: 1267149141}
+  - {fileID: 1267149134}
+  - {fileID: 1267149140}
+  - {fileID: 1267149149}
+  - {fileID: 1267149139}
+  - {fileID: 1267149138}
+  - {fileID: 1267149164}
+  - {fileID: 1267149161}
 --- !u!114 &1267149123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1201,11 +1345,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 273.50897, y: 106.229355}
+  scrollPos: {x: 974.156, y: 72.71732}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.585459
+  zoom: 0.5844629
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -1215,7 +1359,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1267149122}
   selectedCommands:
-  - {fileID: 1267149120}
+  - {fileID: 1267149138}
   variables:
   - {fileID: 1267149171}
   description: 
@@ -1239,7 +1383,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1267149125
 MonoBehaviour:
@@ -1257,7 +1401,7 @@ MonoBehaviour:
   storyText: Oh look what the poor side fo the family dragged in. {w} itself.
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1283,7 +1427,7 @@ MonoBehaviour:
   storyText: "Come have hang with your pops and we\u2019ll have a REAL celebration."
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 54cf008806fe04269bae56e82962e1b5, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1310,7 +1454,7 @@ MonoBehaviour:
     burnt bird every year."
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 54cf008806fe04269bae56e82962e1b5, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1363,7 +1507,7 @@ MonoBehaviour:
   storyText: Well that's great to hear. I trust you'll be coming over for Thanksgiving.
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: cb92b696cdc96400390d1cb8194db598, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1389,7 +1533,7 @@ MonoBehaviour:
   storyText: It's g-
   description: 
   character: {fileID: 1896917880}
-  portrait: {fileID: 21300000, guid: d730c285b4d67470f9973683ef154b7e, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1415,7 +1559,7 @@ MonoBehaviour:
   storyText: "I held my nose for every one of them. Now I\u2019m free."
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1441,7 +1585,7 @@ MonoBehaviour:
   storyText: Clearly
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1467,7 +1611,7 @@ MonoBehaviour:
   storyText: Who told you it was MY tail I was chasing at the bar all those years?
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1494,7 +1638,7 @@ MonoBehaviour:
     want to spend Thanksgiving with his pops. "
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: ff13ff9910937479a82f7f95bda20094, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1506,238 +1650,265 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1267149135
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 34
+  itemId: 127
   indentLevel: 0
-  storyText: Aww. Miss you too.
-  description: 
+  display: 1
+  stage: {fileID: 0}
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7c0093d25b1694fbdb04223b75a98424, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 607069650}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149136
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 33
+  itemId: 126
   indentLevel: 0
-  storyText: Aww. Miss you too.
-  description: 
-  character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 710843816}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 456749730}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149137
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 32
+  itemId: 125
   indentLevel: 0
-  storyText: Aww. Miss you too.
-  description: 
+  display: 1
+  stage: {fileID: 0}
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 690049c7f1a9a4d2383bfb5ee592ff6b, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 607069650}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149138
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 31
+  itemId: 140
   indentLevel: 0
-  storyText: Aww. Miss you too.
-  description: 
+  display: 2
+  stage: {fileID: 0}
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149139
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 30
+  itemId: 139
   indentLevel: 0
-  storyText: Aww. Miss you too.
-  description: 
-  character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 710843816}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149140
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 29
+  itemId: 138
   indentLevel: 0
-  storyText: Aww. Miss you too.
-  description: 
-  character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 710843816}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 607069650}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149141
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 28
+  itemId: 137
   indentLevel: 0
-  storyText: Aww. Miss you too.
-  description: 
+  display: 1
+  stage: {fileID: 0}
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 690049c7f1a9a4d2383bfb5ee592ff6b, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 607069650}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149142
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 27
+  itemId: 136
   indentLevel: 0
-  storyText: Aww. Miss you too.
-  description: 
-  character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 710843816}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149143
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 26
+  itemId: 135
   indentLevel: 0
-  storyText: Aww. Miss you too.
-  description: 
-  character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 710843816}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 690049c7f1a9a4d2383bfb5ee592ff6b, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 1694095648}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149144
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1756,7 +1927,7 @@ MonoBehaviour:
 '
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: cb92b696cdc96400390d1cb8194db598, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1782,7 +1953,7 @@ MonoBehaviour:
   storyText: Grrrrr
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1809,7 +1980,7 @@ MonoBehaviour:
     drunk at a bar "
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1835,7 +2006,7 @@ MonoBehaviour:
   storyText: and watching you chase your own tail like you do every year.
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1862,7 +2033,7 @@ MonoBehaviour:
     breath in...)
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: 51ef8cb0942df4c06af750caec5e4c28, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1889,7 +2060,7 @@ MonoBehaviour:
     who gave birth to him. {w} Don\u2019t you?"
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: cb92b696cdc96400390d1cb8194db598, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -1901,238 +2072,207 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1267149150
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 19
+  itemId: 134
   indentLevel: 0
-  storyText: "You can\u2019t say my turkey was bad after you ate it for 17 years."
-  description: 
-  character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 1645850952}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149151
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 18
+  itemId: 133
   indentLevel: 0
-  storyText: "You can\u2019t say my turkey was bad after you ate it for 17 years."
-  description: 
-  character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 1645850952}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 690049c7f1a9a4d2383bfb5ee592ff6b, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 607069650}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149152
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 17
+  itemId: 132
   indentLevel: 0
-  storyText: "You can\u2019t say my turkey was bad after you ate it for 17 years."
-  description: 
+  display: 1
+  stage: {fileID: 0}
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 456749730}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149153
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 16
+  itemId: 131
   indentLevel: 0
-  storyText: "You can\u2019t say my turkey was bad after you ate it for 17 years."
-  description: 
-  character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 1645850952}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149154
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 15
+  itemId: 130
   indentLevel: 0
-  storyText: "You can\u2019t say my turkey was bad after you ate it for 17 years."
-  description: 
+  display: 1
+  stage: {fileID: 0}
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 1694095648}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149155
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 14
+  itemId: 129
   indentLevel: 0
-  storyText: "You can\u2019t say my turkey was bad after you ate it for 17 years."
-  description: 
-  character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 1645850952}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: af88bacf378ba4d11ba7e24cfda8719a, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 607069650}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149156
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1267149118}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 13
+  itemId: 128
   indentLevel: 0
-  storyText: "You can\u2019t say my turkey was bad after you ate it for 17 years."
-  description: 
-  character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
---- !u!114 &1267149157
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1267149118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 12
-  indentLevel: 0
-  storyText: "You can\u2019t say my turkey was bad after you ate it for 17 years."
-  description: 
-  character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
---- !u!114 &1267149158
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1267149118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 11
-  indentLevel: 0
-  storyText: "You can\u2019t say my turkey was bad after you ate it for 17 years."
-  description: 
-  character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 1645850952}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 690049c7f1a9a4d2383bfb5ee592ff6b, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 607069650}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1267149159
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2149,7 +2289,7 @@ MonoBehaviour:
   storyText: "You can\u2019t say my turkey was bad after you ate it for 17 years."
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2175,7 +2315,7 @@ MonoBehaviour:
   storyText: Aww. Miss you too.
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2222,9 +2362,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 365.10367
+    x: 366.81174
     y: 112.71329
-    width: 146.50548
+    width: 146.66995
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2252,7 +2392,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -75.28157
     y: 111.7133
-    width: 153.33772
+    width: 153.51385
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2344,7 +2484,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 155.28668
     y: 183.83766
-    width: 134.54904
+    width: 134.69315
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2387,7 +2527,7 @@ MonoBehaviour:
     children still love me."
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: 51ef8cb0942df4c06af750caec5e4c28, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2413,7 +2553,7 @@ MonoBehaviour:
   storyText: "Haha my boy. We\u2019re going to have one hell of a party"
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: ff13ff9910937479a82f7f95bda20094, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2480,7 +2620,7 @@ MonoBehaviour:
   storyText: Whatever. {w} More for me...
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 54cf008806fe04269bae56e82962e1b5, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2506,7 +2646,7 @@ MonoBehaviour:
   storyText: Good bboy. Love thy mother
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: cb92b696cdc96400390d1cb8194db598, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2531,7 +2671,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -68.62081
     y: 385.65308
-    width: 121.73859
+    width: 121.86085
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2559,7 +2699,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 390.8629
     y: 382.23703
-    width: 137.96518
+    width: 138.11508
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2666,7 +2806,7 @@ MonoBehaviour:
   storyText: rather than take a proper step into you role as an uncle. Would you?
   description: 
   character: {fileID: 61645491}
-  portrait: {fileID: 21300000, guid: fc5df1ea15fb441a0bf3cfc8862cf1ab, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2693,7 +2833,7 @@ MonoBehaviour:
     men kill each other {w}"
   description: 
   character: {fileID: 61645491}
-  portrait: {fileID: 21300000, guid: fc5df1ea15fb441a0bf3cfc8862cf1ab, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2720,7 +2860,7 @@ MonoBehaviour:
     remember it now. it's kind of a waste\n"
   description: 
   character: {fileID: 747677706}
-  portrait: {fileID: 21300000, guid: a503a5e60d9304d3f92400ecc740da06, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2746,7 +2886,7 @@ MonoBehaviour:
   storyText: "BOOO. {w} Babies are boring. Wait till she\u2019s 10 babysit her.\n"
   description: 
   character: {fileID: 747677706}
-  portrait: {fileID: 21300000, guid: a503a5e60d9304d3f92400ecc740da06, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2773,7 +2913,7 @@ MonoBehaviour:
     for you to spend some time with her."
   description: 
   character: {fileID: 61645491}
-  portrait: {fileID: 21300000, guid: fc5df1ea15fb441a0bf3cfc8862cf1ab, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2800,7 +2940,7 @@ MonoBehaviour:
     {w} No kids allowed.
   description: 
   character: {fileID: 747677706}
-  portrait: {fileID: 21300000, guid: a503a5e60d9304d3f92400ecc740da06, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2827,7 +2967,7 @@ MonoBehaviour:
     parrty just yet '
   description: 
   character: {fileID: 747677706}
-  portrait: {fileID: 21300000, guid: a503a5e60d9304d3f92400ecc740da06, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2853,7 +2993,7 @@ MonoBehaviour:
   storyText: Aren't you excited?
   description: 
   character: {fileID: 61645491}
-  portrait: {fileID: 21300000, guid: fc5df1ea15fb441a0bf3cfc8862cf1ab, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2879,7 +3019,7 @@ MonoBehaviour:
   storyText: Spend some time with your new niece while you babysit her.
   description: 
   character: {fileID: 61645491}
-  portrait: {fileID: 21300000, guid: fc5df1ea15fb441a0bf3cfc8862cf1ab, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2905,7 +3045,7 @@ MonoBehaviour:
   storyText: Me and the husband have to leave town for the weekend. You get to finally...
   description: 
   character: {fileID: 61645491}
-  portrait: {fileID: 21300000, guid: fc5df1ea15fb441a0bf3cfc8862cf1ab, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -2957,7 +3097,7 @@ MonoBehaviour:
   storyText: I have a surprise fopr you!
   description: 
   character: {fileID: 61645491}
-  portrait: {fileID: 21300000, guid: fc5df1ea15fb441a0bf3cfc8862cf1ab, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3009,7 +3149,7 @@ MonoBehaviour:
   storyText: Big sister here and guess what?
   description: 
   character: {fileID: 61645491}
-  portrait: {fileID: 21300000, guid: fc5df1ea15fb441a0bf3cfc8862cf1ab, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3130,7 +3270,7 @@ MonoBehaviour:
     well. "
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: ff13ff9910937479a82f7f95bda20094, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3157,7 +3297,7 @@ MonoBehaviour:
     noted.\n"
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: 51ef8cb0942df4c06af750caec5e4c28, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3211,7 +3351,7 @@ MonoBehaviour:
     Whatever, {w}  I\u2019m out of here."
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 54cf008806fe04269bae56e82962e1b5, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3237,7 +3377,7 @@ MonoBehaviour:
   storyText: Haha, I told it was all your fault. {w} ALL. {w} YOUR. {w} FAULT!!!
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: cb92b696cdc96400390d1cb8194db598, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3261,8 +3401,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 155.14209
-    y: 305.37183
-    width: 134.54904
+    y: 307.0828
+    width: 134.69315
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3300,9 +3440,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 365.24097
-    y: 240.46365
-    width: 174.68849
+    x: 366.94904
+    y: 242.17172
+    width: 174.901
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3329,8 +3469,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: -84.94139
-    y: 237.89313
-    width: 161.024
+    y: 236.18506
+    width: 161.21323
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3408,7 +3548,7 @@ MonoBehaviour:
     a divorce if she didn\u2019t REALLY  want one."
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 54cf008806fe04269bae56e82962e1b5, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3435,7 +3575,7 @@ MonoBehaviour:
     never REALLY wanted it to.
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: cb92b696cdc96400390d1cb8194db598, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3462,7 +3602,7 @@ MonoBehaviour:
     that one hehe..
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: ff13ff9910937479a82f7f95bda20094, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3488,7 +3628,7 @@ MonoBehaviour:
   storyText: Just with less puke...
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: cb92b696cdc96400390d1cb8194db598, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3515,7 +3655,7 @@ MonoBehaviour:
     was like having him not home '
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3542,7 +3682,7 @@ MonoBehaviour:
     and hence won\u2019t be getting married in the first place. "
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: ff13ff9910937479a82f7f95bda20094, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3569,7 +3709,7 @@ MonoBehaviour:
     and be there to watch your children grow up."
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3595,7 +3735,7 @@ MonoBehaviour:
   storyText: Grrrr!!!
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3621,7 +3761,7 @@ MonoBehaviour:
   storyText: I. {w} AM. {w} Offended
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: ff13ff9910937479a82f7f95bda20094, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3647,7 +3787,7 @@ MonoBehaviour:
   storyText: " I never said I didn\u2019t. {w} But now that you THINK I did....\n"
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: ff13ff9910937479a82f7f95bda20094, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3673,7 +3813,7 @@ MonoBehaviour:
   storyText: You DID cheat on me. {w} or something.
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3700,7 +3840,7 @@ MonoBehaviour:
     something?. "
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3727,7 +3867,7 @@ MonoBehaviour:
     get out of the house. '
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3753,7 +3893,7 @@ MonoBehaviour:
   storyText: because I was busy winning the war to protect our kingdom.
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: ff13ff9910937479a82f7f95bda20094, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3780,7 +3920,7 @@ MonoBehaviour:
     \ birthdays because I was busy winning the war to protect our kingdom."
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 54cf008806fe04269bae56e82962e1b5, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3806,7 +3946,7 @@ MonoBehaviour:
   storyText: 'Ignore your father. He lost every war he fought anyway. '
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: cb92b696cdc96400390d1cb8194db598, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3833,7 +3973,7 @@ MonoBehaviour:
     I was."
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 54cf008806fe04269bae56e82962e1b5, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3859,7 +3999,7 @@ MonoBehaviour:
   storyText: You been acting too much like your mother for my taste.
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: 54cf008806fe04269bae56e82962e1b5, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3939,7 +4079,7 @@ MonoBehaviour:
   storyText: "We\u2019re gonna have a blast. There\u2019s gonna be so many decapitations!!!"
   description: 
   character: {fileID: 747677706}
-  portrait: {fileID: 21300000, guid: a503a5e60d9304d3f92400ecc740da06, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3965,7 +4105,7 @@ MonoBehaviour:
   storyText: You mind if I join my boys at the great games? Awesome!
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: ff13ff9910937479a82f7f95bda20094, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -3992,7 +4132,7 @@ MonoBehaviour:
     {w}These years are precious.
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: 51ef8cb0942df4c06af750caec5e4c28, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -4018,7 +4158,7 @@ MonoBehaviour:
   storyText: OK then. {w} Have fun I guess.
   description: 
   character: {fileID: 61645491}
-  portrait: {fileID: 21300000, guid: fc5df1ea15fb441a0bf3cfc8862cf1ab, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -4071,7 +4211,7 @@ MonoBehaviour:
   storyText: Awww....{w} Look at UNcle (name)
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: cb92b696cdc96400390d1cb8194db598, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -4097,7 +4237,7 @@ MonoBehaviour:
   storyText: Oh Thanks so much. You're the best
   description: 
   character: {fileID: 61645491}
-  portrait: {fileID: 21300000, guid: fc5df1ea15fb441a0bf3cfc8862cf1ab, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -4240,9 +4380,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 158.63087
+    x: 160.34184
     y: 445.47495
-    width: 166.1482
+    width: 166.34613
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4272,7 +4412,7 @@ MonoBehaviour:
     the fiercest warriors there ever was."
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: ff13ff9910937479a82f7f95bda20094, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -4298,7 +4438,7 @@ MonoBehaviour:
   storyText: "That\u2019s my boy don\u2019t listen to her."
   description: 
   character: {fileID: 1645850952}
-  portrait: {fileID: 21300000, guid: ff13ff9910937479a82f7f95bda20094, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -4325,7 +4465,7 @@ MonoBehaviour:
     father
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: af94eefaeb7bf4395a224bf06a993fee, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -4351,7 +4491,7 @@ MonoBehaviour:
   storyText: " I\u2019ll bolster your minions and defenses. "
   description: 
   character: {fileID: 710843816}
-  portrait: {fileID: 21300000, guid: cb92b696cdc96400390d1cb8194db598, type: 3}
+  portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -4361,6 +4501,93 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &1267149245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1267149118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 124
+  indentLevel: 0
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 710843816}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &1267149246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1267149118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 123
+  indentLevel: 0
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 710843816}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 456749730}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &1267149247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1267149118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 122
+  indentLevel: 0
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 710843816}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!1 &1380215788
 GameObject:
   m_ObjectHideFlags: 0
@@ -4438,6 +4665,133 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1380215788}
+--- !u!1 &1420219146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 110274, guid: c6289d5f8fa843145a2355af9cb09719, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1420219148}
+  - component: {fileID: 1420219147}
+  m_Layer: 0
+  m_Name: Stage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1420219147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11410274, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1420219146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6478b25a400c642b2dee75f022ab12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portraitCanvas: {fileID: 1879177187}
+  dimPortraits: 1
+  dimColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  fadeDuration: 0.75
+  moveDuration: 1
+  fadeEaseType: 4
+  shiftOffset: {x: 0, y: 0}
+  defaultPosition: {fileID: 1694095650}
+  positions:
+  - {fileID: 607069650}
+  - {fileID: 1694095648}
+  - {fileID: 456749730}
+  - {fileID: 2036715525}
+  - {fileID: 1583599272}
+--- !u!4 &1420219148
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 410270, guid: c6289d5f8fa843145a2355af9cb09719, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1420219146}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1879177183}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1583599271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 110280, guid: c6289d5f8fa843145a2355af9cb09719, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1583599272}
+  - component: {fileID: 1583599274}
+  - component: {fileID: 1583599273}
+  m_Layer: 0
+  m_Name: Offscreen Right
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1583599272
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22410278, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1583599271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1300, y: -400, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1879177183}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 1300, y: -1000}
+  m_SizeDelta: {x: 1000, y: 1000}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &1583599273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11410282, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1583599271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: ea8f56c43254d41728f5ac4e8299b6c9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1583599274
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22210276, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1583599271}
 --- !u!1 &1620928250
 GameObject:
   m_ObjectHideFlags: 0
@@ -4550,9 +4904,9 @@ MonoBehaviour:
   nameColor: {r: 1, g: 1, b: 1, a: 1}
   soundEffect: {fileID: 0}
   portraits:
-  - {fileID: 21300000, guid: 54cf008806fe04269bae56e82962e1b5, type: 3}
-  - {fileID: 21300000, guid: 86d3d6c7815ff4581a3629fc0bee94c3, type: 3}
-  - {fileID: 21300000, guid: ff13ff9910937479a82f7f95bda20094, type: 3}
+  - {fileID: 21300000, guid: 690049c7f1a9a4d2383bfb5ee592ff6b, type: 3}
+  - {fileID: 21300000, guid: 7c0093d25b1694fbdb04223b75a98424, type: 3}
+  - {fileID: 21300000, guid: af88bacf378ba4d11ba7e24cfda8719a, type: 3}
   portraitsFace: 0
   setSayDialog: {fileID: 0}
   description: 
@@ -4567,8 +4921,194 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1694095647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 110278, guid: c6289d5f8fa843145a2355af9cb09719, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1694095648}
+  - component: {fileID: 1694095649}
+  - component: {fileID: 1694095650}
+  m_Layer: 0
+  m_Name: Middle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1694095648
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22410276, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1694095647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -400, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1879177183}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -1000}
+  m_SizeDelta: {x: 1000, y: 1000}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!222 &1694095649
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22210274, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1694095647}
+--- !u!114 &1694095650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11410280, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1694095647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: ea8f56c43254d41728f5ac4e8299b6c9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!1 &1879177182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 110276, guid: c6289d5f8fa843145a2355af9cb09719, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1879177183}
+  - component: {fileID: 1879177187}
+  - component: {fileID: 1879177186}
+  - component: {fileID: 1879177185}
+  - component: {fileID: 1879177184}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1879177183
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22410274, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879177182}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 440, y: 213.5, z: 0}
+  m_LocalScale: {x: 0.35583332, y: 0.35583332, z: 0.35583332}
+  m_Children:
+  - {fileID: 1694095648}
+  - {fileID: 607069650}
+  - {fileID: 456749730}
+  - {fileID: 2036715525}
+  - {fileID: 1583599272}
+  m_Father: {fileID: 1420219148}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!225 &1879177184
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22510270, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879177182}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
+--- !u!114 &1879177185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11410276, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879177182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1600, y: 1200}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 1
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!114 &1879177186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11410278, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879177182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!223 &1879177187
+Canvas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22310270, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1879177182}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 1
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1896917879
 GameObject:
   m_ObjectHideFlags: 0
@@ -4616,7 +5156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1929231257
 GameObject:
@@ -4657,8 +5197,79 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2036715524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 110272, guid: c6289d5f8fa843145a2355af9cb09719, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2036715525}
+  - component: {fileID: 2036715527}
+  - component: {fileID: 2036715526}
+  m_Layer: 0
+  m_Name: Offscreen Left
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2036715525
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22410272, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036715524}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1300, y: -400, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1879177183}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -1300, y: -1000}
+  m_SizeDelta: {x: 1000, y: 1000}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &2036715526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11410272, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036715524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: ea8f56c43254d41728f5ac4e8299b6c9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2036715527
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22210272, guid: c6289d5f8fa843145a2355af9cb09719,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2036715524}
 --- !u!1 &2097557460
 GameObject:
   m_ObjectHideFlags: 0
@@ -4714,11 +5325,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 0, y: 0}
+  scrollPos: {x: 1924, y: 481.20654}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 1
+  zoom: 0.25
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -4749,7 +5360,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2136844241
 GameObject:
@@ -5014,12 +5625,12 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2136844241}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 376.5, y: 212, z: 0}
-  m_LocalScale: {x: 0.35333332, y: 0.35333332, z: 0.35333332}
+  m_LocalPosition: {x: 440, y: 213.5, z: 0}
+  m_LocalScale: {x: 0.35583332, y: 0.35583332, z: 0.35583332}
   m_Children:
   - {fileID: 566813560}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
