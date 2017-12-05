@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Turret : MonoBehaviour {
+public class Turret2 : MonoBehaviour {
 
 	public Transform target;
 
@@ -15,7 +15,7 @@ public class Turret : MonoBehaviour {
 
 	public GameObject bulletPrefab;
 	public Transform firePoint;
-	private float enemyhealth;
+	private float enemyhealth2;
 	//private float enemyhealth2;
 
 	public float health;
@@ -76,7 +76,7 @@ public class Turret : MonoBehaviour {
 
 	void Shoot ()
 	{
-		enemyhealth = target.GetComponent<EnemyMovement> ().updateHealth = target.GetComponent<EnemyMovement> ().updateHealth - 20f;
+		enemyhealth2 = target.GetComponent<EnemyMovement2> ().updateHealth = target.GetComponent<EnemyMovement2> ().updateHealth - 20f;
 		//enemyhealth2 = target.GetComponent<EnemyMovement2> ().updateHealth = target.GetComponent<EnemyMovement2> ().updateHealth - 20f;
 		Debug.Log ("Shoot!");
 		GameObject bulletGo = (GameObject)Instantiate (bulletPrefab, firePoint.position, firePoint.rotation);

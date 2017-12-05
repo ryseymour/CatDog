@@ -25,12 +25,46 @@ public class LightTurnerOnner : MonoBehaviour {
 	}
 
 	void OnMouseDown () {
-		
+
+		if (gatechoice == 6) {
+			WaypointScript.L1 = false;
+			WaypointScript.C1 = false;
+			WaypointScript.R1 = false;
+			WaypointScript.L2 = false;
+			WaypointScript.C2 = true;
+			WaypointScript.R2 = false;
+			return;
+
+		}
+
+		if (gatechoice == 5) {
+			WaypointScript.L1 = false;
+			WaypointScript.C1 = false;
+			WaypointScript.R1 = false;
+			WaypointScript.L2 = false;
+			WaypointScript.C2 = false;
+			WaypointScript.R2 = true;
+			return;
+		}
+
+		if (gatechoice == 4) {
+			WaypointScript.L1 = false;
+			WaypointScript.C1 = false;
+			WaypointScript.R1 = false;
+			WaypointScript.L2 = true;
+			WaypointScript.C2 = false;
+			WaypointScript.R2 = false;
+			return;
+		}
+
 		if (gatechoice == 3) {
 		Debug.Log("R1");	
 		WaypointScript.L1 = false;
 		WaypointScript.C1 = false;
 		WaypointScript.R1 = true;
+			WaypointScript.L2 = false;
+			WaypointScript.C2 = false;
+			WaypointScript.R2 = false;
 			return;
 		}
 		if (gatechoice == 2) {
@@ -38,6 +72,9 @@ public class LightTurnerOnner : MonoBehaviour {
 			WaypointScript.L1 = false;
 			WaypointScript.C1 = true;
 			WaypointScript.R1 = false;
+			WaypointScript.L2 = false;
+			WaypointScript.C2 = false;
+			WaypointScript.R2 = false;
 			return;
 		}
 		if (gatechoice == 1) {
@@ -45,6 +82,9 @@ public class LightTurnerOnner : MonoBehaviour {
 			WaypointScript.L1 = true;
 			WaypointScript.C1 = false;
 			WaypointScript.R1 = false;
+			WaypointScript.L2 = false;
+			WaypointScript.C2 = false;
+			WaypointScript.R2 = false;
 			return;
 		}
 

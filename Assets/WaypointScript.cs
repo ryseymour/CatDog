@@ -12,9 +12,15 @@ public class WaypointScript : MonoBehaviour {
 	public static bool R1;
 	public static bool L1;
 	public static bool C1;
+	public static bool R2;
+	public static bool L2;
+	public static bool C2;
 	public WaypointScript nextR1;
 	public WaypointScript nextC1;
 	public WaypointScript nextL1;
+	public WaypointScript nextR2;
+	public WaypointScript nextL2;
+	public WaypointScript nextC2;
 
 
 	void OnDrawGizmos() {
@@ -37,6 +43,9 @@ public class WaypointScript : MonoBehaviour {
 		R1 = false;
 		C1 = false;
 		L1 = false;
+		R2 = false;
+		L2 = false;
+		C2 = false;
 	}
 
 
@@ -55,6 +64,20 @@ public class WaypointScript : MonoBehaviour {
 				next = nextL1;
 			Reset ();
 			}
+
+		if (this.gameObject.name == "StartPoint" && R2 == true) {
+			next = nextR2;
+			Reset ();
+		}
+			
+		if (this.gameObject.name == "StartPoint" && C2 == true) {
+			next = nextC2;
+			Reset ();
+		}
+		if (this.gameObject.name == "StartPoint" && L2 == true) {
+			next = nextL2;
+			Reset ();
+		}
 			
 
 			//next = WaypointScript.Instantiate("WaypointR.1(WaypointScript)");

@@ -14,12 +14,15 @@ public class Enemy : MonoBehaviour {
 
 	public float radius = 0f;
 	public Collider[] colliders;
+	public Collider[] colliders2;
 	public Collider[] selfColliders;
 	public Collider[] turretCollider;
 	public LayerMask mask;
+	public LayerMask mask2;
 	public LayerMask maskSelf;
 	public LayerMask turret;
 	private float enemyhealth;
+	private float enemyhealth2;
 	private float turrethealth;
 	public float health = 50;
 	public float updateHealth;
@@ -62,7 +65,7 @@ public class Enemy : MonoBehaviour {
 			return;
 
 		}
-		if (colliders.Length >= 1 || selfColliders.Length>=2 || turretCollider.Length>1){
+		if (colliders.Length >= 1 || selfColliders.Length>=2 || turretCollider.Length>1 || colliders2.Length >= 1){
 
 			//speedchange.PlayerSpeed = 0f;
 
@@ -97,10 +100,22 @@ public class Enemy : MonoBehaviour {
 		foreach (Collider col in colliders) {
 			enemyhealth = col.gameObject.GetComponent<EnemyMovement> ().updateHealth = col.gameObject.GetComponent<EnemyMovement> ().updateHealth- damage;
 
+
 			return;
 			//enemyhealth = EnemyMovement.health - 1;
 		}
 		if (enemyhealth == null) {
+			return;
+		}
+
+		colliders2 = Physics.OverlapSphere (transform.position, radius, mask2);
+
+		foreach (Collider col in colliders2) {
+			enemyhealth2 = col.gameObject.GetComponent<EnemyMovement2> ().updateHealth = col.gameObject.GetComponent<EnemyMovement2> ().updateHealth - damage;
+
+			return;
+		}
+		if (enemyhealth2 == null) {
 			return;
 		}
 

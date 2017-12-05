@@ -18,7 +18,7 @@ public class EnemyMovement2 : MonoBehaviour {
 	public LayerMask mask;
 	public LayerMask maskSelf;
 	public LayerMask turret;
-	public float health = 50;
+	public float health = 150;
 	private float herohealth;
 	private float turrethealth;
 	private float castlehealth;

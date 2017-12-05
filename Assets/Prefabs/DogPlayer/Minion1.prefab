@@ -1078,11 +1078,15 @@ MonoBehaviour:
   speed: 10
   radius: 1
   colliders: []
+  colliders2: []
   selfColliders: []
   turretCollider: []
   mask:
     serializedVersion: 2
     m_Bits: 512
+  mask2:
+    serializedVersion: 2
+    m_Bits: 8192
   maskSelf:
     serializedVersion: 2
     m_Bits: 256

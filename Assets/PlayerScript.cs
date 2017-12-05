@@ -10,6 +10,7 @@ public class PlayerScript : MonoBehaviour {
 
 	public bool isTechnician = false;
 	bool castle = false;
+	bool castle2 = false;
 	bool move = true;
 	private float castleHealth;
 
@@ -53,6 +54,8 @@ public class PlayerScript : MonoBehaviour {
 				move = false;
 				castleHealth = GameObject.Find ("EnemyCastle").GetComponent<CastleHealth> ().updateHealth = GameObject.Find ("EnemyCastle").GetComponent<CastleHealth> ().updateHealth - 1f;
 			}
+
+			//if (targetWaypoint.)
 
 			if (collision == 1) {
 				move = false;
