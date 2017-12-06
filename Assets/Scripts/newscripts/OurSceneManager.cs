@@ -7,7 +7,7 @@ public class OurSceneManager : MonoBehaviour {
 	//TODO if we move back - scene manager will be null for panel - need to add a rest to fi this issue --- for restart issue 
 	public static OurSceneManager instance = null;
 	public static bool isCatLevel = false;
-	int currentLevel = 0;
+	public int currentLevel = 0;
 
 	void Awake() {
 		if (instance == null) {
@@ -24,11 +24,13 @@ public class OurSceneManager : MonoBehaviour {
 	public void MainMeuChoice(bool choice ){
 
 		isCatLevel = choice;
+		currentLevel++; //out current level should be one 
 		MoveToScene (1);
 	}
 
 
 	public void MoveToScene(int levelnumber){
+//		currentLevel++; // two 
 		if (isCatLevel) {
 			SceneManager.LoadScene ("CLevel" + levelnumber.ToString ());
 									
@@ -38,6 +40,42 @@ public class OurSceneManager : MonoBehaviour {
 
 	}
 
+	public void MoveToScene(){
+		currentLevel++; // two //this will be used in game 3d scenes - ( current scene at the end will hold the next levels nymber ) 
+		if (isCatLevel) {
+			SceneManager.LoadScene ("CLevel" + currentLevel.ToString ());
+
+		} else {
+			SceneManager.LoadScene ("DLevel" + currentLevel.ToString ());
+		}
+
+	}
+
+	public void GoToGameover(){ //lose state 
+		if (isCatLevel) {
+			SceneManager.LoadScene ("ENDCAT");
+
+		} else {
+			SceneManager.LoadScene ("ENDDog");
+		}
+
+	
+	}
+
+	public void GoToWinScene(){ //lose state 
+		if (isCatLevel) {
+			SceneManager.LoadScene ("ENDCATwin");
+
+		} else {
+			SceneManager.LoadScene ("ENDDogwin");
+		}
+
+
+	}
+
+
+
+	//TODO - on game over reset data here fpr current level ...etc 
 
 }
 

@@ -66,7 +66,7 @@ public class Turret : MonoBehaviour {
 
 		fireCountdown -= Time.deltaTime;
 
-		healthbar.fillAmount = updateHealth/health;
+//		healthbar.fillAmount = updateHealth/health;
 
 		if (updateHealth <= 0f) {
 			Destroy(gameObject);

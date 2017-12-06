@@ -52,9 +52,11 @@ public class EnemyPlayerScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Ecollision = gameObject.GetComponent<EnemyMovement> ().stopCollider;
-		if (move && Ecollision ==0) {
-			transform.LookAt (EnemytargetWaypoint.gameObject.transform.position + new Vector3(0, 0.5f, 0));
-			transform.position += transform.forward * 5 * Time.deltaTime;
+		if (EnemytargetWaypoint != null) {
+			if (move && Ecollision == 0) {
+				transform.LookAt (EnemytargetWaypoint.gameObject.transform.position + new Vector3 (0, 0.5f, 0));
+				transform.position += transform.forward * 5 * Time.deltaTime;
+			}
 		}
 
 		if (EnemytargetWaypoint == null) {

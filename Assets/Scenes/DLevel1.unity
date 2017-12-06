@@ -4405,15 +4405,15 @@ MonoBehaviour:
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: Finder
   targetMethod: UpdateValues
-  targetMethodText: 'UpdateValues (Int32, Int32): Void'
+  targetMethodText: 'UpdateValues (Single, Single): Void'
   methodParameters:
   - objValue:
-      typeAssemblyname: System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral,
+      typeAssemblyname: System.Single, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      typeFullname: System.Int32
-      intValue: 10
+      typeFullname: System.Single
+      intValue: 0
       boolValue: 0
-      floatValue: 0
+      floatValue: 0.8
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
       gameObjectValue: {fileID: 0}
@@ -4425,12 +4425,12 @@ MonoBehaviour:
       vector3Value: {x: 0, y: 0, z: 0}
     variableKey: 
   - objValue:
-      typeAssemblyname: System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral,
+      typeAssemblyname: System.Single, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
-      typeFullname: System.Int32
-      intValue: 10
+      typeFullname: System.Single
+      intValue: 0
       boolValue: 0
-      floatValue: 0
+      floatValue: 0.6
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
       gameObjectValue: {fileID: 0}

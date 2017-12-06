@@ -1145,7 +1145,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 150.40587
     y: 20.799614
-    width: 130.6372
+    width: 132.90561
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1207,11 +1207,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 362.61362, y: 121.64718}
+  scrollPos: {x: 464.17056, y: 149.24525}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 0
   blockViewHeight: 400
-  zoom: 0.5394532
+  zoom: 0.4764455
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -2230,7 +2230,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 365.10367
     y: 112.71329
-    width: 149.1745
+    width: 148.64717
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2258,7 +2258,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -75.28157
     y: 111.7133
-    width: 155.66254
+    width: 152.84492
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2350,7 +2350,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 155.28668
     y: 183.83766
-    width: 130.6372
+    width: 132.90561
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2537,7 +2537,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -68.62081
     y: 385.65308
-    width: 120
+    width: 120.31235
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2565,7 +2565,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 390.8629
     y: 382.23703
-    width: 135.27153
+    width: 137.10336
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3268,7 +3268,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 155.14209
     y: 305.37183
-    width: 130.6372
+    width: 132.90561
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3308,7 +3308,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 365.24097
     y: 240.46365
-    width: 168.63864
+    width: 165.43817
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3336,7 +3336,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -84.94139
     y: 237.89313
-    width: 157.51627
+    width: 157.04266
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4248,7 +4248,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 158.63087
     y: 445.47495
-    width: 159.37
+    width: 161.24042
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4473,8 +4473,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 744.0623
-    y: 78.55551
+    x: 594.1942
+    y: 24.602951
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -4530,7 +4530,7 @@ MonoBehaviour:
       typeAssemblyname: System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       typeFullname: System.Int32
-      intValue: 2
+      intValue: 4
       boolValue: 0
       floatValue: 0
       stringValue: 
@@ -4889,6 +4889,10 @@ Prefab:
     - target: {fileID: 4013450012151168, guid: 99bc592e47efa4d89bed8b5e304bedbc, type: 2}
       propertyPath: m_RootOrder
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 1752459891795478, guid: 99bc592e47efa4d89bed8b5e304bedbc, type: 2}
+      propertyPath: m_Name
+      value: 'finder- need to add this '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 99bc592e47efa4d89bed8b5e304bedbc, type: 2}

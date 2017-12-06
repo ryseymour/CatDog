@@ -13,6 +13,9 @@ public class shop : MonoBehaviour {
 	public Button RangeButton;
 	public Button SupportButton;
 	public bool ButtonHit = true;
+	public bool canclickM = false;
+	public bool canClickR = false;
+	public bool canClickAOE = false;
 
 
 	void Start ()
@@ -47,10 +50,9 @@ public class shop : MonoBehaviour {
 	public void PurchaseMelee()
 	{
 		Debug.Log ("melee");
-		//waveSpawner.SpawnEnemy (waveSpawner.enemyPrefabMelee);
+//		waveSpawner.SpawnEnemy (waveSpawner.enemyPrefabMelee);
 		ButtonHit = false;
 		WaveSpawner.MinonBuild = 1;
-
 		StartCoroutine (SpawnWave());
 
 	}
@@ -70,7 +72,10 @@ public class shop : MonoBehaviour {
 
 	IEnumerator SpawnWave()
 	{
-		
+
+		canclickM = true;
+		canClickR = true;
+		canClickAOE = true;
 		//MeleeButton.interactable = true;
 		//RangeButton.interactable = true;
 		//SupportButton.interactable = true;
@@ -80,23 +85,33 @@ public class shop : MonoBehaviour {
 
 	void Update (){
 		if(WaveSpawner.currency >= 3.0f && ButtonHit == true){
+			canclickM = true; 
 //			MeleeButton.interactable = true;
 
 		}else{
+			canclickM = false; 
+
 //			MeleeButton.interactable = false;
 
 		}
 
 		if (WaveSpawner.currency >= 4.0f && ButtonHit == true) {
-			RangeButton.interactable = true;
+			canClickR = true;
+//			RangeButton.interactable = true;
 		} else {
-			RangeButton.interactable = false;
+			canClickR = false;
+
+//			RangeButton.interactable = false;
 		}
 
 		if (WaveSpawner.currency >= 4.0f && ButtonHit == true) {
-			SupportButton.interactable = true;
+			canClickAOE = true;
+
+//			SupportButton.interactable = true;
 		}else{
-			SupportButton.interactable = false;
+			canClickAOE = false;
+
+//			SupportButton.interactable = false;
 
 }
 

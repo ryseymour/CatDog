@@ -5,7 +5,7 @@ using UnityEngine;
 public class Finder : MonoBehaviour {
 
 
-	public void UpdateValues(int newAttack, int newDefense){ 
+	public void UpdateValues(float newAttack, float newDefense){ 
 
 		
 		FungusManager.instance.sendInValues (newAttack, newDefense);

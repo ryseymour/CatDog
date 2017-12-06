@@ -123,11 +123,12 @@ public class EnemyMovement : MonoBehaviour {
 			return;
 		}
 		turretCollider = Physics.OverlapSphere (transform.position, radius, turret);
-
-		foreach (Collider col in turretCollider) {
-			turrethealth = col.gameObject.GetComponent<TurretHP> ().updateHealth = col.gameObject.GetComponent<TurretHP> ().updateHealth- 1f;
-			Debug.Log ("turret");
-			return;
+		if (turretCollider != null) {
+			foreach (Collider col in turretCollider) {
+				turrethealth = col.gameObject.GetComponent<TurretHP> ().updateHealth = col.gameObject.GetComponent<TurretHP> ().updateHealth - 1f;
+				Debug.Log ("turret");
+				return;
+			}
 		}
 
 		if (turrethealth == null) {
