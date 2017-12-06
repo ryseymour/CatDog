@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour {
 	public float health = 50;
 	public float updateHealth;
 	public float damage = 1f;
+	public float def= 1;
 
 	public PlayerScript speedchange;
 	public int stopCollider;
@@ -49,6 +50,11 @@ public class Enemy : MonoBehaviour {
 
 	}
 
+	void Start(){
+		health += FungusManager.instance.attack;
+		damage += FungusManager.instance.attack;
+	}
+
 	void Update ()
 	{
 		//Vector3 dir = target.position - transform.position;
@@ -57,7 +63,7 @@ public class Enemy : MonoBehaviour {
 		//if (Vector3.Distance (transform.position, target.position) <= 0.2f) {
 			//GetNextWaypoint();
 		//}
-
+		Debug.Log("new health is "+ health+ " nwew dmg is "+ damage);
 		healthbar.fillAmount = updateHealth/health;
 
 		if (updateHealth <=0f) {
@@ -98,7 +104,7 @@ public class Enemy : MonoBehaviour {
 		colliders = Physics.OverlapSphere (transform.position, radius, mask);
 
 		foreach (Collider col in colliders) {
-			enemyhealth = col.gameObject.GetComponent<EnemyMovement> ().updateHealth = col.gameObject.GetComponent<EnemyMovement> ().updateHealth- damage;
+			enemyhealth = col.gameObject.GetComponent<EnemyMovement> ().updateHealth = col.gameObject.GetComponent<EnemyMovement> ().updateHealth - damage ;
 
 
 			return;
@@ -111,7 +117,7 @@ public class Enemy : MonoBehaviour {
 		colliders2 = Physics.OverlapSphere (transform.position, radius, mask2);
 
 		foreach (Collider col in colliders2) {
-			enemyhealth2 = col.gameObject.GetComponent<EnemyMovement2> ().updateHealth = col.gameObject.GetComponent<EnemyMovement2> ().updateHealth - damage;
+			enemyhealth2 = col.gameObject.GetComponent<EnemyMovement2> ().updateHealth = col.gameObject.GetComponent<EnemyMovement2> ().updateHealth - damage ;
 
 			return;
 		}
@@ -122,7 +128,7 @@ public class Enemy : MonoBehaviour {
 		turretCollider = Physics.OverlapSphere (transform.position, radius, turret);
 
 		foreach (Collider col in turretCollider) {
-			turrethealth = col.gameObject.GetComponent<TurretHP> ().updateHealth = col.gameObject.GetComponent<TurretHP> ().updateHealth- damage;
+			turrethealth = col.gameObject.GetComponent<TurretHP> ().updateHealth = col.gameObject.GetComponent<TurretHP> ().updateHealth - damage ;
 			Debug.Log ("turret");
 			return;
 		}

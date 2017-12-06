@@ -5,8 +5,8 @@ using Fungus;
 
 public class FungusManager : MonoBehaviour {
 	public static FungusManager instance = null;
-	  float attack = 0;
-	  float defense = 0; 
+	public  float attack = 0;
+	public  float defense = 0; 
 	 void Awake() {
 		if (instance == null) {
 			instance = this;

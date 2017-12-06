@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Level0.unity
+  - enabled: 0
+    path: Assets/baseFortransferFungus.unity
     guid: a24a42182991b4c188daba7ea1832f72
-  - enabled: 1
+  - enabled: 0
     path: Assets/Level1.unity
     guid: aba496b536146474fa74b19abb3ff42d
+  - enabled: 1
+    path: Assets/Scenes/Level0.unity
+    guid: 88f744c5ac5b1457cbb5c4a97b67e88f
+  - enabled: 1
+    path: Assets/Scenes/CLevel1.unity
+    guid: 8c169a7b50a6f4efd90d9318eb4d96d1
+  - enabled: 1
+    path: Assets/Scenes/DLevel1.unity
+    guid: 42846e39f7eee40f7a90714490607f9d
