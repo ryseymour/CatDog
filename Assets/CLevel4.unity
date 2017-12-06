@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16249675, g: 0.18538326, b: 0.14416444, a: 1}
+  m_IndirectSpecularColor: {r: 0.1624966, g: 0.1853832, b: 0.14416432, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -337,7 +337,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1441394168510168, guid: c6fb0bbb03c03a54a99e9de895952274,
     type: 2}
   firePoint: {fileID: 4321413}
-  health: 0
+  health: 50
   updateHealth: 0
   healthbar: {fileID: 0}
 --- !u!4 &11331611 stripped
@@ -5595,7 +5595,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1441394168510168, guid: c6fb0bbb03c03a54a99e9de895952274,
     type: 2}
   firePoint: {fileID: 377176783}
-  health: 0
+  health: 50
   updateHealth: 0
   healthbar: {fileID: 0}
 --- !u!4 &548129231 stripped
@@ -8872,7 +8872,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1441394168510168, guid: c6fb0bbb03c03a54a99e9de895952274,
     type: 2}
   firePoint: {fileID: 828028663}
-  health: 0
+  health: 50
   updateHealth: 0
   healthbar: {fileID: 0}
 --- !u!1 &833684054
@@ -10391,7 +10391,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1441394168510168, guid: c6fb0bbb03c03a54a99e9de895952274,
     type: 2}
   firePoint: {fileID: 1434645617}
-  health: 0
+  health: 50
   updateHealth: 0
   healthbar: {fileID: 0}
 --- !u!1 &906037185
@@ -18044,7 +18044,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1441394168510168, guid: c6fb0bbb03c03a54a99e9de895952274,
     type: 2}
   firePoint: {fileID: 1621510578}
-  health: 0
+  health: 50
   updateHealth: 0
   healthbar: {fileID: 0}
 --- !u!114 &1621510581
@@ -19123,7 +19123,7 @@ Prefab:
     - target: {fileID: 65523972030695630, guid: 245c16f9fd6df454fa052905adf7531e,
         type: 2}
       propertyPath: m_Size.x
-      value: 3.98
+      value: 8.67
       objectReference: {fileID: 0}
     - target: {fileID: 65523972030695630, guid: 245c16f9fd6df454fa052905adf7531e,
         type: 2}
@@ -19143,7 +19143,7 @@ Prefab:
     - target: {fileID: 65523972030695630, guid: 245c16f9fd6df454fa052905adf7531e,
         type: 2}
       propertyPath: m_Center.x
-      value: 3.66
+      value: 3.24
       objectReference: {fileID: 0}
     - target: {fileID: 1704975710225862, guid: 245c16f9fd6df454fa052905adf7531e, type: 2}
       propertyPath: m_Layer
@@ -21265,7 +21265,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1920134992}
   m_LocalRotation: {x: 0.68618363, y: 0.07679346, z: 0.04594773, w: 0.72190285}
-  m_LocalPosition: {x: 0.0099983215, y: 9.17, z: -1.65}
+  m_LocalPosition: {x: -3.75, y: 9.64, z: -77.62}
   m_LocalScale: {x: 0.06, y: 0.05, z: 0.024691653}
   m_Children:
   - {fileID: 1052274610}
@@ -21274,7 +21274,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 19.996, y: 13.865001, z: 9.740001}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.01, y: 9.17}
+  m_AnchoredPosition: {x: -3.75, y: 9.64}
   m_SizeDelta: {x: 100, y: 36.022}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1920134994
@@ -22752,7 +22752,7 @@ Prefab:
     - target: {fileID: 65523972030695630, guid: 245c16f9fd6df454fa052905adf7531e,
         type: 2}
       propertyPath: m_Size.x
-      value: 13.9
+      value: 14.4
       objectReference: {fileID: 0}
     - target: {fileID: 1704975710225862, guid: 245c16f9fd6df454fa052905adf7531e, type: 2}
       propertyPath: m_Name
@@ -23034,7 +23034,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1441394168510168, guid: c6fb0bbb03c03a54a99e9de895952274,
     type: 2}
   firePoint: {fileID: 665242431}
-  health: 0
+  health: 50
   updateHealth: 0
   healthbar: {fileID: 0}
 --- !u!4 &2056966687 stripped

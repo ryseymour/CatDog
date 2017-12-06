@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16249675, g: 0.18538326, b: 0.14416444, a: 1}
+  m_IndirectSpecularColor: {r: 0.1624966, g: 0.1853832, b: 0.14416432, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2878,7 +2878,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1441394168510168, guid: c6fb0bbb03c03a54a99e9de895952274,
     type: 2}
   firePoint: {fileID: 783848215}
-  health: 0
+  health: 50
   updateHealth: 0
   healthbar: {fileID: 0}
 --- !u!1 &552599789
@@ -5994,7 +5994,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1441394168510168, guid: c6fb0bbb03c03a54a99e9de895952274,
     type: 2}
   firePoint: {fileID: 1686368890}
-  health: 0
+  health: 50
   updateHealth: 0
   healthbar: {fileID: 0}
 --- !u!4 &908625178 stripped
@@ -6338,7 +6338,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1441394168510168, guid: c6fb0bbb03c03a54a99e9de895952274,
     type: 2}
   firePoint: {fileID: 375198057}
-  health: 0
+  health: 50
   updateHealth: 0
   healthbar: {fileID: 0}
 --- !u!1001 &994107706
@@ -8662,7 +8662,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1441394168510168, guid: c6fb0bbb03c03a54a99e9de895952274,
     type: 2}
   firePoint: {fileID: 809743474}
-  health: 0
+  health: 50
   updateHealth: 0
   healthbar: {fileID: 0}
 --- !u!4 &1365304796
@@ -8853,7 +8853,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1441394168510168, guid: c6fb0bbb03c03a54a99e9de895952274,
     type: 2}
   firePoint: {fileID: 2131839930}
-  health: 0
+  health: 50
   updateHealth: 0
   healthbar: {fileID: 0}
 --- !u!1 &1450272730
@@ -13125,7 +13125,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1441394168510168, guid: c6fb0bbb03c03a54a99e9de895952274,
     type: 2}
   firePoint: {fileID: 2052717613}
-  health: 0
+  health: 50
   updateHealth: 0
   healthbar: {fileID: 0}
 --- !u!1 &2057564639
