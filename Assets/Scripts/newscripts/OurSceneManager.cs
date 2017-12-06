@@ -20,17 +20,24 @@ public class OurSceneManager : MonoBehaviour {
 
 	}
 
+	void Update(){
+		//for testing only 
+		if(Input.GetKeyDown(KeyCode.P)){
+			MoveToScene ();
+			
+		}
+	}
+
 
 	public void MainMeuChoice(bool choice ){
 
 		isCatLevel = choice;
-		currentLevel++; //out current level should be one 
 		MoveToScene (1);
 	}
 
 
 	public void MoveToScene(int levelnumber){
-//		currentLevel++; // two 
+		currentLevel++; // two 
 		if (isCatLevel) {
 			SceneManager.LoadScene ("CLevel" + levelnumber.ToString ());
 									
