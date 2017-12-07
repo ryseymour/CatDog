@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour {
 
 	public PlayerScript speedchange;
 	public int stopCollider;
-	public Animator anim;
+	public Animator anim; //TODO might have to link it for now in the inspector ( th eobject that has the animator ) ir might have to do with how it is in hirarcy 
 	//private float SpeedStop = 0f;
 
 	public Image healthbar;
