@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4351221399133496}
   - component: {fileID: 95964026243887182}
-  - component: {fileID: 114562066136694688}
   m_Layer: 0
   m_Name: finalBugRed
   m_TagString: Untagged
@@ -751,7 +750,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1672453485663852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -280.75375, y: 3.2200322, z: 314.90775}
+  m_LocalPosition: {x: -280.5717, y: 5.87, z: 213.12036}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4351221399133496}
@@ -1065,20 +1064,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114562066136694688
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1048068677679004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb4a4e6174754c3ba1770c2b868034b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAttacking: 0
-  wizzardPrefab: {fileID: 0}
-  AvatarLocation: {fileID: 0}
 --- !u!114 &114837665967808744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1111,10 +1096,8 @@ MonoBehaviour:
   health: 100
   updateHealth: 0
   damage: 1
-  def: 1
   speedchange: {fileID: 0}
   stopCollider: 0
-  anim: {fileID: 0}
   healthbar: {fileID: 114053154401358390}
 --- !u!135 &135598999686094002
 SphereCollider:

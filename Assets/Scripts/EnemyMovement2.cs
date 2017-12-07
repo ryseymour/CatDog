@@ -24,10 +24,10 @@ public class EnemyMovement2 : MonoBehaviour {
 	private float castlehealth;
 	public float updateHealth;
 	public Image healthbar;
-	bool canClick;
+
 	//private float enemyhealth;
 	public int stopCollider;
-	public  Animator anim;
+
 	//public static int gate;
 
 	void Awake()
@@ -58,8 +58,6 @@ public class EnemyMovement2 : MonoBehaviour {
 		}
 
 		updateHealth = health;
-		canClick = false;
-		anim = GetComponentInChildren<Animator> ();
 
 	}
 
@@ -75,16 +73,9 @@ public class EnemyMovement2 : MonoBehaviour {
 		healthbar.fillAmount = updateHealth/health;
 
 		if (updateHealth <=0f) {
-
-			anim.SetBool("isDead",true);
-			if (!canClick) {
-				WaveSpawner.currency = WaveSpawner.currency + 1;
-				canClick = true;
-
-			}
-			Invoke("destroySelf",1.5f);
-
-						//currencyPlus = GameObject.Find ("GameMaster").GetComponent<WaveSpawner> ().gameObject.currency = currency + 1;
+			Destroy(gameObject);
+			WaveSpawner.currency = WaveSpawner.currency + 1;
+			//currencyPlus = GameObject.Find ("GameMaster").GetComponent<WaveSpawner> ().gameObject.currency = currency + 1;
 			return;
 
 		}
@@ -109,9 +100,6 @@ public class EnemyMovement2 : MonoBehaviour {
 			//variable.GetComponent<PlayerScript> ().PlayerSpeed = 5f;
 			//speedchange.PlayerSpeed = 5f;
 			//speed = 10f;
-			if (anim.GetBool ("isAttacking") == true) {
-				anim.SetBool ("isAttacking", false);
-			}
 			stopCollider = 0;
 		}
 
@@ -126,15 +114,10 @@ public class EnemyMovement2 : MonoBehaviour {
 
 			foreach (Collider col in colliders) {
 				herohealth = col.gameObject.GetComponent<Enemy> ().updateHealth = col.gameObject.GetComponent<Enemy> ().updateHealth- 1f;
-			if (anim.GetBool ("isAttacking") == false) { //does it once but bein in a foreach ---- umm might change this 
-				anim.SetBool ("isAttacking", true);
-			}
-
 				//turrethealth = col.gameObject.GetComponent<Turret> ().updateHealth = col.gameObject.GetComponent<Turret> ().updateHealth - 1f;
 				//enemyhealth = EnemyMovement.health - 1;
 			return;
 			}
-	
 
 		if (herohealth == null) {
 			return;
@@ -160,10 +143,6 @@ public class EnemyMovement2 : MonoBehaviour {
 		//Debug.Log ("stop");
 
 		//}
-	}
-
-	void destroySelf(){
-		Destroy (gameObject);
 	}
 
 	//void GetNextWaypoint()

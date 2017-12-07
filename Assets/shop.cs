@@ -16,6 +16,7 @@ public class shop : MonoBehaviour {
 	public bool canclickM = false;
 	public bool canClickR = false;
 	public bool canClickAOE = false;
+	public GameObject path;
 
 
 	void Start ()
@@ -28,6 +29,7 @@ public class shop : MonoBehaviour {
 		WaypointScript.L1 = false;
 		WaypointScript.R1 = false;
 		WaypointScript.C1 = true;
+		path.SetActive (false);
 		//Debug.Log ("East Gate");
 		//Enemy.gate = 1;
 	}
@@ -37,6 +39,7 @@ public class shop : MonoBehaviour {
 		WaypointScript.L1 = false;
 		WaypointScript.R1 = true;
 		WaypointScript.C1 = false;
+		path.SetActive (false);
 		//Debug.Log ("North Gate");
 		//Enemy.gate = 4;
 	}
@@ -45,6 +48,8 @@ public class shop : MonoBehaviour {
 		WaypointScript.L1 = true;
 		WaypointScript.R1 = false;
 		WaypointScript.C1 = false;
+		path.SetActive (false);
+		//path.SetActive (false);
 	}
 
 	public void PurchaseMelee()
@@ -53,6 +58,8 @@ public class shop : MonoBehaviour {
 //		waveSpawner.SpawnEnemy (waveSpawner.enemyPrefabMelee);
 		ButtonHit = false;
 		WaveSpawner.MinonBuild = 1;
+		path.SetActive (true);
+		WaypointScript.lights = true;
 		StartCoroutine (SpawnWave());
 
 	}
@@ -61,18 +68,22 @@ public class shop : MonoBehaviour {
 	{
 		Debug.Log ("range");
 		WaveSpawner.MinonBuild = 2;
+		WaypointScript.lights = true;
+		path.SetActive (true);
 	}
 
 	public void PurchaseAOE()
 	{
 		Debug.Log ("AOE");
 		WaveSpawner.MinonBuild = 3;
+		WaypointScript.lights = true;
+		path.SetActive (true);
 
 	}
 
 	IEnumerator SpawnWave()
 	{
-
+		//path.SetActive (false);
 		canclickM = true;
 		canClickR = true;
 		canClickAOE = true;
@@ -81,15 +92,23 @@ public class shop : MonoBehaviour {
 		//SupportButton.interactable = true;
 		yield return new WaitForSeconds (0.5f);
 		ButtonHit = true;
+		Reset ();
 	}
 
 	void Update (){
-		if(WaveSpawner.currency >= 3.0f && ButtonHit == true){
-			canclickM = true; 
-//			MeleeButton.interactable = true;
 
-		}else{
+		if (WaypointScript.lights == false) {
+			path.SetActive (false);
+		}
+		if (WaveSpawner.currency >= 3.0f && ButtonHit == true) {
+			canclickM = true; 
+			//path.SetActive (true);
+//			MeleeButton.interactable = true;
+			//path.SetActive (false);
+
+		} else {
 			canclickM = false; 
+			//path.SetActive (false);
 
 //			MeleeButton.interactable = false;
 
@@ -97,23 +116,37 @@ public class shop : MonoBehaviour {
 
 		if (WaveSpawner.currency >= 4.0f && ButtonHit == true) {
 			canClickR = true;
+			//path.SetActive (false);
+
 //			RangeButton.interactable = true;
 		} else {
 			canClickR = false;
+			//path.SetActive (false);
 
 //			RangeButton.interactable = false;
 		}
 
 		if (WaveSpawner.currency >= 4.0f && ButtonHit == true) {
 			canClickAOE = true;
-
+			//path.SetActive (false);
 //			SupportButton.interactable = true;
-		}else{
+		} else {
 			canClickAOE = false;
+			//path.SetActive (false);
 
 //			SupportButton.interactable = false;
 
-}
+		}
+	}
+			void Reset (){
+				WaypointScript.L1 = false;
+				WaypointScript.R1 = false;
+				WaypointScript.C1 = false;
+		return;
 
-}
+			}
+
+
+
+
 }

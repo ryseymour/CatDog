@@ -16,7 +16,7 @@ public class WaveSpawner : MonoBehaviour {
 	public WaypointScript Startpoint;
 	public WaypointScript targetWaypoint;
 	public bool tech;
-	public GameObject minion1;//flea - 
+	public GameObject minion1;
 	public GameObject minion2;
 	public GameObject minion3;
 	//public GameObject SetMinonToBuild;

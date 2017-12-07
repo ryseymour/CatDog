@@ -15,11 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Level0.unity
     guid: 88f744c5ac5b1457cbb5c4a97b67e88f
   - enabled: 1
-    path: Assets/Che Dialogue Scenes/CLevel1.unity
-    guid: 2a09d53489fcc429281e31b84698958f
+    path: Assets/Scenes/CLevel1.unity
+    guid: 8c169a7b50a6f4efd90d9318eb4d96d1
   - enabled: 1
-    path: Assets/Che Dialogue Scenes/DLevel1.unity
-    guid: 5c5275b6a40c84e8389ebd16507531ee
+    path: Assets/Scenes/DLevel1.unity
+    guid: 42846e39f7eee40f7a90714490607f9d
   - enabled: 1
     path: Assets/Scenes/CLevel2.unity
     guid: 9f4940b966dd548e7809a56f34f5b786
@@ -27,23 +27,11 @@ EditorBuildSettings:
     path: Assets/Scenes/DLevel2.unity
     guid: da761e39ff1bd4ff392a05f5dd9858df
   - enabled: 1
-    path: Assets/Che Dialogue Scenes/CLevel3.unity
-    guid: 9a496a1ed17164eeda058054d4e7268c
+    path: Assets/Scenes/CLevel3.unity
+    guid: fab39c8ea31b841308941e7d576ed311
   - enabled: 1
-    path: Assets/Che Dialogue Scenes/DLevel3.unity
-    guid: e39762224b02b40b69f45b552dc8a3d8
+    path: Assets/Scenes/DLevel3.unity
+    guid: d8de3f132e8604aafa77f3db8843c470
   - enabled: 1
     path: Assets/CLevel4.unity
     guid: bb97d6156baa142958a00522b8e139f0
-  - enabled: 0
-    path: Assets/Scenes/CLevel3.unity
-    guid: fab39c8ea31b841308941e7d576ed311
-  - enabled: 0
-    path: Assets/Scenes/DLevel3.unity
-    guid: d8de3f132e8604aafa77f3db8843c470
-  - enabled: 0
-    path: Assets/Scenes/CLevel1.unity
-    guid: 8c169a7b50a6f4efd90d9318eb4d96d1
-  - enabled: 0
-    path: Assets/Scenes/DLevel1.unity
-    guid: 42846e39f7eee40f7a90714490607f9d

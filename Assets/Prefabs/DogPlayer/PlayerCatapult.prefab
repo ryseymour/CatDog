@@ -331,7 +331,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1283032134328296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -285.7759, y: 5.06, z: 234.54608}
+  m_LocalPosition: {x: -277.8706, y: 6.57, z: 238.95522}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4858290292300676}
@@ -466,7 +466,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1651694913274924}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 60288fc3bf86448c3a7907f0a9c3d703, type: 3}
   m_Controller: {fileID: 9100000, guid: 93b59494fd25848cfa4b4c3137ca2e94, type: 2}
   m_CullingMode: 1
@@ -637,13 +637,9 @@ MonoBehaviour:
   speed: 10
   radius: 0
   colliders: []
-  colliders2: []
   selfColliders: []
   turretCollider: []
   mask:
-    serializedVersion: 2
-    m_Bits: 0
-  mask2:
     serializedVersion: 2
     m_Bits: 0
   maskSelf:
@@ -655,10 +651,8 @@ MonoBehaviour:
   health: 75
   updateHealth: 0
   damage: 1
-  def: 1
   speedchange: {fileID: 0}
   stopCollider: 0
-  anim: {fileID: 0}
   healthbar: {fileID: 114480726605673128}
 --- !u!114 &114957231427948958
 MonoBehaviour:

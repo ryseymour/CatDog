@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.16249648, g: 0.18538323, b: 0.1441643, a: 1}
+  m_IndirectSpecularColor: {r: 0.16249675, g: 0.18538326, b: 0.14416444, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2014,9 +2014,6 @@ MonoBehaviour:
   RangeButton: {fileID: 0}
   SupportButton: {fileID: 0}
   ButtonHit: 1
-  canclickM: 0
-  canClickR: 0
-  canClickAOE: 0
 --- !u!222 &305113095
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6083,7 +6080,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
@@ -6677,7 +6674,6 @@ MonoBehaviour:
   health: 1000
   updateHealth: 0
   healthbar: {fileID: 1997353160}
-  isPlayerCastle: 0
 --- !u!1001 &976768858
 Prefab:
   m_ObjectHideFlags: 0
@@ -9070,7 +9066,6 @@ MonoBehaviour:
   health: 1000
   updateHealth: 0
   healthbar: {fileID: 2113711341}
-  isPlayerCastle: 0
 --- !u!1 &1236946805
 GameObject:
   m_ObjectHideFlags: 0
@@ -9849,7 +9844,7 @@ Camera:
   m_GameObject: {fileID: 1318541564}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -10061,7 +10056,6 @@ MonoBehaviour:
   health: 50
   updateHealth: 0
   healthbar: {fileID: 1181718788}
-  anim: {fileID: 0}
   stopCollider: 0
 --- !u!114 &1369487225
 MonoBehaviour:
@@ -13151,7 +13145,6 @@ MonoBehaviour:
   health: 200
   updateHealth: 0
   healthbar: {fileID: 1017969905}
-  anim: {fileID: 0}
   stopCollider: 0
 --- !u!4 &1827681486
 Transform:
@@ -14955,9 +14948,6 @@ MonoBehaviour:
   RangeButton: {fileID: 2049821779}
   SupportButton: {fileID: 1632951588}
   ButtonHit: 1
-  canclickM: 0
-  canClickR: 0
-  canClickAOE: 0
 --- !u!1 &2049821778
 GameObject:
   m_ObjectHideFlags: 0
