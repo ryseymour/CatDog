@@ -18,7 +18,7 @@ public class AnimatorMinionManager : MonoBehaviour {
 	}
 	
 
-
+	//use this method 
 	public void canAttack(bool isAttacking){
 		anim.SetBool ("isAttacking", isAttacking);
 	

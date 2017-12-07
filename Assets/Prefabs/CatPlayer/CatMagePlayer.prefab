@@ -620,6 +620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4168816007062550}
   - component: {fileID: 95275706802108818}
+  - component: {fileID: 114783737410141180}
   m_Layer: 0
   m_Name: FinalCatMage
   m_TagString: Untagged
@@ -693,7 +694,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1657218147859462}
-  m_LocalRotation: {x: -0.62052524, y: -0.31472373, z: -0.2990523, w: 0.6530431}
+  m_LocalRotation: {x: -0.6205252, y: -0.3147237, z: -0.29905227, w: 0.65304303}
   m_LocalPosition: {x: -0.33952403, y: 2.0550323, z: -0.86663675}
   m_LocalScale: {x: 0.99999994, y: 0.99999976, z: 0.9999999}
   m_Children: []
@@ -1081,7 +1082,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1658303561257294}
   m_LocalRotation: {x: -0, y: -0.9999576, z: -0, w: -0.009207088}
-  m_LocalPosition: {x: -295.88806, y: 4.09, z: 261.55664}
+  m_LocalPosition: {x: -280.9433, y: 7.250032, z: 246.69989}
   m_LocalScale: {x: 0.1700609, y: 0.17006087, z: 0.17006087}
   m_Children:
   - {fileID: 4390775353128590}
@@ -1272,7 +1273,7 @@ Animator:
   m_GameObject: {fileID: 1827816508980058}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 924477468befe4941a05d65bd5e6f4a4, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da9e2592f94c145f3a204e4f812e67b3, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1287,7 +1288,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1399014657199508}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 4148883767c14433586f40b92a5a8a04, type: 3}
   m_Controller: {fileID: 9100000, guid: d7320c6195ce14286845a23b98eb66d9, type: 2}
   m_CullingMode: 1
@@ -1471,8 +1472,10 @@ MonoBehaviour:
   health: 50
   updateHealth: 0
   damage: 2
+  def: 1
   speedchange: {fileID: 0}
   stopCollider: 0
+  anim: {fileID: 0}
   healthbar: {fileID: 114424266043580470}
 --- !u!114 &114675973530357446
 MonoBehaviour:
@@ -1501,7 +1504,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1399014657199508}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdb4a4e6174754c3ba1770c2b868034b, type: 3}
   m_Name: 
@@ -1510,6 +1513,21 @@ MonoBehaviour:
   wizzardPrefab: {fileID: 1115748954480440, guid: 3bb5ef354f0884b8685f976fd77c8024,
     type: 2}
   AvatarLocation: {fileID: 4390775353128590}
+--- !u!114 &114783737410141180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1827816508980058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb4a4e6174754c3ba1770c2b868034b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAttacking: 0
+  wizzardPrefab: {fileID: 1029110901740482, guid: a982a99c0a3cb4bdcb2d6fc33e5efda7,
+    type: 2}
+  AvatarLocation: {fileID: 4785930388052180}
 --- !u!135 &135854480051686972
 SphereCollider:
   m_ObjectHideFlags: 1

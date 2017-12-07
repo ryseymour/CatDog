@@ -666,6 +666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4502476780904826}
   - component: {fileID: 95547079321321818}
+  - component: {fileID: 114651236345548574}
   m_Layer: 9
   m_Name: finalBugRed
   m_TagString: Untagged
@@ -1171,7 +1172,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1492649542401520}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -305.52765, y: 4.04, z: 192.76648}
+  m_LocalPosition: {x: -270.20764, y: 3.2200317, z: 309.3524}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4679588252872550}
@@ -1480,7 +1481,22 @@ MonoBehaviour:
   health: 200
   updateHealth: 0
   healthbar: {fileID: 114172018499271438}
+  anim: {fileID: 0}
   stopCollider: 0
+--- !u!114 &114651236345548574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931081869927888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb4a4e6174754c3ba1770c2b868034b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAttacking: 0
+  wizzardPrefab: {fileID: 0}
+  AvatarLocation: {fileID: 0}
 --- !u!114 &114669936274560694
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -24,6 +24,8 @@ public class EnemyMovement : MonoBehaviour {
 	private float castlehealth;
 	public float updateHealth;
 	public Image healthbar;
+	public Animator anim;
+	bool canClick;
 
 	//private float enemyhealth;
 	public int stopCollider;
@@ -60,6 +62,11 @@ public class EnemyMovement : MonoBehaviour {
 		updateHealth = health;
 
 	}
+	void Start(){
+		anim = GetComponentInChildren<Animator> ();
+		canClick = false;
+
+	}
 
 	void Update ()
 	{
@@ -73,8 +80,15 @@ public class EnemyMovement : MonoBehaviour {
 		healthbar.fillAmount = updateHealth/health;
 
 		if (updateHealth <=0f) {
-			Destroy(gameObject);
-			WaveSpawner.currency = WaveSpawner.currency + 1;
+			/////////////*******
+			anim.SetBool("isDead",true);
+			if (!canClick) {
+				WaveSpawner.currency = WaveSpawner.currency + 1;
+				canClick = true;
+
+			}
+			Invoke("destroySelf",1.5f);
+
 			//currencyPlus = GameObject.Find ("GameMaster").GetComponent<WaveSpawner> ().gameObject.currency = currency + 1;
 			return;
 
@@ -100,6 +114,9 @@ public class EnemyMovement : MonoBehaviour {
 			//variable.GetComponent<PlayerScript> ().PlayerSpeed = 5f;
 			//speedchange.PlayerSpeed = 5f;
 			//speed = 10f;
+			if (anim.GetBool ("isAttacking") == true) {
+				anim.SetBool ("isAttacking", false);
+			}
 			stopCollider = 0;
 		}
 
@@ -114,6 +131,11 @@ public class EnemyMovement : MonoBehaviour {
 
 			foreach (Collider col in colliders) {
 				herohealth = col.gameObject.GetComponent<Enemy> ().updateHealth = col.gameObject.GetComponent<Enemy> ().updateHealth- 1f;
+				//TODO 
+			if (anim.GetBool ("isAttacking") == false) {
+				anim.SetBool ("isAttacking", true);
+			}
+				
 				//turrethealth = col.gameObject.GetComponent<Turret> ().updateHealth = col.gameObject.GetComponent<Turret> ().updateHealth - 1f;
 				//enemyhealth = EnemyMovement.health - 1;
 			return;
@@ -127,6 +149,9 @@ public class EnemyMovement : MonoBehaviour {
 			foreach (Collider col in turretCollider) {
 				turrethealth = col.gameObject.GetComponent<TurretHP> ().updateHealth = col.gameObject.GetComponent<TurretHP> ().updateHealth - 1f;
 				Debug.Log ("turret");
+				if (anim.GetBool ("isAttacking") == false) {
+					anim.SetBool ("isAttacking", true);
+				}
 				return;
 			}
 		}
@@ -144,6 +169,10 @@ public class EnemyMovement : MonoBehaviour {
 		//Debug.Log ("stop");
 
 		//}
+	}
+
+	void destroySelf(){
+		Destroy(gameObject);
 	}
 
 	//void GetNextWaypoint()

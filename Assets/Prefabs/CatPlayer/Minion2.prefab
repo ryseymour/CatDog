@@ -323,6 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4040807086755740}
   - component: {fileID: 95525313280883298}
+  - component: {fileID: 114879336420752234}
   m_Layer: 0
   m_Name: FinalBuge
   m_TagString: Untagged
@@ -848,7 +849,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1226440554897894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -302.90424, y: 3.72, z: 263.95752}
+  m_LocalPosition: {x: -276.81622, y: 3.2200317, z: 310.11398}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4956688298531850}
@@ -1558,7 +1559,7 @@ Animator:
   m_GameObject: {fileID: 1399172043792468}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 447cbd5763a254f49900b68023dd703d, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 21e4f12131ebf4f04be5b3eaf41bbe07, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1670,8 +1671,10 @@ MonoBehaviour:
   health: 100
   updateHealth: 0
   damage: 1
+  def: 1
   speedchange: {fileID: 0}
   stopCollider: 0
+  anim: {fileID: 0}
   healthbar: {fileID: 114513394834867672}
 --- !u!114 &114235639539416048
 MonoBehaviour:
@@ -1748,6 +1751,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114879336420752234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1399172043792468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb4a4e6174754c3ba1770c2b868034b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAttacking: 0
+  wizzardPrefab: {fileID: 0}
+  AvatarLocation: {fileID: 0}
 --- !u!114 &114905827587506560
 MonoBehaviour:
   m_ObjectHideFlags: 1

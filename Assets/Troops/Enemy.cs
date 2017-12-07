@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour {
 
 	public PlayerScript speedchange;
 	public int stopCollider;
-
+	public Animator anim;
 	//private float SpeedStop = 0f;
 
 	public Image healthbar;
@@ -53,6 +53,8 @@ public class Enemy : MonoBehaviour {
 	void Start(){
 		health += FungusManager.instance.attack;
 		damage += FungusManager.instance.attack;
+		anim = GetComponentInChildren<Animator> ();
+
 	}
 
 	void Update ()
@@ -67,7 +69,8 @@ public class Enemy : MonoBehaviour {
 		healthbar.fillAmount = updateHealth/health;
 
 		if (updateHealth <=0f) {
-			Destroy(gameObject);
+			anim.SetBool ("IsDead", true);
+			Invoke ("Destroyself", 1.5f);
 			return;
 
 		}
@@ -91,6 +94,9 @@ public class Enemy : MonoBehaviour {
 			//variable.GetComponent<PlayerScript> ().PlayerSpeed = 5f;
 			//speedchange.PlayerSpeed = 5f;
 			//speed = 10f;
+			if (anim.GetBool ("isAttacking") == true) {
+				anim.SetBool ("isAttacking", false);
+			}
 			stopCollider = 0;
 		}
 			
@@ -106,6 +112,10 @@ public class Enemy : MonoBehaviour {
 		foreach (Collider col in colliders) {
 			enemyhealth = col.gameObject.GetComponent<EnemyMovement> ().updateHealth = col.gameObject.GetComponent<EnemyMovement> ().updateHealth - damage ;
 
+
+			if (anim.GetBool ("isAttacking") == false) {
+				anim.SetBool ("isAttacking", true);
+			}
 
 			return;
 			//enemyhealth = EnemyMovement.health - 1;
@@ -154,6 +164,12 @@ public class Enemy : MonoBehaviour {
 
 		//}
 	}
+
+
+	void Destroyself(){
+		Destroy (gameObject);
+	}
+
 
 	//void OnTriggerEnter(Collider other){
 		//if (other.CompareTag("Minion"))
