@@ -243,7 +243,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -893192746
+  randomSeed: 1024586688
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3721,7 +3721,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1672974084
+  randomSeed: 1131777340
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7974,8 +7974,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1622501583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 306.5, y: 172.5, z: 0}
-  m_LocalScale: {x: 0.2875, y: 0.2875, z: 0.2875}
+  m_LocalPosition: {x: 459.5, y: 216.5, z: 0}
+  m_LocalScale: {x: 0.36083335, y: 0.36083335, z: 0.36083335}
   m_Children:
   - {fileID: 725499007}
   m_Father: {fileID: 0}
@@ -8001,6 +8001,9 @@ GameObject:
   - component: {fileID: 1650949373}
   - component: {fileID: 1650949374}
   - component: {fileID: 1650949371}
+  - component: {fileID: 1650949380}
+  - component: {fileID: 1650949379}
+  - component: {fileID: 1650949378}
   m_Layer: 0
   m_Name: Intro
   m_TagString: Untagged
@@ -8032,8 +8035,10 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1650949372}
+  selectedCommands:
+  - {fileID: 1650949371}
   variables: []
   description: 
   stepPause: 0
@@ -8092,6 +8097,9 @@ MonoBehaviour:
   commandList:
   - {fileID: 1650949375}
   - {fileID: 1650949374}
+  - {fileID: 1650949380}
+  - {fileID: 1650949379}
+  - {fileID: 1650949378}
   - {fileID: 1650949373}
   - {fileID: 1650949371}
 --- !u!114 &1650949373
@@ -8107,7 +8115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 2
   indentLevel: 0
-  storyText: 'choose your side '
+  storyText: But first,  choose a race. Are you a cat or a dog?
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -8133,9 +8141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 3
   indentLevel: 0
-  storyText: 'INTO TEXT GOE S here  - INTO TEXT GOE S here  - INTO TEXT GOE S here  -
-    INTO TEXT GOE S here  - INTO TEXT GOE S here  - INTO TEXT GOE S here  - INTO TEXT
-    GOE S here  - '
+  storyText: 'Luckily you''ve been well equipped by your recently divorced parents,
+    The Queen of the North and The King of the South.  '
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -8161,7 +8168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 1
   indentLevel: 0
-  storyText: the story begins...
+  storyText: the story begins...You are a young prince with your first kingdom and
+    you are already engaged in your first war.
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -8201,6 +8209,87 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1650949378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1650949369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 7
+  indentLevel: 0
+  storyText: You can hire minions as fast as you can pay for them. But there's nothing
+    you can do to get them quicker. You just have to wait for the money.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1650949379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1650949369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 6
+  indentLevel: 0
+  storyText: Hire minions to fight for you. Different types of minions have different
+    skills on the battlefields, and cost different amounts of money.
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1650949380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1650949369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 5
+  indentLevel: 0
+  storyText: 'But be careful how you speak to them. The emotions are still very raw  from
+    the separation so they may choose to help or hurt your situation. '
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!1 &2097888666
 GameObject:
   m_ObjectHideFlags: 0
