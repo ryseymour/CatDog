@@ -50,6 +50,14 @@ public class WaveSpawner : MonoBehaviour {
 		waveCountdownText.text = Mathf.Round(currency).ToString();
 
 		SpawnEnemy ();
+
+		if (Input.GetKeyDown (KeyCode.Q)) {
+			
+			currency += 10;
+
+		}
+
+
 //		StartCoroutine (SpawnWave());
 	}
 

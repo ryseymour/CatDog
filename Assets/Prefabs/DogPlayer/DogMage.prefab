@@ -391,7 +391,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1329448861168982}
   m_LocalRotation: {x: -0, y: -0.9999576, z: -0, w: -0.009207088}
-  m_LocalPosition: {x: -302.43, y: 5.23, z: 222.04}
+  m_LocalPosition: {x: -4.6411405, y: -51.445858, z: -182.31488}
   m_LocalScale: {x: 0.1700609, y: 0.17006087, z: 0.17006087}
   m_Children:
   - {fileID: 4646686477136146}
@@ -785,8 +785,10 @@ MonoBehaviour:
   health: 50
   updateHealth: 0
   damage: 2
+  def: 1
   speedchange: {fileID: 0}
   stopCollider: 0
+  anim: {fileID: 95561105761806022}
   healthbar: {fileID: 114639211386357724}
 --- !u!114 &114639211386357724
 MonoBehaviour:
@@ -826,7 +828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb4a4e6174754c3ba1770c2b868034b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAttacking: 1
+  isAttacking: 0
   wizzardPrefab: {fileID: 1115748954480440, guid: 3bb5ef354f0884b8685f976fd77c8024,
     type: 2}
   AvatarLocation: {fileID: 4646686477136146}

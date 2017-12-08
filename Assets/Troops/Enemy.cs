@@ -33,6 +33,8 @@ public class Enemy : MonoBehaviour {
 	public int stopCollider;
 
 	//private float SpeedStop = 0f;
+	public Animator anim;
+
 
 	public Image healthbar;
 
@@ -67,10 +69,15 @@ public class Enemy : MonoBehaviour {
 		healthbar.fillAmount = updateHealth/health;
 
 		if (updateHealth <=0f) {
-			Destroy(gameObject);
+			anim.Play ("Dead");
+			anim.SetBool ("IsDead", true);
+			Invoke ("Destroyself", 1.5f);
 			return;
 
 		}
+
+
+	
 		if (colliders.Length >= 1 || selfColliders.Length>=2 || turretCollider.Length>1 || colliders2.Length >= 1){
 
 			//speedchange.PlayerSpeed = 0f;
@@ -88,6 +95,12 @@ public class Enemy : MonoBehaviour {
 			//ColliderHealth ();
 
 		} else {
+
+
+			if (anim.GetBool ("isAttacking") == true) {
+				anim.SetBool ("isAttacking", false);
+			}
+
 			//variable.GetComponent<PlayerScript> ().PlayerSpeed = 5f;
 			//speedchange.PlayerSpeed = 5f;
 			//speed = 10f;
@@ -105,6 +118,10 @@ public class Enemy : MonoBehaviour {
 
 		foreach (Collider col in colliders) {
 			enemyhealth = col.gameObject.GetComponent<EnemyMovement> ().updateHealth = col.gameObject.GetComponent<EnemyMovement> ().updateHealth - damage ;
+
+			if (anim.GetBool ("isAttacking") == false) {
+				anim.SetBool ("isAttacking", true);
+			}
 
 
 			return;
@@ -154,6 +171,14 @@ public class Enemy : MonoBehaviour {
 
 		//}
 	}
+
+
+	void Destroyself(){
+		Debug.Log ("INVOKED Destroyed");
+
+		Destroy (gameObject);
+	}
+
 
 	//void OnTriggerEnter(Collider other){
 		//if (other.CompareTag("Minion"))
