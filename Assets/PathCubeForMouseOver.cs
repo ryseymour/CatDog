@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathCubeForMouseOver : MonoBehaviour {
+public class PathCubeForMouseOver2 : MonoBehaviour {
 
 	public int mouseOverCount = 0;
 	public GameObject pathlights;

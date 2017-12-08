@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaypointScript : MonoBehaviour {
+public class WaypointScriptOld : MonoBehaviour {
 
 	public WaypointScript next;
 	public bool isTurretLocation = false;

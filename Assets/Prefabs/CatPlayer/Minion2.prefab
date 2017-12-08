@@ -1002,7 +1002,7 @@ MonoBehaviour:
   turret:
     serializedVersion: 2
     m_Bits: 2048
-  health: 100
+  health: 500
   updateHealth: 0
   damage: 1
   def: 1

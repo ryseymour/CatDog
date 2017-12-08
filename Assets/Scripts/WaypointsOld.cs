@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Waypoints : MonoBehaviour {
+public class WaypointsOld : MonoBehaviour {
 
 	public static Transform[] points;
 

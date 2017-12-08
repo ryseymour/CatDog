@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZoneScript : MonoBehaviour {
+public class ZoneScriptOld : MonoBehaviour {
 	public static int Zone1;
 	public static int Zone2;
 	// Use this for initialization
