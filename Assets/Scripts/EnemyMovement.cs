@@ -24,6 +24,7 @@ public class EnemyMovement : MonoBehaviour {
 	private float castlehealth;
 	public float updateHealth;
 	public Image healthbar;
+	//public GameObject backBlock;
 
 	//private float enemyhealth;
 	public int stopCollider;
@@ -124,6 +125,7 @@ public class EnemyMovement : MonoBehaviour {
 		}
 		turretCollider = Physics.OverlapSphere (transform.position, radius, turret);
 		if (turretCollider != null) {
+			
 			foreach (Collider col in turretCollider) {
 				turrethealth = col.gameObject.GetComponent<TurretHP> ().updateHealth = col.gameObject.GetComponent<TurretHP> ().updateHealth - 1f;
 				Debug.Log ("turret");

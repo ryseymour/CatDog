@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 4785930388052180}
   - component: {fileID: 114591990629701880}
   - component: {fileID: 135854480051686972}
+  - component: {fileID: 135310751670910584}
   m_Layer: 8
   m_Name: CatMagePlayer
   m_TagString: Player
@@ -587,7 +588,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1658303561257294}
   m_LocalRotation: {x: -0, y: -0.9999576, z: -0, w: -0.009207088}
-  m_LocalPosition: {x: -3.7945843, y: -50.228252, z: -188.60265}
+  m_LocalPosition: {x: -295.88806, y: 4.09, z: 261.55664}
   m_LocalScale: {x: 0.1700609, y: 0.17006087, z: 0.17006087}
   m_Children:
   - {fileID: 224635790771436454}
@@ -875,6 +876,18 @@ MonoBehaviour:
   wizzardPrefab: {fileID: 1029110901740482, guid: a982a99c0a3cb4bdcb2d6fc33e5efda7,
     type: 2}
   AvatarLocation: {fileID: 4168816007062550}
+--- !u!135 &135310751670910584
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1658303561257294}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.48
+  m_Center: {x: 0, y: -2.36, z: 8.81}
 --- !u!135 &135854480051686972
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -886,7 +899,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 3.36
-  m_Center: {x: 0.07, y: -1.3, z: 0.55}
+  m_Center: {x: 0.07, y: -2.08, z: -65.1}
 --- !u!137 &137937008086313980
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

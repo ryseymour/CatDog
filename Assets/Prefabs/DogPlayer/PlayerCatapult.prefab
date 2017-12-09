@@ -545,12 +545,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 15
+  range: 20
   fireRate: 1
   bulletPrefab: {fileID: 1441394168510168, guid: c6fb0bbb03c03a54a99e9de895952274,
     type: 2}
   firePoint: {fileID: 4227175673898856}
-  health: 0
+  health: 1
   updateHealth: 0
   healthbar: {fileID: 0}
 --- !u!114 &114230352666016528
@@ -652,7 +652,7 @@ MonoBehaviour:
   turret:
     serializedVersion: 2
     m_Bits: 0
-  health: 75
+  health: 750
   updateHealth: 0
   damage: 1
   def: 1
