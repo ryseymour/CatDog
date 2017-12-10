@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 135615738168439936}
   - component: {fileID: 135440926472858408}
   - component: {fileID: 114691013361389938}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: DogEnemy2
   m_TagString: Minion
   m_Icon: {fileID: 0}
@@ -560,7 +560,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1931081869927888}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.00021807462}
+  m_LocalRotation: {x: -0, y: 0.99835145, z: -0, w: 0.057396602}
   m_LocalPosition: {x: 0, y: -1.28, z: 0}
   m_LocalScale: {x: 0.7076396, y: 0.70763934, z: 0.7076396}
   m_Children:
@@ -569,7 +569,7 @@ Transform:
   - {fileID: 4367910998987972}
   m_Father: {fileID: 4758555652616942}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 173.419, z: 0}
 --- !u!4 &4515481751190420
 Transform:
   m_ObjectHideFlags: 1
@@ -617,7 +617,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1492649542401520}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -325.76508, y: 6.1350307, z: 244.7198}
+  m_LocalPosition: {x: -343.49768, y: 4.73, z: 568.3522}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224938943512379170}
@@ -864,7 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599c2f45096abbe4682c2788eb5764a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0
+  radius: 1
   colliders: []
   selfColliders: []
   turretCollider: []
@@ -879,7 +879,7 @@ MonoBehaviour:
     m_Bits: 1024
   health: 150
   updateHealth: 0
-  healthbar: {fileID: 0}
+  healthbar: {fileID: 114172018499271438}
   stopCollider: 0
 --- !u!114 &114969988095293282
 MonoBehaviour:
@@ -919,7 +919,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.35
-  m_Center: {x: 0.7, y: -0.38, z: 2.39}
+  m_Center: {x: 0.23, y: -0.11, z: 2.1}
 --- !u!135 &135615738168439936
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -930,8 +930,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.3
-  m_Center: {x: -0.3, y: -0.31, z: -1.79}
+  m_Radius: 2.01
+  m_Center: {x: 0.02, y: -0.31, z: -2.28}
 --- !u!137 &137123134661279420
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
