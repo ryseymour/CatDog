@@ -15,11 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Level0.unity
     guid: 88f744c5ac5b1457cbb5c4a97b67e88f
   - enabled: 1
-    path: Assets/Scenes/CLevel1.unity
-    guid: 8c169a7b50a6f4efd90d9318eb4d96d1
+    path: Assets/1Che Dialogue Scenes/CLevel1.unity
+    guid: afc424b582c04624098fab1d38dc673a
   - enabled: 1
-    path: Assets/Scenes/DLevel1.unity
-    guid: 42846e39f7eee40f7a90714490607f9d
+    path: Assets/1Che Dialogue Scenes/DLevel1.unity
+    guid: 5c5275b6a40c84e8389ebd16507531ee
   - enabled: 1
     path: Assets/Scenes/CLevel2.unity
     guid: 9f4940b966dd548e7809a56f34f5b786
@@ -27,11 +27,38 @@ EditorBuildSettings:
     path: Assets/Scenes/DLevel2.unity
     guid: da761e39ff1bd4ff392a05f5dd9858df
   - enabled: 1
-    path: Assets/Scenes/CLevel3.unity
-    guid: fab39c8ea31b841308941e7d576ed311
+    path: Assets/1Che Dialogue Scenes/CLevel3.unity
+    guid: 2e1d510f6ae35b043838fbabb17d93f9
   - enabled: 1
-    path: Assets/Scenes/DLevel3.unity
-    guid: d8de3f132e8604aafa77f3db8843c470
-  - enabled: 1
+    path: Assets/1Che Dialogue Scenes/DLevel3.unity
+    guid: e39762224b02b40b69f45b552dc8a3d8
+  - enabled: 0
     path: Assets/CLevel4.unity
     guid: bb97d6156baa142958a00522b8e139f0
+  - enabled: 1
+    path: Assets/orgbize/CLevel4.unity
+    guid: 5acdc386649f65a46b3acbfa9372adc7
+  - enabled: 1
+    path: Assets/Scenes/DLevel4.unity
+    guid: 23def55fe5cf74f2ebb0af13d1030e49
+  - enabled: 1
+    path: Assets/1Che Dialogue Scenes/CLevel5.unity
+    guid: f524fc233cc029444a11a9e6bdbcb95c
+  - enabled: 1
+    path: Assets/1Che Dialogue Scenes/DLevel5.unity
+    guid: 9feab5760bacc4e9aa378973e5f761d7
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: cb74e5033157a4d549ede1a990878b7e
+  - enabled: 0
+    path: Assets/Scenes/CLevel3.unity
+    guid: fab39c8ea31b841308941e7d576ed311
+  - enabled: 0
+    path: Assets/Scenes/DLevel3.unity
+    guid: d8de3f132e8604aafa77f3db8843c470
+  - enabled: 0
+    path: Assets/Scenes/DLevel1.unity
+    guid: 42846e39f7eee40f7a90714490607f9d
+  - enabled: 0
+    path: Assets/Scenes/CLevel1.unity
+    guid: 8c169a7b50a6f4efd90d9318eb4d96d1

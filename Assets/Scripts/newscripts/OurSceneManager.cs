@@ -7,7 +7,7 @@ public class OurSceneManager : MonoBehaviour {
 	//TODO if we move back - scene manager will be null for panel - need to add a rest to fi this issue --- for restart issue 
 	public static OurSceneManager instance = null;
 	public static bool isCatLevel = false;
-	public int currentLevel = 0;
+	public  int currentLevel = 0;
 
 	void Awake() {
 		if (instance == null) {
@@ -20,6 +20,11 @@ public class OurSceneManager : MonoBehaviour {
 
 	}
 
+	void Update(){
+		if (Input.GetKey (KeyCode.M)) {
+			MoveToScene ();
+		}
+	}
 
 	public void MainMeuChoice(bool choice ){
 
@@ -28,11 +33,19 @@ public class OurSceneManager : MonoBehaviour {
 		MoveToScene (1);
 	}
 
+	public  void resetSCeneData(){ //call this on game over - 
+	
+		currentLevel = 0;
+		isCatLevel = false;
+		SceneManager.LoadScene ("Level0");
+
+
+	}
 
 	public void MoveToScene(int levelnumber){
 //		currentLevel++; // two 
 		if (isCatLevel) {
-			SceneManager.LoadScene ("CLevel" + levelnumber.ToString ());
+			SceneManager.LoadScene ("CLevel" + levelnumber.ToString());
 									
 		} else {
 			SceneManager.LoadScene ("DLevel" + levelnumber.ToString ());
@@ -62,6 +75,8 @@ public class OurSceneManager : MonoBehaviour {
 	
 	}
 
+
+	//not used 
 	public void GoToWinScene(){ //lose state 
 		if (isCatLevel) {
 			SceneManager.LoadScene ("ENDCATwin");
