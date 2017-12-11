@@ -16,4 +16,9 @@ public class Finder : MonoBehaviour {
 		OurSceneManager.instance.MoveToScene (nextSceneNumber);
 	
 	}
+
+	public void restart(){
+		OurSceneManager.instance.resetSCeneData ();
+
+	}
 }

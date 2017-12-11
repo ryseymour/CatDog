@@ -74,6 +74,9 @@ public class EnemyMovement : MonoBehaviour {
 		healthbar.fillAmount = updateHealth/health;
 
 		if (updateHealth <=0f) {
+			//Assuming this is playerhealth TODO checj this 
+//			OurSceneManager.instance.MoveToScene("GameOver"); //check based on isPlayerCatsle - fif plauer castle true go to next win else go to end scene 
+
 			Destroy(gameObject);
 			WaveSpawner.currency = WaveSpawner.currency + 1;
 			//currencyPlus = GameObject.Find ("GameMaster").GetComponent<WaveSpawner> ().gameObject.currency = currency + 1;
