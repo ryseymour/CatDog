@@ -750,7 +750,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1672453485663852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -280.5717, y: 5.87, z: 213.12036}
+  m_LocalPosition: {x: -336.6015, y: 4.41, z: 273.0294}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4351221399133496}
@@ -928,11 +928,11 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1048068677679004}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 447cbd5763a254f49900b68023dd703d, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 0807e6e1ff5e34ce080e8c18b6fff05b, type: 3}
   m_Controller: {fileID: 9100000, guid: 21e4f12131ebf4f04be5b3eaf41bbe07, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1096,8 +1096,10 @@ MonoBehaviour:
   health: 100
   updateHealth: 0
   damage: 1
+  def: 1
   speedchange: {fileID: 0}
   stopCollider: 0
+  anim: {fileID: 95964026243887182}
   healthbar: {fileID: 114053154401358390}
 --- !u!135 &135598999686094002
 SphereCollider:

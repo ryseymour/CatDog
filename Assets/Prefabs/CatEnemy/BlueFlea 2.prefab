@@ -573,7 +573,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1300273052333256}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -310.1064, y: 4.79, z: 589.91235}
+  m_LocalPosition: {x: -285.3171, y: 13.71, z: 155.45157}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4243150976086936}
@@ -716,7 +716,7 @@ Animator:
   m_GameObject: {fileID: 1157657708707068}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 447cbd5763a254f49900b68023dd703d, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 37d51cbe0c3e5418ba37f4151fdeace6, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -889,7 +889,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.3
+  m_Radius: 1.87
   m_Center: {x: -0.3, y: -0.31, z: -1.79}
 --- !u!135 &135607695793072730
 SphereCollider:
