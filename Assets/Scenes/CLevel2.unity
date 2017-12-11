@@ -5568,7 +5568,7 @@ Prefab:
     - target: {fileID: 224687782308708996, guid: 0ac98abe685a947d2afd1828f929ee94,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 319
+      value: 308
       objectReference: {fileID: 0}
     - target: {fileID: 224687782308708996, guid: 0ac98abe685a947d2afd1828f929ee94,
         type: 2}
@@ -8052,7 +8052,7 @@ MonoBehaviour:
   enemyPrefabAOE: {fileID: 4713858866162560, guid: 8a6faf308e2039f479278cea1539f5ef,
     type: 2}
   spawnPoint: {fileID: 1495520072}
-  timeBetweenWaves: 1
+  timeBetweenWaves: 7
   enemy1: {fileID: 1492649542401520, guid: 367eadce379c2044db7c2475d3d79ff1, type: 2}
   EnemyStartPoint: {fileID: 2130989113}
   waveCountdownText: {fileID: 0}

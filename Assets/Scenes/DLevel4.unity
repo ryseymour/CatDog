@@ -5982,7 +5982,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: tank
+  m_Text: 'Catapult
+
+    $10'
 --- !u!222 &561380647
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6133,7 +6135,7 @@ MonoBehaviour:
   EnemyNext2: {fileID: 0}
   isTurretLocation: 0
   isEnemyTurret: 0
-  isCastle: 0
+  isCastle: 1
   find: {fileID: 0}
   nextR2: {fileID: 0}
   nextC2: {fileID: 0}
@@ -12765,7 +12767,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: AOE!
+  m_Text: 'Wizard
+
+    $4'
 --- !u!222 &1168497015
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19006,9 +19010,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Melee!
+  m_Text: 'Flea
 
-'
+    $3'
 --- !u!222 &1782305030
 CanvasRenderer:
   m_ObjectHideFlags: 0

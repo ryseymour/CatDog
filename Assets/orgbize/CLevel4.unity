@@ -6125,7 +6125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &843585560
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11070,7 +11070,7 @@ MonoBehaviour:
   enemyPrefabAOE: {fileID: 4713858866162560, guid: 8a6faf308e2039f479278cea1539f5ef,
     type: 2}
   spawnPoint: {fileID: 1495520072}
-  timeBetweenWaves: 1
+  timeBetweenWaves: 8
   enemy1: {fileID: 1492649542401520, guid: 367eadce379c2044db7c2475d3d79ff1, type: 2}
   EnemyStartPoint: {fileID: 2130989113}
   waveCountdownText: {fileID: 0}
