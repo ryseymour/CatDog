@@ -100,6 +100,10 @@ public class EnemyMovement : MonoBehaviour {
 			Debug.Log ("stop");
 			//ColliderHealth ();
 
+			if (selfColliders.Length > 1 && stopCollider == 1) {
+				StartCoroutine (StopDestory());
+			}
+
 		} else {
 			//variable.GetComponent<PlayerScript> ().PlayerSpeed = 5f;
 			//speedchange.PlayerSpeed = 5f;
@@ -109,6 +113,18 @@ public class EnemyMovement : MonoBehaviour {
 
 
 			
+	}
+	IEnumerator StopDestory () {
+
+
+		yield return new WaitForSeconds (15f);
+		if (selfColliders.Length > 1 && stopCollider == 1) {
+			Destroy(gameObject);
+		} else{
+			
+
+
+	}
 	}
 
 	void FixedUpdate ()

@@ -94,6 +94,10 @@ public class Enemy : MonoBehaviour {
 			Debug.Log ("stop");
 			//ColliderHealth ();
 
+			if (selfColliders.Length > 1 && stopCollider == 1) {
+				StartCoroutine (StopDestory());
+			}
+
 		} else {
 
 
@@ -107,6 +111,19 @@ public class Enemy : MonoBehaviour {
 			stopCollider = 0;
 		}
 			
+	}
+
+	IEnumerator StopDestory () {
+
+
+		yield return new WaitForSeconds (15f);
+		if (selfColliders.Length > 1 && stopCollider == 1) {
+			Destroy(gameObject);
+		} else{
+
+
+
+		}
 	}
 
 	void FixedUpdate ()

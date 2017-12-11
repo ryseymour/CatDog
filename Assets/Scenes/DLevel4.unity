@@ -3598,7 +3598,7 @@ MonoBehaviour:
   canclickM: 0
   canClickR: 0
   canClickAOE: 0
-  path: {fileID: 0}
+  path: {fileID: 768486038}
 --- !u!222 &368312701
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5923,7 +5923,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 561380643}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.09, y: -21, z: -56}
+  m_LocalPosition: {x: -22.800003, y: -21, z: -56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 419544050}
@@ -5931,7 +5931,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.09, y: -21}
+  m_AnchoredPosition: {x: -22.8, y: -21}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &561380645
@@ -12708,7 +12708,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1168497011}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24, y: -21, z: -56}
+  m_LocalPosition: {x: -5.0999985, y: -21, z: -56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1688839250}
@@ -12716,7 +12716,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24, y: -21}
+  m_AnchoredPosition: {x: -5.1, y: -21}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1168497013
@@ -16404,6 +16404,11 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: -12.7
       objectReference: {fileID: 0}
+    - target: {fileID: 114647319384137880, guid: 6564d009ab4da4d2e96f9467d9b4af05,
+        type: 2}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 768486038}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6564d009ab4da4d2e96f9467d9b4af05, type: 2}
   m_IsPrefabParent: 0
@@ -17392,8 +17397,7 @@ GameObject:
   - component: {fileID: 1638975594}
   - component: {fileID: 1638975595}
   - component: {fileID: 1638975602}
-  - component: {fileID: 1638975596}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Waypoint.Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17442,21 +17446,6 @@ MonoBehaviour:
   nextER1: {fileID: 0}
   nextEC1: {fileID: 0}
   nextEL1: {fileID: 0}
---- !u!114 &1638975596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1638975593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c050c12afa6df44893c2fad862b523, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1000
-  updateHealth: 0
-  healthbar: {fileID: 0}
-  turret: {fileID: 0}
 --- !u!114 &1638975597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20329,7 +20318,7 @@ Prefab:
     - target: {fileID: 224687782308708996, guid: 0ac98abe685a947d2afd1828f929ee94,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: 256.5
+      value: 258.5
       objectReference: {fileID: 0}
     - target: {fileID: 224687782308708996, guid: 0ac98abe685a947d2afd1828f929ee94,
         type: 2}
@@ -20699,9 +20688,8 @@ GameObject:
   - component: {fileID: 1998706670}
   - component: {fileID: 1998706668}
   - component: {fileID: 1998706673}
-  - component: {fileID: 1998706674}
   - component: {fileID: 1998706675}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: WaypointStart.Center.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20816,21 +20804,6 @@ MonoBehaviour:
   nextER1: {fileID: 0}
   nextEC1: {fileID: 0}
   nextEL1: {fileID: 0}
---- !u!114 &1998706674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1998706667}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c050c12afa6df44893c2fad862b523, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1000
-  updateHealth: 0
-  healthbar: {fileID: 0}
-  turret: {fileID: 0}
 --- !u!114 &1998706675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22937,8 +22910,7 @@ GameObject:
   - component: {fileID: 2131033444}
   - component: {fileID: 2131033445}
   - component: {fileID: 2131033451}
-  - component: {fileID: 2131033446}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Waypoint.Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22987,21 +22959,6 @@ MonoBehaviour:
   nextER1: {fileID: 0}
   nextEC1: {fileID: 0}
   nextEL1: {fileID: 0}
---- !u!114 &2131033446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2131033443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c050c12afa6df44893c2fad862b523, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 1000
-  updateHealth: 0
-  healthbar: {fileID: 0}
-  turret: {fileID: 0}
 --- !u!23 &2131033447
 MeshRenderer:
   m_ObjectHideFlags: 0
