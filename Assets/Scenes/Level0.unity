@@ -243,7 +243,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -893192746
+  randomSeed: -1216283558
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3721,7 +3721,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1672974084
+  randomSeed: 1599104246
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7178,6 +7178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59b459e04acca423aa1b29a086fe3d71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLevel: 0
 --- !u!4 &687046523
 Transform:
   m_ObjectHideFlags: 0
@@ -7973,8 +7974,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1622501583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 281, y: 158, z: 0}
-  m_LocalScale: {x: 0.26333332, y: 0.26333332, z: 0.26333332}
+  m_LocalPosition: {x: 367, y: 190.5, z: 0}
+  m_LocalScale: {x: 0.3175, y: 0.3175, z: 0.3175}
   m_Children:
   - {fileID: 725499007}
   m_Father: {fileID: 0}
@@ -8020,11 +8021,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 0, y: 0}
+  scrollPos: {x: 48.30387, y: 28.531986}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 1
+  zoom: 0.84032226
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -8034,7 +8035,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1650949372}
   selectedCommands:
-  - {fileID: 1650949371}
+  - {fileID: 1650949373}
   variables: []
   description: 
   stepPause: 0
@@ -8048,7 +8049,7 @@ MonoBehaviour:
   luaBindingName: flowchart
 --- !u!114 &1650949371
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1650949369}
@@ -8097,7 +8098,7 @@ MonoBehaviour:
   - {fileID: 1650949371}
 --- !u!114 &1650949373
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1650949369}
@@ -8124,7 +8125,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1650949374
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1650949369}

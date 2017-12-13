@@ -790,6 +790,7 @@ GameObject:
   - component: {fileID: 1057293330}
   - component: {fileID: 1057293329}
   - component: {fileID: 1057293328}
+  - component: {fileID: 1057293352}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -915,11 +916,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 461.11783, y: 88.0019}
+  scrollPos: {x: 1317.6194, y: -157.93877}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.44470698
+  zoom: 0.35029292
   scrollViewRect:
     serializedVersion: 2
     x: -343
@@ -928,7 +929,8 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 1057293397}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1057293383}
   variables:
   - {fileID: 1057293321}
   description: 
@@ -1053,7 +1055,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  portrait: {fileID: 21300000, guid: b35bef382aad1412fae0f4b20089c704, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 163604447}
@@ -1197,7 +1199,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 340
     y: 119.55716
-    width: 139.94687
+    width: 141.35211
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1852,7 +1854,7 @@ MonoBehaviour:
   portrait: {fileID: 21300000, guid: af88bacf378ba4d11ba7e24cfda8719a, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 634376233}
+  toPosition: {fileID: 279523872}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -1907,7 +1909,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  portrait: {fileID: 21300000, guid: b35bef382aad1412fae0f4b20089c704, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 163604447}
@@ -2103,7 +2105,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  portrait: {fileID: 21300000, guid: d8a242f65b73145c48aa60d66ef7bd4b, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 163604447}
@@ -2817,7 +2819,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1249.113
     y: 779.54645
-    width: 214.15303
+    width: 215.57571
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3122,7 +3124,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 659.25793
     y: 248.87222
-    width: 228.7694
+    width: 231.27686
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3139,6 +3141,35 @@ MonoBehaviour:
   - {fileID: 1057293343}
   - {fileID: 1057293342}
   - {fileID: 1057293341}
+--- !u!114 &1057293352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1057293266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 403
+  indentLevel: 0
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 1606548959}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1057293353
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3202,7 +3233,7 @@ MonoBehaviour:
   indentLevel: 0
   display: 2
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 0}
   offset: 0
@@ -3231,7 +3262,7 @@ MonoBehaviour:
   indentLevel: 0
   display: 2
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 1606548959}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 0}
   offset: 0
@@ -3634,12 +3665,12 @@ MonoBehaviour:
   indentLevel: 0
   display: 1
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 1606548959}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 21300000, guid: 690049c7f1a9a4d2383bfb5ee592ff6b, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 1726344412}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -3663,7 +3694,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 687.56415
     y: 595.2882
-    width: 163.55792
+    width: 165.61752
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3675,6 +3706,7 @@ MonoBehaviour:
   - {fileID: 1057293369}
   - {fileID: 1057293368}
   - {fileID: 1057293367}
+  - {fileID: 1057293352}
   - {fileID: 1057293366}
   - {fileID: 1057293325}
 --- !u!114 &1057293371
@@ -3739,7 +3771,7 @@ MonoBehaviour:
   indentLevel: 0
   display: 2
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 0}
   offset: 0
@@ -3794,12 +3826,12 @@ MonoBehaviour:
   indentLevel: 0
   display: 1
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  portrait: {fileID: 21300000, guid: b35bef382aad1412fae0f4b20089c704, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 634376233}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -3823,7 +3855,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 656.5181
     y: 414.46857
-    width: 226.52074
+    width: 229.84949
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3854,7 +3886,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  portrait: {fileID: 21300000, guid: d8a242f65b73145c48aa60d66ef7bd4b, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 163604447}
@@ -3881,7 +3913,7 @@ MonoBehaviour:
   indentLevel: 0
   display: 2
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 0}
   offset: 0
@@ -4022,7 +4054,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  portrait: {fileID: 21300000, guid: d8a242f65b73145c48aa60d66ef7bd4b, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 634376233}
@@ -4078,7 +4110,7 @@ MonoBehaviour:
   indentLevel: 0
   display: 2
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 1606548959}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 0}
   offset: 0
@@ -4133,12 +4165,12 @@ MonoBehaviour:
   indentLevel: 0
   display: 1
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 1606548959}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: af88bacf378ba4d11ba7e24cfda8719a, type: 3}
+  portrait: {fileID: 21300000, guid: 7c0093d25b1694fbdb04223b75a98424, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 1726344412}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -4189,12 +4221,12 @@ MonoBehaviour:
   indentLevel: 0
   display: 1
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  portrait: {fileID: 21300000, guid: b35bef382aad1412fae0f4b20089c704, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 163604447}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -4218,7 +4250,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 264.7638
     y: 587.8055
-    width: 163.55792
+    width: 165.61752
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4344,7 +4376,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 461.69955
     y: 487.47232
-    width: 207.40701
+    width: 207.01144
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4453,7 +4485,7 @@ MonoBehaviour:
   indentLevel: 0
   display: 2
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 0}
   offset: 0
@@ -4482,7 +4514,7 @@ MonoBehaviour:
   indentLevel: 0
   display: 2
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 1606548959}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 0}
   offset: 0
@@ -4643,12 +4675,12 @@ MonoBehaviour:
   indentLevel: 0
   display: 1
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 1606548959}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 21300000, guid: af88bacf378ba4d11ba7e24cfda8719a, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 1726344412}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -4860,12 +4892,12 @@ MonoBehaviour:
   indentLevel: 0
   display: 1
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 1606548959}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 21300000, guid: 7c0093d25b1694fbdb04223b75a98424, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 1726344412}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -5321,7 +5353,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 815.968
     y: 1006.7127
-    width: 123.08183
+    width: 124.223595
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5355,7 +5387,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1283.207
     y: 1016.9334
-    width: 123.08183
+    width: 124.223595
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5445,7 +5477,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1027.5801
     y: 924.67694
-    width: 162.4336
+    width: 161.33539
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5941,12 +5973,12 @@ MonoBehaviour:
   indentLevel: 0
   display: 1
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 1606548959}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 690049c7f1a9a4d2383bfb5ee592ff6b, type: 3}
+  portrait: {fileID: 21300000, guid: af88bacf378ba4d11ba7e24cfda8719a, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 1726344412}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -6023,12 +6055,12 @@ MonoBehaviour:
   indentLevel: 0
   display: 1
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  portrait: {fileID: 21300000, guid: b35bef382aad1412fae0f4b20089c704, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 163604447}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -6052,7 +6084,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 451.08643
     y: 183.27106
-    width: 214.15303
+    width: 215.57571
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6148,7 +6180,7 @@ MonoBehaviour:
   indentLevel: 0
   display: 2
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 0}
   offset: 0
@@ -6177,7 +6209,7 @@ MonoBehaviour:
   indentLevel: 0
   display: 2
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 1606548959}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 0}
   offset: 0
@@ -6233,12 +6265,12 @@ MonoBehaviour:
   indentLevel: 0
   display: 1
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  portrait: {fileID: 21300000, guid: d8a242f65b73145c48aa60d66ef7bd4b, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 163604447}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -6289,12 +6321,12 @@ MonoBehaviour:
   indentLevel: 0
   display: 1
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 1606548959}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 21300000, guid: 690049c7f1a9a4d2383bfb5ee592ff6b, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 1726344412}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -6318,7 +6350,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 229.23453
     y: 264.9543
-    width: 223.14772
+    width: 228.4221
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6376,12 +6408,12 @@ MonoBehaviour:
   indentLevel: 0
   display: 1
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  portrait: {fileID: 21300000, guid: b35bef382aad1412fae0f4b20089c704, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 279523872}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -6405,7 +6437,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 462.2453
     y: 332.38547
-    width: 177.04996
+    width: 179.8913
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6497,7 +6529,7 @@ MonoBehaviour:
   indentLevel: 0
   display: 2
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 0}
   offset: 0
@@ -6526,7 +6558,7 @@ MonoBehaviour:
   indentLevel: 0
   display: 2
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 1606548959}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 0}
   offset: 0
@@ -6581,12 +6613,12 @@ MonoBehaviour:
   indentLevel: 0
   display: 1
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 2050037628}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
+  portrait: {fileID: 21300000, guid: d8a242f65b73145c48aa60d66ef7bd4b, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 163604447}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -6636,12 +6668,12 @@ MonoBehaviour:
   indentLevel: 0
   display: 1
   stage: {fileID: 0}
-  character: {fileID: 0}
+  character: {fileID: 1606548959}
   replacedCharacter: {fileID: 0}
   portrait: {fileID: 21300000, guid: 690049c7f1a9a4d2383bfb5ee592ff6b, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 1726344412}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -6663,9 +6695,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 196.19023
+    x: 202.93625
     y: 430.58023
-    width: 218.65038
+    width: 222.7126
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6808,7 +6840,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 997.6574
     y: 775.5844
-    width: 199.53667
+    width: 202.72932
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -7547,7 +7579,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1165.9584
     y: 625.50336
-    width: 172.55261
+    width: 174.1818
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -8334,9 +8366,8 @@ MonoBehaviour:
   nameColor: {r: 1, g: 1, b: 1, a: 1}
   soundEffect: {fileID: 0}
   portraits:
-  - {fileID: 21300000, guid: 17e415eee3ada45308c681baea5fdd61, type: 3}
-  - {fileID: 21300000, guid: 7c0093d25b1694fbdb04223b75a98424, type: 3}
-  - {fileID: 21300000, guid: af88bacf378ba4d11ba7e24cfda8719a, type: 3}
+  - {fileID: 21300000, guid: b35bef382aad1412fae0f4b20089c704, type: 3}
+  - {fileID: 21300000, guid: d8a242f65b73145c48aa60d66ef7bd4b, type: 3}
   portraitsFace: 0
   setSayDialog: {fileID: 2122212054}
   description: 
