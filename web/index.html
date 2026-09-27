@@ -1,0 +1,845 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CatDog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@500;700;800&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<style>
+:root {
+  color-scheme: dark;
+  --night: #121630;
+  --night-2: #1b2146;
+  --ink: #f4ead2;
+  --ink-dim: #b9b1a0;
+  --gold: #e6b84e;
+  --gold-deep: #9a7422;
+  --cat: #4467e0;
+  --dog: #d4453c;
+  --grass: #4d7a3a;
+  --good: #7fd07a;
+  --bad: #ff6b5e;
+  --panel: rgba(18, 22, 48, 0.86);
+  --line: rgba(230, 184, 78, 0.45);
+  --display: "Grenze Gotisch", "UnifrakturCook", Georgia, serif;
+  --body: "Alegreya Sans", "Gill Sans", "Trebuchet MS", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0; background: var(--night); color: var(--ink);
+  font: 17px/1.4 var(--body); overflow: hidden;
+  -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none;
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+#app { position: fixed; inset: 0; }
+#stage { position: absolute; inset: 0; display: block; width: 100%; height: 100%; touch-action: none; }
+.screen { position: absolute; inset: 0; display: flex; }
+[hidden] { display: none !important; }
+
+/* ---------- Title ---------- */
+#title {
+  flex-direction: column; align-items: center; justify-content: center; gap: 22px;
+  padding: max(20px, env(safe-area-inset-top)) 16px max(20px, env(safe-area-inset-bottom));
+  background:
+    radial-gradient(ellipse at 50% 45%, rgba(13,16,38,.88) 0%, rgba(13,16,38,.55) 55%, rgba(13,16,38,.25) 100%);
+  overflow-y: auto;
+}
+.wordmark { font-family: var(--display); font-weight: 800; font-size: clamp(64px, 16vw, 132px); line-height: .85; margin: 0; letter-spacing: .01em; text-align: center; }
+.wordmark .c { color: #8fa7ff; } .wordmark .d { color: #ff8a7f; }
+.tagline { margin: 0; color: var(--ink-dim); font-size: 19px; text-align: center; max-width: 34ch; text-wrap: balance; }
+.sides { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; }
+.side {
+  width: min(260px, 42vw); min-height: 250px; border: 1px solid var(--line); border-radius: 6px; padding: 14px 12px 16px;
+  background: var(--night-2); display: flex; flex-direction: column; align-items: center; gap: 8px; position: relative; overflow: hidden;
+  transition: transform .15s, border-color .15s;
+}
+.side:hover { transform: translateY(-3px); border-color: var(--gold); }
+.side img { height: 150px; width: auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.5)); }
+.side b { font-family: var(--display); font-size: 30px; font-weight: 700; line-height: 1; }
+.side span { color: var(--ink-dim); font-size: 15px; text-align: center; }
+.side.cat b { color: #9db1ff; } .side.dog b { color: #ff9a90; }
+.title-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.btn {
+  border: 1px solid var(--gold); background: transparent; border-radius: 4px; padding: 8px 16px; font-weight: 700; letter-spacing: .04em;
+}
+.btn.solid { background: var(--gold); color: #231a05; }
+.btn:disabled { opacity: .4; cursor: default; }
+.hint { color: var(--ink-dim); font-size: 14px; text-align: center; max-width: 52ch; }
+#loading { font-size: 14px; color: var(--gold); letter-spacing: .08em; text-transform: uppercase; }
+
+/* ---------- Dialogue ---------- */
+#talk { background: #000; overflow: hidden; }
+#talkBg { position: absolute; inset: -20px; background-size: cover; background-position: center; filter: brightness(.55) saturate(.9) blur(2px); transform: scale(1.04); }
+.portrait {
+  position: absolute; bottom: 150px; height: min(62vh, 560px); max-width: 48vw; object-fit: contain;
+  transition: filter .25s, transform .25s; filter: brightness(.45) saturate(.7); transform: translateY(12px);
+}
+#pQ { left: 2vw; } #pK { right: 2vw; }
+.portrait.on { filter: none; transform: none; }
+.portrait.flip { transform: scaleX(-1) translateY(12px); } .portrait.flip.on { transform: scaleX(-1); }
+#badge { position: absolute; left: 50%; bottom: 190px; transform: translateX(-50%); width: 150px; height: 150px; }
+#box {
+  position: absolute; left: 50%; bottom: max(14px, env(safe-area-inset-bottom)); transform: translateX(-50%);
+  width: min(860px, calc(100% - 32px)); min-height: 150px; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 6px; padding: 26px 22px 16px; backdrop-filter: blur(4px); cursor: pointer;
+}
+#who {
+  position: absolute; top: -17px; left: 18px; font-family: var(--display); font-weight: 700; font-size: 24px; line-height: 1;
+  padding: 5px 14px 6px; border-radius: 3px; background: var(--gold); color: #231a05;
+}
+#who.Q { background: #2f3f8f; color: #fff; } #who.K { background: #8f2b24; color: #fff; }
+#line { margin: 0; font-size: clamp(17px, 2.3vw, 21px); max-width: 70ch; min-height: 2.8em; }
+#line.nar { font-style: italic; color: #e9dcc0; }
+#choices { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+#choices button {
+  text-align: left; padding: 10px 14px; border: 1px solid var(--line); background: rgba(255,255,255,.04); border-radius: 4px; font-size: 18px;
+}
+#choices button:hover, #choices button:focus-visible { background: rgba(230,184,78,.16); border-color: var(--gold); }
+#choices button small { color: var(--ink-dim); font-size: 13px; margin-left: 6px; }
+#more { position: absolute; right: 14px; bottom: 8px; color: var(--gold); font-size: 13px; animation: bob 1s infinite alternate; }
+@keyframes bob { to { transform: translateY(3px); } }
+#talkTop { position: absolute; top: max(12px, env(safe-area-inset-top)); left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+#chapterTag { font-family: var(--display); font-size: 22px; color: var(--gold); text-shadow: 0 2px 6px #000; }
+.ghost { border: 1px solid rgba(244,234,210,.35); background: rgba(0,0,0,.35); border-radius: 4px; padding: 5px 10px; font-size: 14px; }
+#sway { position: absolute; top: 56px; left: 50%; transform: translateX(-50%); padding: 6px 14px; border-radius: 3px; font-weight: 700; background: rgba(0,0,0,.6); border: 1px solid var(--line); opacity: 0; transition: opacity .3s; pointer-events: none; }
+#sway.show { opacity: 1; }
+
+/* ---------- Cards (chapter / result) ---------- */
+#card { align-items: center; justify-content: center; background: rgba(8,10,24,.82); padding: 16px; }
+.card-in { text-align: center; max-width: 560px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: 13px; color: var(--gold); }
+.card-in h2 { font-family: var(--display); font-weight: 800; font-size: clamp(44px, 9vw, 76px); line-height: .95; margin: 0; text-wrap: balance; }
+.card-in p { margin: 0; color: var(--ink-dim); text-wrap: balance; }
+.boons { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.boon { font-size: 14px; border: 1px solid var(--line); border-radius: 3px; padding: 4px 10px; }
+
+/* ---------- Battle HUD ---------- */
+#hud { pointer-events: none; flex-direction: column; justify-content: space-between; }
+#hud > * { pointer-events: auto; }
+.bar-top {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 12px; align-items: center;
+  padding: max(10px, env(safe-area-inset-top)) 16px 10px; background: linear-gradient(180deg, rgba(10,12,28,.85), transparent);
+}
+.castle { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.castle.enemy { align-items: flex-end; }
+.castle label { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.hp { width: 100%; max-width: 240px; height: 10px; background: rgba(255,255,255,.12); border-radius: 2px; overflow: hidden; }
+.hp i { display: block; height: 100%; width: 100%; background: var(--good); transition: width .2s; }
+.castle.enemy .hp i { background: var(--bad); margin-left: auto; }
+.mid { text-align: center; }
+.mid b { font-family: var(--display); font-size: 24px; color: var(--gold); line-height: 1; display: block; }
+.mid small { color: var(--ink-dim); font-size: 13px; }
+.bar-bot {
+  display: flex; gap: 10px; align-items: flex-end; justify-content: center; flex-wrap: wrap;
+  padding: 10px 16px max(12px, env(safe-area-inset-bottom)); background: linear-gradient(0deg, rgba(10,12,28,.9), transparent);
+}
+.group { display: flex; gap: 6px; align-items: stretch; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 6px; }
+.group > span { writing-mode: vertical-rl; transform: rotate(180deg); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); text-align: center; }
+.gate { width: 64px; border: 1px solid transparent; background: rgba(255,255,255,.05); border-radius: 4px; padding: 6px 4px; font-weight: 700; font-size: 15px; line-height: 1.1; }
+.gate kbd, .unit kbd { display: block; font: 11px var(--body); color: var(--ink-dim); }
+.gate.sel { border-color: var(--gold); background: rgba(230,184,78,.22); color: #fff; }
+.unit { width: 84px; border: 1px solid transparent; background: rgba(255,255,255,.05); border-radius: 4px; padding: 4px; display: flex; flex-direction: column; align-items: center; gap: 1px; font-size: 14px; font-weight: 700; }
+.unit img { width: 48px; height: 48px; }
+.unit .cost { color: var(--gold); font-variant-numeric: tabular-nums; }
+.unit:disabled { opacity: .38; cursor: default; }
+.unit:not(:disabled):hover { border-color: var(--gold); }
+.coins { display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 72px; padding: 0 6px; }
+.coins b { font-size: 30px; line-height: 1; color: var(--gold); font-variant-numeric: tabular-nums; }
+.coins small { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-dim); }
+.tools { display: flex; flex-direction: column; gap: 6px; }
+#toast { position: absolute; left: 50%; top: 84px; transform: translateX(-50%); background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 8px 14px; max-width: calc(100% - 32px); text-align: center; font-size: 15px; transition: opacity .4s; pointer-events: none; }
+.float { position: absolute; font-weight: 700; font-size: 15px; pointer-events: none; text-shadow: 0 1px 3px #000; transition: transform 1s ease-out, opacity 1s ease-in; }
+
+@media (max-width: 620px) {
+  .portrait { bottom: 190px; height: 46vh; max-width: 62vw; }
+  #pQ { left: -8vw; } #pK { right: -8vw; }
+  #badge { width: 110px; height: 110px; bottom: 230px; }
+  .gate { width: 52px; font-size: 13px; }
+  .unit { width: 66px; font-size: 12px; }
+  .unit img { width: 36px; height: 36px; }
+  .group > span { display: none; }
+  .coins { min-width: 54px; } .coins b { font-size: 24px; }
+  .bar-bot { gap: 6px; padding-inline: 8px; }
+  .side { min-height: 210px; } .side img { height: 110px; }
+  .tools { flex-direction: row; width: 100%; justify-content: center; order: -1; }
+  .tools .ghost { padding: 3px 8px; font-size: 13px; }
+  #talkTop .ghost { font-size: 12px; }
+  #chapterTag { font-size: 18px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<div id="app">
+  <canvas id="stage"></canvas>
+
+  <section id="title" class="screen">
+    <h1 class="wordmark"><span class="c">Cat</span><span class="d">Dog</span></h1>
+    <p class="tagline">Three wars, two kingdoms, and one very divorced royal family.</p>
+    <div class="sides">
+      <button class="side cat" id="pickCat" disabled><img id="bannerCat" alt=""><b>Cat Kingdom</b><span>Blue fleas, cat mages and a castle shaped like a scratching post.</span></button>
+      <button class="side dog" id="pickDog" disabled><img id="bannerDog" alt=""><b>Dog Kingdom</b><span>Red fleas, dog wizards and a fortress made of bones.</span></button>
+    </div>
+    <div class="title-row"><button class="btn" id="continueBtn" hidden>Continue</button></div>
+    <div id="loading">Loading the royal family…</div>
+    <p class="hint">Talk your way through three family feuds, then win three lane battles. Whichever parent you side with sends help: Mom shores up your castle and towers, Dad powers up your troops.</p>
+  </section>
+
+  <section id="talk" class="screen" hidden>
+    <div id="talkBg"></div>
+    <img id="pQ" class="portrait" alt="Queen of the North">
+    <img id="pK" class="portrait" alt="King of the South">
+    <div id="badge" hidden></div>
+    <div id="talkTop"><div id="chapterTag"></div><div style="display:flex;gap:6px"><button class="ghost" id="skipBtn">Skip to choice</button><button class="ghost" id="muteBtn1">Sound: on</button></div></div>
+    <div id="sway"></div>
+    <div id="box" role="button" tabindex="0" aria-label="Next line">
+      <div id="who"></div>
+      <p id="line"></p>
+      <div id="choices"></div>
+      <div id="more" hidden>click ▾</div>
+    </div>
+  </section>
+
+  <section id="hud" class="screen" hidden>
+    <div class="bar-top">
+      <div class="castle"><label id="myName">Your castle</label><div class="hp"><i id="myHp"></i></div></div>
+      <div class="mid"><b id="battleName">The First War</b><small id="boonLine"></small></div>
+      <div class="castle enemy"><label id="foeName">Enemy castle</label><div class="hp"><i id="foeHp"></i></div></div>
+    </div>
+    <div id="toast" hidden></div>
+    <div class="bar-bot">
+      <div class="group"><span>Gate</span>
+        <button class="gate" data-lane="0">Left<kbd>A</kbd></button>
+        <button class="gate sel" data-lane="1">Center<kbd>S</kbd></button>
+        <button class="gate" data-lane="2">Right<kbd>D</kbd></button>
+      </div>
+      <div class="group"><span>Troops</span>
+        <button class="unit" data-unit="flea"><img alt=""><span>Flea</span><span class="cost">3</span></button>
+        <button class="unit" data-unit="mage"><img alt=""><span>Mage</span><span class="cost">5</span></button>
+        <button class="unit" data-unit="cart"><img alt=""><span>Siege cart</span><span class="cost">10</span></button>
+        <div class="coins"><b id="coins">0</b><small>Coins</small></div>
+      </div>
+      <div class="tools">
+        <button class="ghost" id="speedBtn">Speed 1×</button>
+        <button class="ghost" id="pauseBtn">Pause</button>
+        <button class="ghost" id="muteBtn2">Sound: on</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="card" class="screen" hidden><div class="card-in" id="cardIn"></div></section>
+</div>
+
+<script src="story.js"></script>
+<script src="art.js"></script>
+<script src="models.js"></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import * as SkeletonUtils from 'three/addons/utils/SkeletonUtils.js';
+
+const $ = (id) => document.getElementById(id);
+const ART = window.CATDOG_ART, STORY = window.CATDOG_STORY;
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const store = {
+  get() { try { return JSON.parse(localStorage.getItem('catdog.save') || 'null'); } catch { return null; } },
+  set(v) { try { localStorage.setItem('catdog.save', JSON.stringify(v)); } catch {} },
+  clear() { try { localStorage.removeItem('catdog.save'); } catch {} },
+};
+
+/* ================= Sound (tiny synth) ================= */
+const Sound = {
+  on: true, ctx: null,
+  init() { if (!this.ctx) { try { this.ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch {} } if (this.ctx && this.ctx.state === 'suspended') this.ctx.resume(); },
+  tone(f, dur, type = 'square', vol = 0.05, slide = 0) {
+    if (!this.on || !this.ctx) return;
+    const t = this.ctx.currentTime, o = this.ctx.createOscillator(), g = this.ctx.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, t); if (slide) o.frequency.exponentialRampToValueAtTime(Math.max(30, f + slide), t + dur);
+    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g).connect(this.ctx.destination); o.start(t); o.stop(t + dur);
+  },
+  blip() { this.tone(660, .05, 'square', .025); },
+  buy() { this.tone(520, .08, 'triangle', .07); setTimeout(() => this.tone(780, .1, 'triangle', .06), 60); },
+  hit() { this.tone(180, .08, 'sawtooth', .03, -80); },
+  zap() { this.tone(900, .12, 'sine', .03, -500); },
+  boom() { this.tone(120, .35, 'sawtooth', .07, -90); },
+  coin() { this.tone(1200, .06, 'square', .02); },
+  fanfare(win) { const seq = win ? [523, 659, 784, 1046] : [392, 330, 262, 196]; seq.forEach((f, i) => setTimeout(() => this.tone(f, .28, 'triangle', .08), i * 170)); },
+};
+function setMute(on) { Sound.on = on; for (const b of [$('muteBtn1'), $('muteBtn2')]) b.textContent = 'Sound: ' + (on ? 'on' : 'off'); }
+$('muteBtn1').onclick = $('muteBtn2').onclick = (e) => { e.stopPropagation(); setMute(!Sound.on); };
+
+/* ================= Game state ================= */
+const G = { side: 'cat', stage: 0, mom: 0, dad: 0, sided: [] };
+// stage: 0 intro+ch1, 1 battle1, 2 ch2, 3 battle2, 4 ch3, 5 battle3, 6 ending
+const SIDE = {
+  cat: { name: 'Cat Kingdom', foe: 'Dog Kingdom', flea: 'fleaBlue', mage: 'catMage', castle: 'catCastle', tower: 'catTower', hall: 'catHall', color: 0x4467e0 },
+  dog: { name: 'Dog Kingdom', foe: 'Cat Kingdom', flea: 'fleaRed', mage: 'dogMage', castle: 'dogCastle', tower: 'dogTower', hall: 'dogHall', color: 0xd4453c },
+};
+const foeOf = (s) => (s === 'cat' ? 'dog' : 'cat');
+function save() { store.set({ side: G.side, stage: G.stage, mom: G.mom, dad: G.dad, sided: G.sided }); }
+
+function show(id) { for (const s of ['title', 'talk', 'hud', 'card']) $(s).hidden = s !== id; }
+
+/* ================= Three.js world ================= */
+const canvas = $('stage');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x9cc4e4);
+scene.fog = new THREE.Fog(0x9cc4e4, 140, 260);
+const camera = new THREE.PerspectiveCamera(45, 1, 0.5, 600);
+const hemi = new THREE.HemisphereLight(0xfff4dd, 0x3b5a2a, 1.4); scene.add(hemi);
+const sun = new THREE.DirectionalLight(0xfff0d0, 2.2); sun.position.set(-40, 80, 30); sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -80, right: 80, top: 80, bottom: -80, near: 10, far: 220 }); scene.add(sun);
+
+function resize() {
+  const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h;
+  // Fit the whole field: taller view on phones.
+  const portrait = h > w; camera.fov = portrait ? 64 : 52;
+  if (portrait) { camera.position.set(0, 142, 70); camera.lookAt(0, 0, 11); }
+  else { camera.position.set(0, 92, 70); camera.lookAt(0, 0, 13); }
+  camera.updateProjectionMatrix();
+}
+addEventListener('resize', resize); resize();
+
+// Ground
+function groundTexture() {
+  const c = document.createElement('canvas'); c.width = c.height = 512; const x = c.getContext('2d');
+  x.fillStyle = '#5b8a43'; x.fillRect(0, 0, 512, 512);
+  for (let i = 0; i < 9000; i++) { const g = 110 + Math.random() * 60 | 0; x.fillStyle = `rgba(${g * .55 | 0},${g},${g * .45 | 0},.35)`; x.fillRect(Math.random() * 512, Math.random() * 512, 2, 2 + Math.random() * 3); }
+  const t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(10, 10); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.MeshStandardMaterial({ map: groundTexture(), roughness: 1 }));
+ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
+
+// Lanes: Left / Center / Right, from your gate (z = +36) to theirs (z = -36)
+const LANE_PTS = [
+  [[0, 36], [-6, 30], [-17, 17], [-21, 0], [-17, -17], [-6, -30], [0, -36]],
+  [[0, 36], [1, 18], [-1, 0], [1, -18], [0, -36]],
+  [[0, 36], [6, 30], [17, 17], [21, 0], [17, -17], [6, -30], [0, -36]],
+];
+const lanes = LANE_PTS.map((pts) => {
+  const curve = new THREE.CatmullRomCurve3(pts.map(([x, z]) => new THREE.Vector3(x, 0, z)), false, 'centripetal');
+  return { curve, len: curve.getLength() };
+});
+const tmpV = new THREE.Vector3(), tmpV2 = new THREE.Vector3();
+function lanePos(l, u, out) { return lanes[l].curve.getPointAt(Math.min(1, Math.max(0, u)), out); }
+function ribbon(curve, width, y, mat) {
+  const N = 120, pos = [], idx = [];
+  for (let i = 0; i <= N; i++) {
+    const t = i / N, p = curve.getPointAt(t), tg = curve.getTangentAt(t); const nx = -tg.z, nz = tg.x; const L = Math.hypot(nx, nz) || 1;
+    pos.push(p.x + nx / L * width / 2, y, p.z + nz / L * width / 2, p.x - nx / L * width / 2, y, p.z - nz / L * width / 2);
+    if (i < N) { const a = i * 2; idx.push(a, a + 1, a + 2, a + 1, a + 3, a + 2); }
+  }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.setIndex(idx); g.computeVertexNormals();
+  const m = new THREE.Mesh(g, mat); m.receiveShadow = true; return m;
+}
+const dirtMat = new THREE.MeshStandardMaterial({ color: 0xb08a5a, roughness: 1, side: THREE.DoubleSide });
+const glowMat = new THREE.MeshBasicMaterial({ color: 0xffd36a, transparent: true, opacity: 0.4, depthWrite: false, side: THREE.DoubleSide });
+const laneGlow = lanes.map((l) => { scene.add(ribbon(l.curve, 4.2, 0.03, dirtMat)); const g = ribbon(l.curve, 5.4, 0.05, glowMat); g.visible = false; scene.add(g); return g; });
+// Courtyards in front of each castle
+for (const z of [44, -44]) { const c = new THREE.Mesh(new THREE.CircleGeometry(11, 40), dirtMat); c.rotation.x = -Math.PI / 2; c.position.set(0, 0.02, z); c.receiveShadow = true; scene.add(c); }
+
+/* ================= Models ================= */
+const MODELS = {};
+const MODEL_FIT = { // target size in world units, which axis, yaw so the model faces +z
+  catMage: { h: 5.4, yaw: 0 }, dogMage: { h: 5.4, yaw: 0 }, fleaBlue: { w: 5.4, yaw: 0 }, fleaRed: { w: 5.4, yaw: 0 }, cart: { w: 7, yaw: -Math.PI / 2 },
+  catCastle: { h: 22, yaw: 0 }, dogCastle: { w: 24, yaw: 0 }, catTower: { h: 11, yaw: 0 }, dogTower: { h: 9, yaw: 0 },
+  tree: { h: 8, yaw: 0 }, rocks: { w: 3, yaw: 0 }, coin: { w: 1, yaw: 0 },
+};
+async function loadModels() {
+  const loader = new GLTFLoader();
+  const entries = Object.entries(window.CATDOG_MODELS);
+  await Promise.all(entries.map(async ([name, b64]) => {
+    const bin = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0)).buffer;
+    const gltf = await loader.parseAsync(bin, '');
+    gltf.scene.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.frustumCulled = false; if (o.material.map) o.material.map.anisotropy = 4; } });
+    MODELS[name] = gltf;
+  }));
+}
+function instance(name, tint) {
+  const src = MODELS[name], fit = MODEL_FIT[name];
+  const inner = src.animations.length ? SkeletonUtils.clone(src.scene) : src.scene.clone(true);
+  if (tint) inner.traverse((o) => { if (o.isMesh) { o.material = o.material.clone(); o.material.color.set(tint); } });
+  let mixer = null; const actions = {};
+  if (src.animations.length) {
+    mixer = new THREE.AnimationMixer(inner);
+    for (const clip of src.animations) actions[clip.name] = mixer.clipAction(clip);
+    if (actions.dead) { actions.dead.setLoop(THREE.LoopOnce); actions.dead.clampWhenFinished = true; }
+    // The clips key the armature's own transform, so measure in an animated pose.
+    if (actions.walk) { actions.walk.play(); mixer.update(0); }
+  }
+  const pose = () => { inner.updateMatrixWorld(true); inner.traverse((o) => { if (o.isSkinnedMesh) o.skeleton.update(); }); };
+  inner.rotation.y = fit.yaw; pose();
+  // precise = true so skinned meshes are measured in their posed shape
+  const box = new THREE.Box3().setFromObject(inner, true), size = box.getSize(tmpV);
+  const s = fit.h ? fit.h / size.y : fit.w / Math.max(size.x, size.z);
+  inner.scale.multiplyScalar(s); pose();
+  const box2 = new THREE.Box3().setFromObject(inner, true), c = box2.getCenter(tmpV2);
+  inner.position.set(-c.x, -box2.min.y, -c.z);
+  if (actions.walk) actions.walk.stop();
+  const holder = new THREE.Group(); holder.add(inner);
+  return { holder, mixer, actions };
+}
+
+// Scenery
+function scatter() {
+  const rnd = mulberry(7);
+  const nearLane = (x, z) => lanes.some((l) => { for (let i = 0; i <= 40; i++) { lanePos(lanes.indexOf(l), i / 40, tmpV); if (Math.hypot(tmpV.x - x, tmpV.z - z) < 6) return true; } return false; });
+  let placed = 0;
+  for (let i = 0; i < 400 && placed < 70; i++) {
+    const x = (rnd() - .5) * 130, z = (rnd() - .5) * 120;
+    if (Math.abs(z) > 30 && Math.abs(x) < 18) continue;
+    if (nearLane(x, z)) continue;
+    const isTree = rnd() < .7; const m = instance(isTree ? 'tree' : 'rocks');
+    m.holder.position.set(x, 0, z); m.holder.rotation.y = rnd() * 6.28; m.holder.scale.setScalar(isTree ? .7 + rnd() * .6 : .6 + rnd() * .9);
+    scene.add(m.holder); placed++;
+  }
+}
+function mulberry(a) { return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+/* ================= Battle ================= */
+const UNIT = {
+  flea: { cost: 3, hp: 70, dmg: 13, rate: 0.8, range: 2.4, speed: 7, melee: true },
+  mage: { cost: 5, hp: 46, dmg: 12, rate: 1.15, range: 10, speed: 5.2 },
+  cart: { cost: 10, hp: 170, dmg: 42, rate: 1.7, range: 8, speed: 3.6, siege: true },
+};
+const LEVELS = [
+  { name: 'The First War', foeHp: 700, spawn: 7.5, mix: { flea: 0.75, mage: 0.25 }, turrets: [[0, .66], [1, .7], [2, .66]] },
+  { name: 'The Second War', foeHp: 900, spawn: 6.2, mix: { flea: 0.55, mage: 0.35, cart: 0.1 }, turrets: [[0, .58], [0, .8], [1, .66], [2, .58], [2, .8]] },
+  { name: 'The Last War', foeHp: 1100, spawn: 5.6, mix: { flea: 0.5, mage: 0.35, cart: 0.15 }, turrets: [[0, .52], [0, .78], [1, .6], [1, .8], [2, .52], [2, .78], [1, .45]] },
+];
+const TURRET = { hp: 230, dmg: 17, rate: 1.0, range: 12.5 };
+let B = null; // current battle
+
+function makeBar(w) {
+  const g = new THREE.Group();
+  const bg = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0x111111, depthTest: false }));
+  const fg = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0x7fd07a, depthTest: false }));
+  bg.scale.set(w, w * 0.14, 1); fg.scale.set(w, w * 0.1, 1); fg.center.set(0, 0.5); fg.position.x = -w / 2; bg.renderOrder = 10; fg.renderOrder = 11;
+  g.add(bg, fg); g.userData = { fg, w }; return g;
+}
+function setBar(bar, f, color) { const { fg, w } = bar.userData; fg.scale.x = Math.max(0.001, w * f); if (color) fg.material.color.set(color); }
+
+function startBattle(n) {
+  clearBattle();
+  const L = LEVELS[n], mine = SIDE[G.side], theirs = SIDE[foeOf(G.side)];
+  const momMul = 1 + 0.4 * G.mom, dadMul = 1 + 0.3 * G.dad;
+  B = {
+    n, L, t: 0, speed: 1, paused: false, over: false, coins: 8, coinTimer: 0, lane: 1, spawnTimer: 3,
+    units: [], structs: [], shots: [], fx: [], rnd: mulberry(100 + n),
+    atkMul: dadMul, hpMul: dadMul, turretMul: 1 + 0.5 * G.mom, turretRange: TURRET.range + 2.5 * G.mom,
+    root: new THREE.Group(),
+  };
+  scene.add(B.root);
+  // Castles
+  B.myCastle = addStruct('castle', 'me', mine.castle, 0, 46, Math.round(650 * momMul), 9);
+  B.foeCastle = addStruct('castle', 'foe', theirs.castle, 0, -46, L.foeHp, 9);
+  B.foeCastle.model.holder.rotation.y = Math.PI;
+  // Your towers guard the three gates; theirs sit along the lanes.
+  for (const [l, u] of [[0, .16], [1, .12], [2, .16]]) { lanePos(l, u, tmpV); const side = l === 1 ? 1 : (l === 0 ? 1 : -1); addStruct('turret', 'me', mine.tower, tmpV.x + side * 3.6, tmpV.z, TURRET.hp * momMul, 2.2); }
+  L.turrets.forEach(([l, u], i) => { lanePos(l, u, tmpV); const off = (l === 1 ? (i % 2 ? -3.6 : 3.6) : (l === 0 ? 3.6 : -3.6)); const s = addStruct('turret', 'foe', theirs.tower, tmpV.x + off, tmpV.z, TURRET.hp * (1 + 0.12 * n), 2.2); s.model.holder.rotation.y = Math.PI; });
+  selectLane(1);
+  $('battleName').textContent = L.name;
+  $('myName').textContent = 'Your ' + mine.name.replace(' Kingdom', '') + ' castle';
+  $('foeName').textContent = theirs.name.replace(' Kingdom', '') + ' castle';
+  const bits = []; if (G.mom) bits.push(`Mom’s help ×${G.mom}`); if (G.dad) bits.push(`Dad’s help ×${G.dad}`);
+  $('boonLine').textContent = bits.join(' · ') || 'No help from home';
+  B.speed = 1; $('speedBtn').textContent = 'Speed 1×'; $('pauseBtn').textContent = 'Pause';
+  show('hud'); updateHud();
+  toast(n === 0 ? 'Pick a gate, then buy troops. Siege carts ignore troops and smash towers. Knock down their castle.' : 'The war goes on. Their defenses are bigger this time.', 6);
+}
+function clearBattle() {
+  if (!B) return; scene.remove(B.root); B = null; laneGlow.forEach((g) => (g.visible = false));
+  document.querySelectorAll('.float').forEach((e) => e.remove());
+}
+function addStruct(kind, team, model, x, z, hp, r) {
+  const m = instance(model); m.holder.position.set(x, 0, z); B.root.add(m.holder);
+  const bar = makeBar(kind === 'castle' ? 12 : 4.5); bar.position.set(x, kind === 'castle' ? (model === 'dogCastle' ? 13 : 24) : 12, z); B.root.add(bar);
+  const s = { kind, team, model: m, pos: new THREE.Vector3(x, 0, z), hp, max: hp, r, cd: 1 + Math.random(), bar, alive: true, isStruct: true };
+  setBar(bar, 1, team === 'me' ? 0x7fd07a : 0xff6b5e);
+  B.structs.push(s); return s;
+}
+function spawnUnit(team, type, lane) {
+  const side = team === 'me' ? G.side : foeOf(G.side), S = SIDE[side], def = UNIT[type];
+  const modelName = type === 'flea' ? S.flea : type === 'mage' ? S.mage : 'cart';
+  const tint = type === 'cart' ? (side === 'cat' ? 0xc8d4ff : 0xffc8c0) : null;
+  const m = instance(modelName, tint);
+  const mul = team === 'me' ? B.hpMul : 1 + 0.1 * B.n;
+  const u = {
+    team, type, def, lane, u: team === 'me' ? 0.02 : 0.98, off: (B.rnd() - .5) * 1.8, hp: def.hp * mul, max: def.hp * mul,
+    dmg: def.dmg * (team === 'me' ? B.atkMul : 1 + 0.1 * B.n), cd: 0.3, model: m, alive: true, deadT: 0, anim: '', pos: new THREE.Vector3(),
+    bar: makeBar(2.6),
+  };
+  u.bar.visible = false;
+  lanePos(lane, u.u, u.pos); B.root.add(m.holder, u.bar); play(u, 'walk');
+  B.units.push(u); return u;
+}
+function play(u, name) {
+  if (u.anim === name || !u.model.mixer) return; const a = u.model.actions[name]; if (!a) return;
+  const prev = u.model.actions[u.anim]; a.reset().play(); if (prev) a.crossFadeFrom(prev, 0.15, false);
+  if (name === 'walk') a.timeScale = u.type === 'cart' ? 1 : 1.3; if (name === 'attack') a.timeScale = u.type === 'cart' ? 1 : 2;
+  u.anim = name;
+}
+function buy(type) {
+  if (!B || B.over || B.paused) return;
+  const def = UNIT[type]; if (B.coins < def.cost) { toast(`${type === 'cart' ? 'A siege cart' : type === 'mage' ? 'A mage' : 'A flea'} costs ${def.cost} coins.`, 1.6); return; }
+  B.coins -= def.cost; spawnUnit('me', type, B.lane); Sound.buy(); updateHud();
+}
+function selectLane(l) {
+  if (!B) return; B.lane = l;
+  document.querySelectorAll('.gate').forEach((b) => b.classList.toggle('sel', +b.dataset.lane === l));
+  laneGlow.forEach((g, i) => (g.visible = i === l));
+}
+document.querySelectorAll('.gate').forEach((b) => (b.onclick = () => { Sound.init(); selectLane(+b.dataset.lane); Sound.blip(); }));
+document.querySelectorAll('.unit').forEach((b) => (b.onclick = () => { Sound.init(); buy(b.dataset.unit); }));
+$('speedBtn').onclick = () => { if (!B) return; B.speed = B.speed === 1 ? 2 : 1; $('speedBtn').textContent = `Speed ${B.speed}×`; };
+$('pauseBtn').onclick = () => { if (!B || B.over) return; B.paused = !B.paused; $('pauseBtn').textContent = B.paused ? 'Resume' : 'Pause'; if (B.paused) toast('Paused', 999); else $('toast').hidden = true; };
+// Tap the field to pick the nearest lane.
+const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+canvas.addEventListener('pointerdown', (e) => {
+  if (!B || B.over) return;
+  ndc.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1); ray.setFromCamera(ndc, camera);
+  const hit = ray.intersectObject(ground)[0]; if (!hit) return;
+  let best = -1, bd = 12;
+  lanes.forEach((l, i) => { for (let k = 0; k <= 60; k++) { lanePos(i, k / 60, tmpV); const d = Math.hypot(tmpV.x - hit.point.x, tmpV.z - hit.point.z); if (d < bd) { bd = d; best = i; } } });
+  if (best >= 0 && hit.point.z > -40 && hit.point.z < 40) { selectLane(best); Sound.blip(); }
+});
+addEventListener('keydown', (e) => {
+  if (!$('hud').hidden && B) {
+    const k = e.key.toLowerCase();
+    if (k === 'a' || k === 'arrowleft') selectLane(0); else if (k === 's' || k === 'arrowdown') selectLane(1); else if (k === 'd' || k === 'arrowright') selectLane(2);
+    else if (k === '1') buy('flea'); else if (k === '2') buy('mage'); else if (k === '3') buy('cart');
+    else if (k === 'p' || k === 'escape') $('pauseBtn').click();
+  } else if (!$('talk').hidden && (e.key === ' ' || e.key === 'Enter')) { e.preventDefault(); Talk.advance(); }
+});
+
+function enemiesOf(team) { return B.units.filter((u) => u.alive && u.team !== team); }
+function nearest(list, p, maxD, extra = () => 0) {
+  let best = null, bd = Infinity; for (const o of list) { const d = Math.hypot(o.pos.x - p.x, o.pos.z - p.z) - extra(o); if (d < bd && d <= maxD) { bd = d; best = o; } } return best;
+}
+function damage(target, amount, by) {
+  if (!target.alive) return; target.hp -= amount;
+  if (target.isStruct) { setBar(target.bar, Math.max(0, target.hp / target.max)); if (target.hp <= 0) destroyStruct(target, by); }
+  else { target.bar.visible = true; setBar(target.bar, Math.max(0, target.hp / target.max), target.team === 'me' ? 0x7fd07a : 0xff6b5e); if (target.hp <= 0) killUnit(target); }
+}
+function killUnit(u) {
+  u.alive = false; u.bar.visible = false; play(u, 'dead'); Sound.hit();
+  if (u.team === 'foe') { B.coins += 1; floatText(u.pos, '+1', '#e6b84e'); }
+}
+function destroyStruct(s) {
+  s.alive = false; s.bar.visible = false; Sound.boom(); burst(s.pos, 0xd9c7a0, s.kind === 'castle' ? 40 : 18, s.kind === 'castle' ? 10 : 5);
+  s.sink = 0;
+  if (s.team === 'foe' && s.kind === 'turret') { B.coins += 4; floatText(s.pos, '+4', '#e6b84e'); }
+  if (s.kind === 'castle') endBattle(s.team === 'foe');
+}
+function shoot(from, to, dmg, kind) {
+  const color = kind === 'turret' ? 0xfff2a8 : kind === 'cart' ? 0x6b5a48 : (from.team === 'me' ? SIDE[G.side].color : SIDE[foeOf(G.side)].color);
+  const m = new THREE.Mesh(new THREE.SphereGeometry(kind === 'cart' ? 0.7 : 0.45, 10, 8), new THREE.MeshBasicMaterial({ color }));
+  const start = from.pos.clone(); start.y = kind === 'turret' ? 8 : kind === 'cart' ? 2.5 : 2.4; m.position.copy(start); B.root.add(m);
+  B.shots.push({ m, from: start, to, dmg, t: 0, dur: kind === 'cart' ? 1.0 : kind === 'turret' ? 0.35 : 0.45, arc: kind === 'cart' ? 7 : kind === 'turret' ? 1 : 1.5, kind });
+  if (kind === 'mage') Sound.zap();
+}
+function burst(p, color, n, spread) {
+  for (let i = 0; i < n; i++) {
+    const m = new THREE.Mesh(new THREE.BoxGeometry(.4, .4, .4), new THREE.MeshBasicMaterial({ color, transparent: true }));
+    m.position.set(p.x, 1 + Math.random() * 2, p.z); B.root.add(m);
+    B.fx.push({ m, v: new THREE.Vector3((Math.random() - .5) * spread, 4 + Math.random() * 6, (Math.random() - .5) * spread), t: 0 });
+  }
+}
+function floatText(p, text, color) {
+  const v = p.clone(); v.y = 4; v.project(camera);
+  const el = document.createElement('div'); el.className = 'float'; el.textContent = text; el.style.color = color;
+  el.style.left = (v.x * .5 + .5) * innerWidth + 'px'; el.style.top = (-v.y * .5 + .5) * innerHeight + 'px'; $('app').appendChild(el);
+  requestAnimationFrame(() => { el.style.transform = 'translateY(-40px)'; el.style.opacity = '0'; }); setTimeout(() => el.remove(), 1100);
+  Sound.coin();
+}
+let toastTimer = 0;
+function toast(msg, secs = 3) { const t = $('toast'); t.textContent = msg; t.hidden = false; t.style.opacity = 1; toastTimer = secs; }
+
+function stepBattle(dt) {
+  B.t += dt;
+  B.coinTimer += dt; if (B.coinTimer >= 1.1) { B.coinTimer -= 1.1; B.coins++; }
+  // Enemy spawner (original: random gate, 25% left / 25% right / 50% center)
+  B.spawnTimer -= dt;
+  if (B.spawnTimer <= 0) {
+    B.spawnTimer = B.L.spawn * (0.8 + B.rnd() * 0.4) * Math.max(0.6, 1 - B.t / 400);
+    const r = B.rnd(), lane = r < .25 ? 0 : r < .5 ? 2 : 1;
+    let x = B.rnd(), type = 'flea'; for (const [k, w] of Object.entries(B.L.mix)) { if (x < w) { type = k; break; } x -= w; }
+    spawnUnit('foe', type, lane);
+  }
+  // Units
+  for (const u of B.units) {
+    if (!u.alive) { u.deadT += dt; continue; }
+    u.cd -= dt;
+    const foes = enemiesOf(u.team);
+    const structs = B.structs.filter((s) => s.alive && s.team !== u.team);
+    let target = u.def.siege ? null : nearest(foes, u.pos, u.def.range + (u.def.melee ? 0.6 : 0));
+    if (!target) target = nearest(structs, u.pos, u.def.range, (s) => s.r);
+    if (target) {
+      const dx = target.pos.x - u.pos.x, dz = target.pos.z - u.pos.z; u.model.holder.rotation.y = Math.atan2(dx, dz);
+      play(u, 'attack');
+      if (u.cd <= 0) {
+        u.cd = u.def.rate;
+        if (u.def.melee) { damage(target, u.dmg, u); if (B.rnd() < .5) Sound.hit(); }
+        else shoot(u, target, u.dmg, u.type === 'cart' ? 'cart' : 'mage');
+      }
+    } else {
+      const dir = u.team === 'me' ? 1 : -1;
+      u.u = Math.min(1, Math.max(0, u.u + dir * u.def.speed * dt / lanes[u.lane].len));
+      play(u, 'walk');
+    }
+    lanePos(u.lane, u.u, u.pos);
+    const tg = lanes[u.lane].curve.getTangentAt(Math.min(.999, Math.max(.001, u.u)), tmpV2);
+    u.pos.x += -tg.z * u.off; u.pos.z += tg.x * u.off;
+    if (!target) u.model.holder.rotation.y = Math.atan2(tg.x * (u.team === 'me' ? 1 : -1), tg.z * (u.team === 'me' ? 1 : -1));
+  }
+  // Turrets
+  for (const s of B.structs) {
+    if (!s.alive || s.kind !== 'turret') continue; s.cd -= dt; if (s.cd > 0) continue;
+    const t = nearest(enemiesOf(s.team), s.pos, s.team === 'me' ? B.turretRange : TURRET.range);
+    if (t) { s.cd = TURRET.rate; shoot(s, t, TURRET.dmg * (s.team === 'me' ? B.turretMul : 1 + 0.1 * B.n), 'turret'); }
+  }
+  // Shots
+  for (const sh of B.shots) {
+    sh.t += dt / sh.dur; const k = Math.min(1, sh.t);
+    const to = tmpV.copy(sh.to.pos); to.y = sh.to.isStruct ? 3 : 1.5;
+    sh.m.position.lerpVectors(sh.from, to, k); sh.m.position.y += Math.sin(k * Math.PI) * sh.arc;
+    if (k >= 1) { sh.done = true; B.root.remove(sh.m); if (sh.to.alive) { damage(sh.to, sh.dmg); if (sh.kind === 'cart') burst(sh.to.pos, 0x8a7258, 6, 4); } }
+  }
+  B.shots = B.shots.filter((s) => !s.done);
+  // Cleanup dead units
+  for (const u of B.units) if (!u.alive && u.deadT > 1.6) { B.root.remove(u.model.holder, u.bar); u.gone = true; }
+  B.units = B.units.filter((u) => !u.gone);
+  updateHud();
+}
+function animateBattle(dt) {
+  for (const u of B.units) {
+    u.model.holder.position.copy(u.pos); if (u.model.mixer) u.model.mixer.update(dt);
+    if (!u.alive && !u.model.actions.dead) { u.model.holder.scale.multiplyScalar(0.94); }
+    u.bar.position.set(u.pos.x, u.type === 'mage' ? 7 : 5.5, u.pos.z);
+  }
+  for (const s of B.structs) if (!s.alive && s.sink < 1) { s.sink += dt * 0.6; s.model.holder.position.y = -s.sink * (s.kind === 'castle' ? 14 : 9); s.model.holder.rotation.z = s.sink * 0.15; }
+  for (const f of B.fx) { f.t += dt; f.v.y -= 20 * dt; f.m.position.addScaledVector(f.v, dt); f.m.material.opacity = Math.max(0, 1 - f.t); if (f.t > 1) { B.root.remove(f.m); f.done = true; } }
+  B.fx = B.fx.filter((f) => !f.done);
+}
+function updateHud() {
+  $('coins').textContent = B.coins;
+  $('myHp').style.width = Math.max(0, B.myCastle.hp / B.myCastle.max * 100) + '%';
+  $('foeHp').style.width = Math.max(0, B.foeCastle.hp / B.foeCastle.max * 100) + '%';
+  document.querySelectorAll('.unit').forEach((b) => (b.disabled = B.coins < UNIT[b.dataset.unit].cost || B.over));
+}
+function endBattle(won) {
+  if (B.over) return; B.over = true; Sound.fanfare(won);
+  setTimeout(() => {
+    if (won) {
+      G.stage++; save();
+      const last = B.n === 2;
+      card({ eyebrow: LEVELS[B.n].name, title: last ? 'Their castle falls' : 'Victory', text: last ? 'The war is won. Your parents have something to say about it.' : 'Their castle is rubble. Time to go home and face the family.', buttons: [[last ? 'Go home' : 'Next chapter', () => runStage()]] });
+    } else {
+      card({ eyebrow: LEVELS[B.n].name, title: 'Your castle fell', text: 'Try another gate, or send siege carts after their towers.', buttons: [['Fight again', () => runStage()], ['Back to title', () => toTitle()]] });
+    }
+  }, 1600);
+}
+
+/* ================= Dialogue ================= */
+const NAMES = { Q: 'Queen of the North', K: 'King of the South', S: 'Sister', B: 'Brother', Y: 'You', N: '' };
+function badgeSVG(who, side) {
+  const col = { S: '#b69be8', B: '#e79a4a', Y: '#e6b84e' }[who], dark = '#1a1a2a';
+  const ears = side === 'cat'
+    ? `<path d="M34 52 L42 16 L64 40 Z M116 52 L108 16 L86 40 Z" fill="${col}" stroke="${dark}" stroke-width="4"/>`
+    : `<ellipse cx="34" cy="70" rx="14" ry="30" fill="${col}" stroke="${dark}" stroke-width="4" transform="rotate(18 34 70)" filter="brightness(.8)"/><ellipse cx="116" cy="70" rx="14" ry="30" fill="${col}" stroke="${dark}" stroke-width="4" transform="rotate(-18 116 70)"/>`;
+  const crown = who === 'Y' ? `<path d="M50 30 L58 12 L68 26 L75 8 L82 26 L92 12 L100 30 Z" fill="#ffd54a" stroke="${dark}" stroke-width="3"/>` : '';
+  const snout = side === 'dog' ? `<ellipse cx="75" cy="98" rx="18" ry="12" fill="#f3e6cf" stroke="${dark}" stroke-width="3"/><circle cx="75" cy="92" r="5" fill="${dark}"/>` : `<path d="M69 92 L81 92 L75 99 Z" fill="#d86a8a"/><path d="M50 98 L30 94 M50 102 L30 106 M100 98 L120 94 M100 102 L120 106" stroke="${dark}" stroke-width="2"/>`;
+  return `<svg viewBox="0 0 150 150" width="100%" height="100%"><circle cx="75" cy="80" r="66" fill="rgba(0,0,0,.35)"/>${side === 'cat' ? ears : ''}<circle cx="75" cy="80" r="46" fill="${col}" stroke="${dark}" stroke-width="4"/>${side === 'dog' ? ears : ''}<circle cx="60" cy="74" r="6" fill="${dark}"/><circle cx="90" cy="74" r="6" fill="${dark}"/>${snout}${crown}</svg>`;
+}
+const Talk = {
+  lines: [], i: 0, typing: false, full: '', timer: null, onDone: null, score: 0, mood: { Q: 'happy', K: 'happy' }, tallyN: 0, waitingChoice: false,
+  start(lines, tag, onDone) {
+    show('talk'); $('chapterTag').textContent = tag; this.onDone = onDone; this.score = 0; this.mood = { Q: 'happy', K: 'happy' };
+    $('talkBg').style.backgroundImage = `url(${ART[SIDE[G.side].hall]})`;
+    this.setPortraits(''); this.load(lines);
+  },
+  load(lines) { this.lines = lines; this.i = 0; this.next(); },
+  setPortraits(speaker) {
+    const p = G.side === 'cat' ? 'cat' : 'dog';
+    $('pQ').src = ART[`${p}Queen_${this.mood.Q}`]; $('pK').src = ART[`${p}King_${this.mood.K}`];
+    // Dog art faces the other way; mirror so both parents face the middle.
+    $('pQ').classList.toggle('flip', p === 'dog'); $('pK').classList.toggle('flip', p === 'dog');
+    $('pQ').classList.toggle('on', speaker === 'Q'); $('pK').classList.toggle('on', speaker === 'K');
+  },
+  next() {
+    const L = this.lines[this.i++];
+    if (!L) { this.finish(); return; }
+    if (L.go) { this.load(STORY.scenes[L.go]); return; }
+    if (L.finish) { this.finish(); return; }
+    if (L.tally) { this.tally(L.tally); return; }
+    if (L.choice) { this.choose(L.choice); return; }
+    const [who, mood, text] = L;
+    if (mood && (who === 'Q' || who === 'K')) this.mood[who] = mood;
+    this.setPortraits(who);
+    const badge = $('badge'); if (who === 'S' || who === 'B' || who === 'Y') { badge.innerHTML = badgeSVG(who, G.side); badge.hidden = false; } else badge.hidden = true;
+    const w = $('who'); w.textContent = NAMES[who]; w.className = who; w.hidden = !NAMES[who];
+    $('line').classList.toggle('nar', who === 'N');
+    $('choices').innerHTML = ''; this.type(text);
+  },
+  type(text) {
+    clearTimeout(this.timer); const el = $('line'); const parts = text.split('{w}');
+    this.full = parts.join(''); $('more').hidden = true;
+    if (REDUCED || this.instant) { el.textContent = this.full; this.typing = false; $('more').hidden = false; return; }
+    this.typing = true; el.textContent = ''; let pi = 0, ci = 0;
+    const tick = () => {
+      if (!this.typing) return;
+      if (pi >= parts.length) { this.typing = false; $('more').hidden = false; return; }
+      const part = parts[pi];
+      if (ci < part.length) { el.textContent += part[ci++]; if (ci % 3 === 0) Sound.tone(420 + Math.random() * 80, .02, 'square', .008); this.timer = setTimeout(tick, 22); }
+      else { pi++; ci = 0; this.timer = setTimeout(tick, pi < parts.length ? 380 : 0); }
+    };
+    tick();
+  },
+  advance() {
+    Sound.init();
+    if (this.waitingChoice) return;
+    if (this.typing) { this.typing = false; clearTimeout(this.timer); $('line').textContent = this.full; $('more').hidden = false; return; }
+    this.next();
+  },
+  skip() { // jump to the last line before the next choice (or the end of the scene chain)
+    if (this.waitingChoice) return; this.typing = false; clearTimeout(this.timer);
+    let guard = 0, last = -1;
+    while (guard++ < 500) {
+      const L = this.lines[this.i];
+      if (!L || L.choice || L.tally || L.finish) break;
+      if (L.go) { this.lines = STORY.scenes[L.go]; this.i = 0; last = -1; continue; }
+      if (L[1] && (L[0] === 'Q' || L[0] === 'K')) this.mood[L[0]] = L[1];
+      last = this.i++;
+    }
+    if (last >= 0) { this.i = last; this.instant = true; }
+    this.next(); this.instant = false;
+  },
+  choose(opts) {
+    this.waitingChoice = true; $('more').hidden = true;
+    const box = $('choices'); box.innerHTML = '';
+    opts.forEach((o) => {
+      const b = document.createElement('button'); b.textContent = o.t;
+      b.onclick = (e) => {
+        e.stopPropagation(); Sound.init(); Sound.blip(); this.waitingChoice = false; this.score += o.d;
+        sway(o.d > 0 ? 'Mom approves' : 'Dad approves', o.d > 0 ? '#9db1ff' : '#ff9a90');
+        this.load(STORY.scenes[o.go]);
+      };
+      box.appendChild(b);
+    });
+    $('line').textContent = $('line').textContent || ''; box.querySelector('button').focus({ preventScroll: true });
+  },
+  tally(n) {
+    const mom = this.score > 0; // Fungus: "if LevelN > 0 then Mom > Dad, else Dad > Mom"
+    if (mom) G.mom++; else G.dad++;
+    G.sided.push(mom ? 'mom' : 'dad');
+    this.load(STORY.scenes[`t${n}_${mom ? 'mom' : 'dad'}`]);
+  },
+  finish() { clearTimeout(this.timer); const f = this.onDone; this.onDone = null; if (f) f(); },
+};
+function sway(text, color) { const s = $('sway'); s.textContent = text; s.style.color = color; s.classList.add('show'); clearTimeout(sway.t); sway.t = setTimeout(() => s.classList.remove('show'), 1300); }
+$('box').onclick = () => Talk.advance();
+$('skipBtn').onclick = (e) => { e.stopPropagation(); Talk.skip(); };
+
+/* ================= Flow ================= */
+function card({ eyebrow, title, text, buttons, extra = '' }) {
+  const c = $('cardIn'); c.innerHTML = `<div class="eyebrow">${eyebrow}</div><h2>${title}</h2><p>${text}</p>${extra}<div class="title-row"></div>`;
+  const row = c.querySelector('.title-row');
+  buttons.forEach(([label, fn], i) => { const b = document.createElement('button'); b.className = 'btn' + (i === 0 ? ' solid' : ''); b.textContent = label; b.onclick = () => { Sound.init(); Sound.blip(); fn(); }; row.appendChild(b); });
+  show('card'); row.querySelector('button')?.focus({ preventScroll: true });
+}
+function boonsHtml() {
+  return `<div class="boons">${G.sided.map((s, i) => `<span class="boon">Chapter ${i + 1}: ${s === 'mom' ? 'Mom sends defenses' : 'Dad sends weapons'}</span>`).join('')}</div>`;
+}
+function runStage() {
+  clearBattle();
+  const s = G.stage;
+  if (s === 0 || s === 2 || s === 4) {
+    const ch = s / 2, C = STORY.chapters[ch];
+    card({ eyebrow: `Chapter ${ch + 1} of 3`, title: C.title, text: ch === 0 ? `You rule the ${SIDE[G.side].name}. Your parents do not make that easy.` : 'Back at the palace, the family is waiting.', buttons: [['Begin', () => {
+      const lines = ch === 0 ? [...STORY.intro, { go: C.start }] : STORY.scenes[C.start];
+      // Keep a trimmed copy of G.mom/G.dad so replaying a chapter after a reload doesn't double-count help.
+      G.mom = G.sided.slice(0, ch).filter((x) => x === 'mom').length; G.dad = ch - G.mom; G.sided = G.sided.slice(0, ch);
+      Talk.start(lines, `Chapter ${ch + 1} · ${C.title}`, () => {
+        const who = G.sided[ch];
+        card({ eyebrow: `Chapter ${ch + 1} · ${C.title}`, title: who === 'mom' ? 'Mom has your back' : 'Dad has your back',
+          text: who === 'mom' ? 'Your castle and towers are tougher, and your towers hit harder.' : 'Your troops have more health and hit harder.',
+          extra: boonsHtml(), buttons: [[`To war: ${LEVELS[ch].name}`, () => { G.stage++; save(); runStage(); }]] });
+      });
+    }]] });
+  } else if (s === 1 || s === 3 || s === 5) {
+    startBattle((s - 1) / 2);
+  } else {
+    Talk.start(STORY.ending, 'Epilogue', () => {
+      const moms = G.sided.filter((x) => x === 'mom').length;
+      store.clear();
+      card({ eyebrow: 'Game over', title: 'You win. Thanks for playing.', text: `You sided with Mom in ${moms} of 3 family fights and with Dad in ${3 - moms}. The divorce stands.`, extra: boonsHtml(),
+        buttons: [[`Play as the ${SIDE[foeOf(G.side)].name}`, () => newGame(foeOf(G.side))], ['Back to title', () => toTitle()]] });
+    });
+  }
+}
+function newGame(side) { Object.assign(G, { side, stage: 0, mom: 0, dad: 0, sided: [] }); save(); runStage(); }
+function toTitle() { clearBattle(); show('title'); const sv = store.get(); $('continueBtn').hidden = !sv; if (sv) $('continueBtn').textContent = `Continue (${SIDE[sv.side].name}, ${['chapter 1', 'battle 1', 'chapter 2', 'battle 2', 'chapter 3', 'battle 3', 'epilogue'][sv.stage] || ''})`; }
+$('pickCat').onclick = () => { Sound.init(); newGame('cat'); };
+$('pickDog').onclick = () => { Sound.init(); newGame('dog'); };
+$('continueBtn').onclick = () => { Sound.init(); const sv = store.get(); if (!sv) return; Object.assign(G, sv); runStage(); };
+
+/* ================= Main loop ================= */
+const clock = new THREE.Clock();
+let titleSpin = 0;
+function frame() {
+  requestAnimationFrame(frame);
+  const raw = Math.min(clock.getDelta(), 0.05);
+  if (B) {
+    const dt = B.paused || B.over ? 0 : raw * B.speed;
+    if (dt > 0) { const steps = B.speed; for (let i = 0; i < steps; i++) stepBattle(dt / steps); }
+    animateBattle(B.paused ? 0 : raw * B.speed);
+    if (toastTimer > 0 && toastTimer < 900) { toastTimer -= raw; if (toastTimer <= 0) $('toast').hidden = true; }
+  } else if (!REDUCED) {
+    titleSpin += raw * 0.06; camera.position.set(Math.sin(titleSpin) * 80, 52, Math.cos(titleSpin) * 80); camera.lookAt(0, 6, 0);
+  }
+  renderer.render(scene, camera);
+}
+
+/* ================= Boot ================= */
+$('bannerCat').src = ART.catBanner; $('bannerDog').src = ART.dogBanner;
+window.__catdog = { G, camera, instance, THREE, stepBattle, win: () => damage(B.foeCastle, 1e9), get B() { return B; }, buy, selectLane, startBattle, Talk, runStage, newGame };
+(async () => {
+  try {
+    await loadModels();
+    scatter();
+    // Title backdrop: both castles facing off.
+    const a = instance('catCastle'); a.holder.position.set(0, 0, 46); scene.add(a.holder);
+    const b = instance('dogCastle'); b.holder.position.set(0, 0, -46); b.holder.rotation.y = Math.PI; scene.add(b.holder);
+    const titleProps = [a.holder, b.holder];
+    window.__catdog.titleProps = titleProps;
+    // Unit portraits for the buy buttons
+    const thumbs = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true }); thumbs.setSize(96, 96); thumbs.outputColorSpace = THREE.SRGBColorSpace;
+    const ts = new THREE.Scene(); ts.add(new THREE.HemisphereLight(0xffffff, 0x444444, 2.2)); const tl = new THREE.DirectionalLight(0xffffff, 1.5); tl.position.set(3, 5, 6); ts.add(tl);
+    const tc = new THREE.PerspectiveCamera(35, 1, .1, 100);
+    window.__thumb = (name, yaw = 0.7, front = false) => { const m = instance(name); ts.add(m.holder); if (m.actions.walk) { m.actions.walk.play(); m.mixer.update(.2); }
+      const f = MODEL_FIT[name], size = f.h || f.w, c = new THREE.Vector3(0, (f.h || f.w * 0.6) * 0.5, 0);
+      m.holder.rotation.y = yaw; tc.position.set(front ? 0 : size * .5, c.y + size * .35, size * 1.9); tc.lookAt(c); thumbs.render(ts, tc); ts.remove(m.holder); return thumbs.domElement.toDataURL(); };
+    const refreshThumbs = () => { const S = SIDE[G.side]; const imgs = document.querySelectorAll('.unit img'); imgs[0].src = __thumb(S.flea); imgs[1].src = __thumb(S.mage); imgs[2].src = __thumb('cart'); };
+    // Toggle the title castles and thumbnails whenever the HUD appears.
+    const hudObs = new MutationObserver(() => { const inBattle = !$('hud').hidden; titleProps.forEach((p) => (p.visible = !inBattle)); if (inBattle) { refreshThumbs(); resize(); } });
+    hudObs.observe($('hud'), { attributes: true, attributeFilter: ['hidden'] });
+    $('loading').hidden = true; $('pickCat').disabled = $('pickDog').disabled = false;
+    toTitle();
+  } catch (err) {
+    console.error(err); $('loading').textContent = 'Could not load the 3D models. Reload the page to try again.';
+  }
+  frame();
+})();
+</script>
+</body>
+</html>
