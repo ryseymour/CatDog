@@ -171,6 +171,9 @@ button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
   #chapterTag { font-size: 18px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+.tally { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin: 4px 0 16px; }
+.tally dt { font-size: 12px; color: var(--ink-dim); text-transform: uppercase; letter-spacing: .08em; }
+.tally dd { margin: 0; font: 700 22px var(--display); font-variant-numeric: tabular-nums; }
 </style>
 </head>
 <body>
@@ -301,7 +304,7 @@ const hemi = new THREE.HemisphereLight(0xfff4dd, 0x3b5a2a, 1.4); scene.add(hemi)
 const sun = new THREE.DirectionalLight(0xfff0d0, 2.2); sun.position.set(-40, 80, 30); sun.castShadow = true;
 sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -80, right: 80, top: 80, bottom: -80, near: 10, far: 220 }); scene.add(sun);
 
-let lanes = [], laneGlow = [], field = null, fieldN = -1, fieldBox = null;
+let lanes = [], laneGlow = [], laneHover = [], field = null, fieldN = -1, fieldBox = null;
 function resize() {
   const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h;
   const portrait = h > w; camera.fov = portrait ? 64 : 52; camera.updateProjectionMatrix();
@@ -380,6 +383,7 @@ function ribbon(curve, width, y, mat) {
 }
 const dirtMat = new THREE.MeshStandardMaterial({ color: 0xb08a5a, roughness: 1, side: THREE.DoubleSide });
 const glowMat = new THREE.MeshBasicMaterial({ color: 0xffd36a, transparent: true, opacity: 0.4, depthWrite: false, side: THREE.DoubleSide });
+const hoverMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.38, depthWrite: false, side: THREE.DoubleSide });
 function yard(x, z, r) { const c = new THREE.Mesh(new THREE.CircleGeometry(r, 40), dirtMat); c.rotation.x = -Math.PI / 2; c.position.set(x, 0.02, z); c.receiveShadow = true; field.add(c); }
 // Build the roads, yards and scenery for battle n (the title screen uses battle 1's map).
 function buildField(n) {
@@ -391,6 +395,8 @@ function buildField(n) {
     return { curve, len: curve.getLength() };
   });
   laneGlow = lanes.map((l) => { field.add(ribbon(l.curve, 4.2, 0.03, dirtMat)); const g = ribbon(l.curve, 5.4, 0.05, glowMat); g.visible = false; field.add(g); return g; });
+  // Pointing at a road lights it up, like the path cubes in the original (PathCubeForMouseOver)
+  laneHover = lanes.map((l) => { const g = ribbon(l.curve, 5.4, 0.04, hoverMat); g.visible = false; field.add(g); return g; });
   yard(F.myCastle[0], F.myCastle[1] - 2, 11); yard(F.foeCastle[0], F.foeCastle[1] + 2, 11);
   if (F.rear) { const e = F.rear[F.rear.length - 1]; yard(e[0], e[1] - 6, 10); }
   // Everything the camera must show
@@ -496,7 +502,7 @@ function startBattle(n) {
   const momMul = 1 + 0.4 * G.mom, dadMul = 1 + 0.3 * G.dad;
   B = {
     n, L, t: 0, speed: 1, paused: false, over: false, coins: 8, coinTimer: 0, lane: 1, spawnTimer: 3,
-    units: [], structs: [], shots: [], fx: [], rnd: mulberry(100 + n),
+    units: [], structs: [], shots: [], fx: [], rnd: mulberry(100 + n), stats: { sent: 0, lost: 0, felled: 0, towers: 0 },
     atkMul: dadMul, hpMul: dadMul, turretMul: 1 + 0.5 * G.mom, turretRange: TURRET.range + 2.5 * G.mom,
     root: new THREE.Group(),
   };
@@ -557,7 +563,7 @@ function play(u, name) {
 function buy(type) {
   if (!B || B.over || B.paused) return;
   const def = UNIT[type]; if (B.coins < def.cost) { toast(`${type === 'cart' ? 'A siege cart' : type === 'mage' ? 'A mage' : 'A flea'} costs ${def.cost} coins.`, 1.6); return; }
-  B.coins -= def.cost; spawnUnit('me', type, B.lane); Sound.buy(); updateHud();
+  B.coins -= def.cost; B.stats.sent++; spawnUnit('me', type, B.lane); Sound.buy(); updateHud();
 }
 function selectLane(l) {
   if (!B) return; B.lane = l;
@@ -570,13 +576,21 @@ $('speedBtn').onclick = () => { if (!B) return; B.speed = B.speed === 1 ? 2 : 1;
 $('pauseBtn').onclick = () => { if (!B || B.over) return; B.paused = !B.paused; $('pauseBtn').textContent = B.paused ? 'Resume' : 'Pause'; if (B.paused) toast('Paused', 999); else $('toast').hidden = true; };
 // Tap the field to pick the nearest lane.
 const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+function laneAt(e, maxD) {
+  ndc.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1); ray.setFromCamera(ndc, camera);
+  const hit = ray.intersectObject(ground)[0]; if (!hit) return -1;
+  let best = -1, bd = maxD;
+  lanes.forEach((l, i) => { for (let k = 0; k <= 60; k++) { lanePos(i, k / 60, tmpV); const d = Math.hypot(tmpV.x - hit.point.x, tmpV.z - hit.point.z); if (d < bd) { bd = d; best = i; } } });
+  return best;
+}
 canvas.addEventListener('pointerdown', (e) => {
   if (!B || B.over) return;
-  ndc.set(e.clientX / innerWidth * 2 - 1, -(e.clientY / innerHeight) * 2 + 1); ray.setFromCamera(ndc, camera);
-  const hit = ray.intersectObject(ground)[0]; if (!hit) return;
-  let best = -1, bd = 12;
-  lanes.forEach((l, i) => { for (let k = 0; k <= 60; k++) { lanePos(i, k / 60, tmpV); const d = Math.hypot(tmpV.x - hit.point.x, tmpV.z - hit.point.z); if (d < bd) { bd = d; best = i; } } });
-  if (best >= 0) { selectLane(best); Sound.blip(); }
+  const best = laneAt(e, 12); if (best >= 0) { selectLane(best); Sound.blip(); }
+});
+canvas.addEventListener('pointermove', (e) => {
+  if (e.pointerType !== 'mouse') return;
+  const l = B && !B.over && !B.paused ? laneAt(e, 7) : -1;
+  laneHover.forEach((g, i) => (g.visible = i === l && i !== B.lane)); canvas.style.cursor = l >= 0 ? 'pointer' : '';
 });
 addEventListener('keydown', (e) => {
   if (!$('hud').hidden && B) {
@@ -598,12 +612,13 @@ function damage(target, amount, by) {
 }
 function killUnit(u) {
   u.alive = false; u.bar.visible = false; play(u, 'dead'); Sound.hit();
+  if (u.team === 'me') B.stats.lost++; else B.stats.felled++;
   if (u.team === 'foe') { B.coins += 1; floatText(u.pos, '+1', '#e6b84e'); }
 }
 function destroyStruct(s) {
   s.alive = false; s.bar.visible = false; Sound.boom(); burst(s.pos, 0xd9c7a0, s.kind === 'castle' ? 40 : 18, s.kind === 'castle' ? 10 : 5);
   s.sink = 0;
-  if (s.team === 'foe' && s.kind === 'turret') { B.coins += 4; floatText(s.pos, '+4', '#e6b84e'); }
+  if (s.team === 'foe' && s.kind === 'turret') { B.stats.towers++; B.coins += 4; floatText(s.pos, '+4', '#e6b84e'); }
   if (s.camp && !B.camp.some((c) => c.alive)) { B.coins += 6; toast('The outpost burns. No more raids from behind.', 4); }
   if (s.kind === 'castle') endBattle(s.team === 'foe');
 }
@@ -712,12 +727,14 @@ function updateHud() {
 function endBattle(won) {
   if (B.over) return; B.over = true; Sound.fanfare(won);
   setTimeout(() => {
+    const st = B.stats, m = Math.floor(B.t / 60), sec = String(Math.floor(B.t % 60)).padStart(2, '0');
+    const extra = `<dl class="tally"><div><dt>Time</dt><dd>${m}:${sec}</dd></div><div><dt>Troops sent</dt><dd>${st.sent}</dd></div><div><dt>Troops lost</dt><dd>${st.lost}</dd></div><div><dt>Foes felled</dt><dd>${st.felled}</dd></div><div><dt>Towers razed</dt><dd>${st.towers}</dd></div></dl>`;
     if (won) {
       G.stage++; save();
       const last = B.n === 2;
-      card({ eyebrow: LEVELS[B.n].name, title: last ? 'Their castle falls' : 'Victory', text: last ? 'The war is won. Your parents have something to say about it.' : 'Their castle is rubble. Time to go home and face the family.', buttons: [[last ? 'Go home' : 'Next chapter', () => runStage()]] });
+      card({ eyebrow: LEVELS[B.n].name, title: last ? 'Their castle falls' : 'Victory', text: last ? 'The war is won. Your parents have something to say about it.' : 'Their castle is rubble. Time to go home and face the family.', extra, buttons: [[last ? 'Go home' : 'Next chapter', () => runStage()]] });
     } else {
-      card({ eyebrow: LEVELS[B.n].name, title: 'Your castle fell', text: 'Try another gate, or send siege carts after their towers.', buttons: [['Fight again', () => runStage()], ['Back to title', () => toTitle()]] });
+      card({ eyebrow: LEVELS[B.n].name, title: 'Your castle fell', text: B.camp.some((c) => c.alive) ? 'Watch the rear gate: burning their outpost stops the raids. Siege carts make short work of towers.' : 'Try another gate, or send siege carts after their towers.', extra, buttons: [['Fight again', () => runStage()], ['Back to title', () => toTitle()]] });
     }
   }, 1600);
 }
