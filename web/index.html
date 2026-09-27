@@ -216,6 +216,7 @@ button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
         <button class="gate" data-lane="0">Left<kbd>A</kbd></button>
         <button class="gate sel" data-lane="1">Center<kbd>S</kbd></button>
         <button class="gate" data-lane="2">Right<kbd>D</kbd></button>
+        <button class="gate rear" data-lane="3" hidden>Rear<kbd>W</kbd></button>
       </div>
       <div class="group"><span>Troops</span>
         <button class="unit" data-unit="flea"><img alt=""><span>Flea</span><span class="cost">3</span></button>
@@ -300,13 +301,27 @@ const hemi = new THREE.HemisphereLight(0xfff4dd, 0x3b5a2a, 1.4); scene.add(hemi)
 const sun = new THREE.DirectionalLight(0xfff0d0, 2.2); sun.position.set(-40, 80, 30); sun.castShadow = true;
 sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -80, right: 80, top: 80, bottom: -80, near: 10, far: 220 }); scene.add(sun);
 
+let lanes = [], laneGlow = [], field = null, fieldN = -1, fieldBox = null;
 function resize() {
   const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h;
-  // Fit the whole field: taller view on phones.
-  const portrait = h > w; camera.fov = portrait ? 64 : 52;
-  if (portrait) { camera.position.set(0, 142, 70); camera.lookAt(0, 0, 11); }
-  else { camera.position.set(0, 92, 70); camera.lookAt(0, 0, 13); }
-  camera.updateProjectionMatrix();
+  const portrait = h > w; camera.fov = portrait ? 64 : 52; camera.updateProjectionMatrix();
+  if (!fieldBox) return;
+  // Look down the field at a fixed angle and back off until the whole map fits between the HUD bars.
+  // A long map on a wide screen is viewed from the side, with your castle on the left (like the original Level 4).
+  const c = fieldBox.getCenter(new THREE.Vector3()); c.y = 0;
+  const corners = []; for (const x of [fieldBox.min.x, fieldBox.max.x]) for (const z of [fieldBox.min.z, fieldBox.max.z]) for (const y of [0, 10]) corners.push(new THREE.Vector3(x, y, z));
+  const [up, back] = portrait ? [142, 59] : [92, 57];
+  const fit = (side) => {
+    const dir = (side ? new THREE.Vector3(back, up, 0) : new THREE.Vector3(0, up, back)).normalize();
+    const place = (d) => { camera.position.copy(c).addScaledVector(dir, d); camera.lookAt(c); camera.updateMatrixWorld(); };
+    const ok = (d) => { place(d); return corners.every((p) => { const q = p.clone().project(camera); return Math.abs(q.x) < 0.97 && q.y < (portrait ? 0.72 : 0.8) && q.y > (portrait ? -0.46 : -0.62); }); };
+    let lo = 30, hi = 500; for (let i = 0; i < 24; i++) { const mid = (lo + hi) / 2; if (ok(mid)) hi = mid; else lo = mid; }
+    return { d: hi, place };
+  };
+  const views = portrait ? [fit(false)] : [fit(false), fit(true)];
+  const best = views.reduce((a, v) => (v.d < a.d * 0.9 ? v : a));
+  best.place(best.d);
+  scene.fog.near = best.d + 30; scene.fog.far = best.d + 150;
 }
 addEventListener('resize', resize); resize();
 
@@ -320,16 +335,37 @@ function groundTexture() {
 const ground = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.MeshStandardMaterial({ map: groundTexture(), roughness: 1 }));
 ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
 
-// Lanes: Left / Center / Right, from your gate (z = +36) to theirs (z = -36)
-const LANE_PTS = [
-  [[0, 36], [-6, 30], [-17, 17], [-21, 0], [-17, -17], [-6, -30], [0, -36]],
-  [[0, 36], [1, 18], [-1, 0], [1, -18], [0, -36]],
-  [[0, 36], [6, 30], [17, 17], [21, 0], [17, -17], [6, -30], [0, -36]],
+// Battlefields. Each battle has its own map, traced from the waypoint chains in the original Unity scenes
+// (StartPoint -> nextL1/nextC1/nextR1 -> next ...), then scaled and turned so your castle sits at the bottom.
+// Lanes run from your castle (u = 0) to theirs (u = 1). A map with an outpost also has a rear lane (index 3).
+const LAYOUTS = [
+  { // Battle 1, from CLevel2 / DLevel2: a straight center road and two wide U-shaped flank roads
+    lanes: [
+      [[0, 39.6], [-16.7, 39.6], [-33, 39.6], [-32.4, 23.3], [-29.5, -39.3], [-15.9, -40.5], [-8, -41]],
+      [[0, 39.6], [-0.1, 30.6], [-0.1, 17.8], [-0.1, -18.1], [-0.1, -31.1]],
+      [[0, 39.6], [20.3, 39.6], [36.1, 39.6], [36.1, 24.3], [36.1, -40.2], [22.9, -40.9], [8, -41]],
+    ],
+    myCastle: [0, 42.5], foeCastle: [0, -42.5],
+    myTowers: [[4.8, 17.8], [-37.3, 31.2], [40.8, 24.6]],
+    foeTowers: [[-35, -35.3], [-4.2, -22.7], [40.8, -35.7]],
+  },
+  { // Battle 2, from CLevel4 / DLevel4: bent flank roads, and an enemy outpost behind your castle
+    lanes: [
+      [[-2.1, 29.9], [-5.9, 18.4], [-19.3, 18.6], [-21.1, 3.4], [-17.4, -46.4], [-6.2, -47.6]],
+      [[-2.1, 29.9], [-2.1, 13.4], [0.2, -6.9], [-2.8, -32.7], [-2.2, -41.9]],
+      [[-2.1, 29.9], [9, 19.6], [18.9, 18.6], [19.5, 0.1], [21, -46.1], [5.8, -48.4]],
+    ],
+    myCastle: [-0.6, 35], foeCastle: [-1, -50.6],
+    myTowers: [[4.4, -4.6], [-25.5, 6], [23.2, 3.9], [-4.5, 47]],
+    foeTowers: [[-22, -45.4], [25, -46.5], [-5.5, -33]],
+    // The outpost stood well to the west in Unity ("turrets" and a second enemy spawner); it is pulled in to fit the screen.
+    rear: [[0, 42], [3, 50], [1, 58], [5, 66], [4, 74]],
+    campTowers: [[-3.8, 60], [8.2, 68]],
+  },
 ];
-const lanes = LANE_PTS.map((pts) => {
-  const curve = new THREE.CatmullRomCurve3(pts.map(([x, z]) => new THREE.Vector3(x, 0, z)), false, 'centripetal');
-  return { curve, len: curve.getLength() };
-});
+// Battle 3 is new (the original had two battles): the second map with every outpost tower manned and one more on the center road.
+LAYOUTS.push({ ...LAYOUTS[1], foeTowers: [...LAYOUTS[1].foeTowers, [-7.7, -28.6]], campTowers: [[-2.6, 52], [4.8, 59], [-3.8, 65], [8.2, 70]] });
+
 const tmpV = new THREE.Vector3(), tmpV2 = new THREE.Vector3();
 function lanePos(l, u, out) { return lanes[l].curve.getPointAt(Math.min(1, Math.max(0, u)), out); }
 function ribbon(curve, width, y, mat) {
@@ -344,9 +380,28 @@ function ribbon(curve, width, y, mat) {
 }
 const dirtMat = new THREE.MeshStandardMaterial({ color: 0xb08a5a, roughness: 1, side: THREE.DoubleSide });
 const glowMat = new THREE.MeshBasicMaterial({ color: 0xffd36a, transparent: true, opacity: 0.4, depthWrite: false, side: THREE.DoubleSide });
-const laneGlow = lanes.map((l) => { scene.add(ribbon(l.curve, 4.2, 0.03, dirtMat)); const g = ribbon(l.curve, 5.4, 0.05, glowMat); g.visible = false; scene.add(g); return g; });
-// Courtyards in front of each castle
-for (const z of [44, -44]) { const c = new THREE.Mesh(new THREE.CircleGeometry(11, 40), dirtMat); c.rotation.x = -Math.PI / 2; c.position.set(0, 0.02, z); c.receiveShadow = true; scene.add(c); }
+function yard(x, z, r) { const c = new THREE.Mesh(new THREE.CircleGeometry(r, 40), dirtMat); c.rotation.x = -Math.PI / 2; c.position.set(x, 0.02, z); c.receiveShadow = true; field.add(c); }
+// Build the roads, yards and scenery for battle n (the title screen uses battle 1's map).
+function buildField(n) {
+  if (fieldN === n) return; if (field) scene.remove(field);
+  const F = LAYOUTS[n]; field = new THREE.Group(); fieldN = n; scene.add(field);
+  const paths = [...F.lanes, ...(F.rear ? [F.rear] : [])];
+  lanes = paths.map((pts) => {
+    const curve = new THREE.CatmullRomCurve3(pts.map(([x, z]) => new THREE.Vector3(x, 0, z)), false, 'centripetal');
+    return { curve, len: curve.getLength() };
+  });
+  laneGlow = lanes.map((l) => { field.add(ribbon(l.curve, 4.2, 0.03, dirtMat)); const g = ribbon(l.curve, 5.4, 0.05, glowMat); g.visible = false; field.add(g); return g; });
+  yard(F.myCastle[0], F.myCastle[1] - 2, 11); yard(F.foeCastle[0], F.foeCastle[1] + 2, 11);
+  if (F.rear) { const e = F.rear[F.rear.length - 1]; yard(e[0], e[1] - 6, 10); }
+  // Everything the camera must show
+  fieldBox = new THREE.Box3();
+  for (const p of paths.flat()) fieldBox.expandByPoint(tmpV.set(p[0], 0, p[1]));
+  for (const c of [F.myCastle, F.foeCastle]) fieldBox.expandByPoint(tmpV.set(c[0], 0, c[1] + 10)).expandByPoint(tmpV.set(c[0], 0, c[1] - 10));
+  for (const t of [...F.myTowers, ...F.foeTowers, ...(F.campTowers || [])]) fieldBox.expandByPoint(tmpV.set(t[0], 0, t[1]));
+  fieldBox.expandByScalar(3);
+  if (Object.keys(MODELS).length) scatter(F);
+  resize();
+}
 
 /* ================= Models ================= */
 const MODELS = {};
@@ -356,6 +411,10 @@ const MODEL_FIT = { // target size in world units, which axis, yaw so the model 
   tree: { h: 8, yaw: 0 }, rocks: { w: 3, yaw: 0 }, coin: { w: 1, yaw: 0 },
 };
 async function loadModels() {
+  // GLTFLoader decodes embedded textures with fetch() + createImageBitmap when it can. The artifact's
+  // content policy blocks fetch() of blob: URLs, so hide createImageBitmap while the loader is built;
+  // it then falls back to <img> loading, which is allowed.
+  const cib = window.createImageBitmap; window.createImageBitmap = undefined;
   const loader = new GLTFLoader();
   const entries = Object.entries(window.CATDOG_MODELS);
   await Promise.all(entries.map(async ([name, b64]) => {
@@ -364,6 +423,7 @@ async function loadModels() {
     gltf.scene.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; o.frustumCulled = false; if (o.material.map) o.material.map.anisotropy = 4; } });
     MODELS[name] = gltf;
   }));
+  window.createImageBitmap = cib;
 }
 function instance(name, tint) {
   const src = MODELS[name], fit = MODEL_FIT[name];
@@ -391,17 +451,17 @@ function instance(name, tint) {
 }
 
 // Scenery
-function scatter() {
-  const rnd = mulberry(7);
-  const nearLane = (x, z) => lanes.some((l) => { for (let i = 0; i <= 40; i++) { lanePos(lanes.indexOf(l), i / 40, tmpV); if (Math.hypot(tmpV.x - x, tmpV.z - z) < 6) return true; } return false; });
+function scatter(F) {
+  const rnd = mulberry(7 + fieldN), bx = fieldBox;
+  const keep = [F.myCastle, F.foeCastle].map(([x, z]) => [x, z, 15]).concat([...F.myTowers, ...F.foeTowers, ...(F.campTowers || [])].map(([x, z]) => [x, z, 5]));
+  const nearLane = (x, z) => lanes.some((l, i) => { for (let k = 0; k <= 60; k++) { lanePos(i, k / 60, tmpV); if (Math.hypot(tmpV.x - x, tmpV.z - z) < 6) return true; } return false; });
   let placed = 0;
-  for (let i = 0; i < 400 && placed < 70; i++) {
-    const x = (rnd() - .5) * 130, z = (rnd() - .5) * 120;
-    if (Math.abs(z) > 30 && Math.abs(x) < 18) continue;
-    if (nearLane(x, z)) continue;
+  for (let i = 0; i < 600 && placed < 80; i++) {
+    const x = bx.min.x - 25 + rnd() * (bx.max.x - bx.min.x + 50), z = bx.min.z - 12 + rnd() * (bx.max.z - bx.min.z + 24);
+    if (keep.some(([kx, kz, r]) => Math.hypot(kx - x, kz - z) < r) || nearLane(x, z)) continue;
     const isTree = rnd() < .7; const m = instance(isTree ? 'tree' : 'rocks');
     m.holder.position.set(x, 0, z); m.holder.rotation.y = rnd() * 6.28; m.holder.scale.setScalar(isTree ? .7 + rnd() * .6 : .6 + rnd() * .9);
-    scene.add(m.holder); placed++;
+    field.add(m.holder); placed++;
   }
 }
 function mulberry(a) { return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
@@ -413,9 +473,9 @@ const UNIT = {
   cart: { cost: 10, hp: 170, dmg: 42, rate: 1.7, range: 8, speed: 3.6, siege: true },
 };
 const LEVELS = [
-  { name: 'The First War', foeHp: 700, spawn: 7.5, mix: { flea: 0.75, mage: 0.25 }, turrets: [[0, .66], [1, .7], [2, .66]] },
-  { name: 'The Second War', foeHp: 900, spawn: 6.2, mix: { flea: 0.55, mage: 0.35, cart: 0.1 }, turrets: [[0, .58], [0, .8], [1, .66], [2, .58], [2, .8]] },
-  { name: 'The Last War', foeHp: 1100, spawn: 5.6, mix: { flea: 0.5, mage: 0.35, cart: 0.15 }, turrets: [[0, .52], [0, .78], [1, .6], [1, .8], [2, .52], [2, .78], [1, .45]] },
+  { name: 'The First War', foeHp: 700, spawn: 7.5, mix: { flea: 0.75, mage: 0.25 } },
+  { name: 'The Second War', foeHp: 900, spawn: 6.2, campSpawn: 18, mix: { flea: 0.55, mage: 0.35, cart: 0.1 } },
+  { name: 'The Last War', foeHp: 1100, spawn: 5.6, campSpawn: 14, mix: { flea: 0.5, mage: 0.35, cart: 0.15 } },
 ];
 const TURRET = { hp: 230, dmg: 17, rate: 1.0, range: 12.5 };
 let B = null; // current battle
@@ -424,10 +484,11 @@ function makeBar(w) {
   const g = new THREE.Group();
   const bg = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0x111111, depthTest: false }));
   const fg = new THREE.Sprite(new THREE.SpriteMaterial({ color: 0x7fd07a, depthTest: false }));
-  bg.scale.set(w, w * 0.14, 1); fg.scale.set(w, w * 0.1, 1); fg.center.set(0, 0.5); fg.position.x = -w / 2; bg.renderOrder = 10; fg.renderOrder = 11;
+  bg.scale.set(w, w * 0.14, 1); fg.scale.set(w, w * 0.1, 1); bg.renderOrder = 10; fg.renderOrder = 11;
   g.add(bg, fg); g.userData = { fg, w }; return g;
 }
-function setBar(bar, f, color) { const { fg, w } = bar.userData; fg.scale.x = Math.max(0.001, w * f); if (color) fg.material.color.set(color); }
+// Sprites face the camera, so the fill is left-aligned through its anchor point rather than a world-space offset.
+function setBar(bar, f, color) { const { fg, w } = bar.userData; fg.scale.x = Math.max(0.001, w * f); fg.center.set(w / 2 / fg.scale.x, 0.5); if (color) fg.material.color.set(color); }
 
 function startBattle(n) {
   clearBattle();
@@ -440,13 +501,17 @@ function startBattle(n) {
     root: new THREE.Group(),
   };
   scene.add(B.root);
+  buildField(n); const F = LAYOUTS[n];
   // Castles
-  B.myCastle = addStruct('castle', 'me', mine.castle, 0, 46, Math.round(650 * momMul), 9);
-  B.foeCastle = addStruct('castle', 'foe', theirs.castle, 0, -46, L.foeHp, 9);
+  B.myCastle = addStruct('castle', 'me', mine.castle, ...F.myCastle, Math.round(650 * (1 + 0.25 * n) * momMul), 9);
+  B.foeCastle = addStruct('castle', 'foe', theirs.castle, ...F.foeCastle, L.foeHp, 9);
   B.foeCastle.model.holder.rotation.y = Math.PI;
-  // Your towers guard the three gates; theirs sit along the lanes.
-  for (const [l, u] of [[0, .16], [1, .12], [2, .16]]) { lanePos(l, u, tmpV); const side = l === 1 ? 1 : (l === 0 ? 1 : -1); addStruct('turret', 'me', mine.tower, tmpV.x + side * 3.6, tmpV.z, TURRET.hp * momMul, 2.2); }
-  L.turrets.forEach(([l, u], i) => { lanePos(l, u, tmpV); const off = (l === 1 ? (i % 2 ? -3.6 : 3.6) : (l === 0 ? 3.6 : -3.6)); const s = addStruct('turret', 'foe', theirs.tower, tmpV.x + off, tmpV.z, TURRET.hp * (1 + 0.12 * n), 2.2); s.model.holder.rotation.y = Math.PI; });
+  // Towers stand where the original scenes put their turrets.
+  for (const [x, z] of F.myTowers) addStruct('turret', 'me', mine.tower, x, z, TURRET.hp * momMul, 2.2);
+  for (const [x, z] of F.foeTowers) { const s = addStruct('turret', 'foe', theirs.tower, x, z, TURRET.hp * (1 + 0.12 * n), 2.2); s.model.holder.rotation.y = Math.PI; }
+  B.camp = (F.campTowers || []).map(([x, z]) => { const s = addStruct('turret', 'foe', theirs.tower, x, z, TURRET.hp * 0.8 * (1 + 0.12 * n), 2.2); s.camp = true; return s; });
+  B.campTimer = L.campSpawn || 0;
+  document.querySelectorAll('.gate.rear').forEach((b) => (b.hidden = !F.rear));
   selectLane(1);
   $('battleName').textContent = L.name;
   $('myName').textContent = 'Your ' + mine.name.replace(' Kingdom', '') + ' castle';
@@ -455,7 +520,7 @@ function startBattle(n) {
   $('boonLine').textContent = bits.join(' · ') || 'No help from home';
   B.speed = 1; $('speedBtn').textContent = 'Speed 1×'; $('pauseBtn').textContent = 'Pause';
   show('hud'); updateHud();
-  toast(n === 0 ? 'Pick a gate, then buy troops. Siege carts ignore troops and smash towers. Knock down their castle.' : 'The war goes on. Their defenses are bigger this time.', 6);
+  toast(n === 0 ? 'Pick a gate, then buy troops. Siege carts ignore troops and smash towers. Knock down their castle.' : 'They hold an outpost behind your castle now. Send troops out the rear gate to burn it.', 6);
 }
 function clearBattle() {
   if (!B) return; scene.remove(B.root); B = null; laneGlow.forEach((g) => (g.visible = false));
@@ -511,12 +576,12 @@ canvas.addEventListener('pointerdown', (e) => {
   const hit = ray.intersectObject(ground)[0]; if (!hit) return;
   let best = -1, bd = 12;
   lanes.forEach((l, i) => { for (let k = 0; k <= 60; k++) { lanePos(i, k / 60, tmpV); const d = Math.hypot(tmpV.x - hit.point.x, tmpV.z - hit.point.z); if (d < bd) { bd = d; best = i; } } });
-  if (best >= 0 && hit.point.z > -40 && hit.point.z < 40) { selectLane(best); Sound.blip(); }
+  if (best >= 0) { selectLane(best); Sound.blip(); }
 });
 addEventListener('keydown', (e) => {
   if (!$('hud').hidden && B) {
     const k = e.key.toLowerCase();
-    if (k === 'a' || k === 'arrowleft') selectLane(0); else if (k === 's' || k === 'arrowdown') selectLane(1); else if (k === 'd' || k === 'arrowright') selectLane(2);
+    if (k === 'a' || k === 'arrowleft') selectLane(0); else if (k === 's' || k === 'arrowdown') selectLane(1); else if (k === 'd' || k === 'arrowright') selectLane(2); else if ((k === 'w' || k === 'arrowup') && lanes[3]) selectLane(3);
     else if (k === '1') buy('flea'); else if (k === '2') buy('mage'); else if (k === '3') buy('cart');
     else if (k === 'p' || k === 'escape') $('pauseBtn').click();
   } else if (!$('talk').hidden && (e.key === ' ' || e.key === 'Enter')) { e.preventDefault(); Talk.advance(); }
@@ -539,6 +604,7 @@ function destroyStruct(s) {
   s.alive = false; s.bar.visible = false; Sound.boom(); burst(s.pos, 0xd9c7a0, s.kind === 'castle' ? 40 : 18, s.kind === 'castle' ? 10 : 5);
   s.sink = 0;
   if (s.team === 'foe' && s.kind === 'turret') { B.coins += 4; floatText(s.pos, '+4', '#e6b84e'); }
+  if (s.camp && !B.camp.some((c) => c.alive)) { B.coins += 6; toast('The outpost burns. No more raids from behind.', 4); }
   if (s.kind === 'castle') endBattle(s.team === 'foe');
 }
 function shoot(from, to, dmg, kind) {
@@ -574,7 +640,13 @@ function stepBattle(dt) {
     B.spawnTimer = B.L.spawn * (0.8 + B.rnd() * 0.4) * Math.max(0.6, 1 - B.t / 400);
     const r = B.rnd(), lane = r < .25 ? 0 : r < .5 ? 2 : 1;
     let x = B.rnd(), type = 'flea'; for (const [k, w] of Object.entries(B.L.mix)) { if (x < w) { type = k; break; } x -= w; }
+    if (type === 'cart' && B.t < 45) type = 'mage'; // no early siege rush
     spawnUnit('foe', type, lane);
+  }
+  // The outpost sends raiders down the rear road until its towers fall.
+  if (B.camp.length && B.camp.some((s) => s.alive)) {
+    B.campTimer -= dt;
+    if (B.campTimer <= 0) { B.campTimer = B.L.campSpawn * (0.8 + B.rnd() * 0.4); spawnUnit('foe', B.rnd() < .7 ? 'flea' : 'mage', 3); }
   }
   // Units
   for (const u of B.units) {
@@ -788,7 +860,7 @@ function runStage() {
   }
 }
 function newGame(side) { Object.assign(G, { side, stage: 0, mom: 0, dad: 0, sided: [] }); save(); runStage(); }
-function toTitle() { clearBattle(); show('title'); const sv = store.get(); $('continueBtn').hidden = !sv; if (sv) $('continueBtn').textContent = `Continue (${SIDE[sv.side].name}, ${['chapter 1', 'battle 1', 'chapter 2', 'battle 2', 'chapter 3', 'battle 3', 'epilogue'][sv.stage] || ''})`; }
+function toTitle() { clearBattle(); if (Object.keys(MODELS).length) buildField(0); show('title'); const sv = store.get(); $('continueBtn').hidden = !sv; if (sv) $('continueBtn').textContent = `Continue (${SIDE[sv.side].name}, ${['chapter 1', 'battle 1', 'chapter 2', 'battle 2', 'chapter 3', 'battle 3', 'epilogue'][sv.stage] || ''})`; }
 $('pickCat').onclick = () => { Sound.init(); newGame('cat'); };
 $('pickDog').onclick = () => { Sound.init(); newGame('dog'); };
 $('continueBtn').onclick = () => { Sound.init(); const sv = store.get(); if (!sv) return; Object.assign(G, sv); runStage(); };
@@ -816,10 +888,10 @@ window.__catdog = { G, camera, instance, THREE, stepBattle, win: () => damage(B.
 (async () => {
   try {
     await loadModels();
-    scatter();
+    buildField(0);
     // Title backdrop: both castles facing off.
-    const a = instance('catCastle'); a.holder.position.set(0, 0, 46); scene.add(a.holder);
-    const b = instance('dogCastle'); b.holder.position.set(0, 0, -46); b.holder.rotation.y = Math.PI; scene.add(b.holder);
+    const a = instance('catCastle'); a.holder.position.set(LAYOUTS[0].myCastle[0], 0, LAYOUTS[0].myCastle[1]); scene.add(a.holder);
+    const b = instance('dogCastle'); b.holder.position.set(LAYOUTS[0].foeCastle[0], 0, LAYOUTS[0].foeCastle[1]); b.holder.rotation.y = Math.PI; scene.add(b.holder);
     const titleProps = [a.holder, b.holder];
     window.__catdog.titleProps = titleProps;
     // Unit portraits for the buy buttons

@@ -10,8 +10,9 @@ A playable browser version of CatDog, the 2017 Unity + Fungus lane battler. Open
 - **Choices that matter.** Each choice sides with Mom (+1) or Dad (-1), and each chapter ends with the original "decision tally". Mom's help makes your castle and towers tougher, gives your towers more damage and range. Dad's help gives your troops more health and damage. In the Unity build only the attack half was wired up (`FungusManager.attack`); defense was never used.
 - **The original art.** The mage, flea, siege cart, castle, tower, tree, rock and coin models (`Assets/Rehaf-assets/models`) with their walk, attack and death animations, and the parents' expression portraits for both kingdoms.
 - **Lane battles.** Pick a gate (Left, Center, Right, like `shop.cs`), buy Fleas (3), Mages (5) or Siege carts (10). Coins tick up over time and for kills. Siege carts ignore troops and go for towers and the castle. Enemy troops pick a gate at random (25% left, 25% right, 50% center, as in `EnemyPlayerScript`).
+- **Maps from the original scenes.** Each battle is laid out from the waypoint chains in the Unity levels. Battle 1 (`CLevel2`/`DLevel2`) has a straight center road and two wide U-shaped flank roads. Battle 2 (`CLevel4`/`DLevel4`) has bent flank roads and the enemy outpost behind your castle (the second spawner and its turrets), which sends raiders down a rear road until you burn its towers. Battle 3 is new: the same map with every outpost tower manned. On wide screens a long map is shown from the side, as in the original.
 
-Controls: A/S/D or the arrow keys pick a gate, 1/2/3 buy troops, P pauses. Tap the field to pick the nearest lane. In dialogue, click, Space or Enter advances; "Skip to choice" jumps ahead.
+Controls: A/S/D or the arrow keys pick a gate (W for the rear gate when there is one), 1/2/3 buy troops, P pauses. Tap the field to pick the nearest lane. In dialogue, click, Space or Enter advances; "Skip to choice" jumps ahead.
 
 ## Story fixes
 
