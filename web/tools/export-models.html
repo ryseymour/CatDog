@@ -1,0 +1,35 @@
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+<!-- Converts the original FBX models to GLB (512px textures, walk/attack/dead clips). Run export-models.mjs. -->
+<script type="module">
+import * as THREE from 'three';
+import {FBXLoader} from './FBXLoaderPatched.js';
+import {GLTFExporter} from 'three/addons/exporters/GLTFExporter.js';
+const JOBS=[
+ ['catMage','FinalCatMage',['catmage'],{walk:'Armature|walking.003',attack:'Armature|attack',dead:'Armature|dead'}],
+ ['dogMage','FinalDogMage',['dogmage'],{walk:'dpgmagearm|walking.003',attack:'dpgmagearm|attack',dead:'dpgmagearm|dead'}],
+ ['fleaBlue','FinalBuge',['fleablue'],{walk:'bugarm|BUGWALK',attack:'bugarm|butattack',dead:'bugarm|bugdead'}],
+ ['fleaRed','FinalBuge',['fleared'],{walk:'bugarm|BUGWALK',attack:'bugarm|butattack',dead:'bugarm|bugdead'}],
+ ['cart','cannon',['cart'],{walk:'cartarm|MOVE',attack:'cartarm|attack',dead:'cartarm|destroyed'}],
+ ['catCastle','catCastle',['catcastle'],{}],
+ ['catTower','cattower',['catcastle'],{}],
+ ['dogCastle','digCastle3',['bone','banner'],{}],
+ ['dogTower','boneTower',['bone','boneflag'],{}],
+ ['tree','Tree',['tree','treeleaf'],{}],
+ ['rocks','rocks1',['rocks'],{}],
+ ['coin','coin',['coin'],{}],
+];
+const TL=new THREE.TextureLoader();const L=new FBXLoader();const E=new GLTFExporter();
+const out={};
+for(const [name,f,tx,an] of JOBS){
+ const o=await L.loadAsync('../../Assets/Rehaf-assets/models/'+f+'.fbx');
+ const drop=[];o.traverse(ch=>{if(ch.isLight||ch.isCamera)drop.push(ch)});drop.forEach(ch=>ch.parent.remove(ch));
+ const texs=await Promise.all(tx.map(t=>TL.loadAsync('tex/'+t+'.jpg')));
+ texs.forEach(t=>{t.colorSpace=THREE.SRGBColorSpace;t.userData.mimeType='image/jpeg'});
+ o.traverse(ch=>{if(ch.isMesh){const ms=Array.isArray(ch.material)?ch.material:[ch.material];const nm=ms.map((m,j)=>new THREE.MeshStandardMaterial({name:name+j,map:texs[Math.min(j,texs.length-1)],roughness:.85,metalness:0}));ch.material=Array.isArray(ch.material)?nm:nm[0];}});
+ const clips=[];for(const [k,v] of Object.entries(an)){const c=o.animations.find(a=>a.name===v);if(c){const cc=c.clone();cc.name=k;clips.push(cc)}else console.log('missing',name,v)}
+ const glb=await E.parseAsync(o,{binary:true,animations:clips,onlyVisible:false});
+ const u8=new Uint8Array(glb);let s='';for(let i=0;i<u8.length;i+=0x8000)s+=String.fromCharCode.apply(null,u8.subarray(i,i+0x8000));
+ out[name]=btoa(s);console.log(name,u8.length);
+}
+window.RESULT=out;
+</script>
